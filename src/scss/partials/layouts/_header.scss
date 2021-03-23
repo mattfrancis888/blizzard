@@ -1,15 +1,58 @@
 .headerContainer {
-    background: #171a21;
+    background: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
-    @media screen and (min-width: $sm_breakpoint) {
-        padding: 2rem 4rem;
-    }
+    padding: 0.5rem 1rem;
+    // @media screen and (min-width: $sm_breakpoint) {
+    //     padding: 2rem 4rem;
+    // }
     @media screen and (min-width: $md_breakpoint) {
-        padding: 2rem 6rem;
+        padding: 0.5rem 2rem;
     }
+    color: rgba(255, 255, 255, 0.7);
+    h1 {
+        text-transform: uppercase;
+        font-weight: normal;
+        font-size: 1.7rem;
+        margin-left: 3rem;
+        // @media screen and (min-width: $md_breakpoint) {
+        //     padding: 2rem 6rem;
+        // }
+        display: none;
+        @media screen and (min-width: $md_breakpoint) {
+            display: block;
+        }
+    }
+}
+
+.navBarSvg {
+    fill: currentColor;
+    color: #009ae4;
+    background-size: auto 28px;
+}
+.hamburger,
+.accountIcon {
+    width: 4.8rem;
+    height: 4.8rem;
+    display: block;
+    @media screen and (min-width: $md_breakpoint) {
+        display: none;
+    }
+}
+
+.blizzardLogo {
+    width: 6rem;
+    height: 4.8rem;
+    @media screen and (min-width: $md_breakpoint) {
+        width: 7.5rem;
+        height: 6rem;
+    }
+}
+
+.gamesAndShopHeaderWrap {
+    display: flex;
+    align-items: center;
 }
 .headerAuthWrap {
     display: flex;
