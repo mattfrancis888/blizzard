@@ -2,10 +2,77 @@ import React, { useEffect, useState } from "react";
 import useWindowDimensions from "../windowDimensions";
 import { LG_SCREEN_SIZE, MED_SCREEN_SIZE } from "../constants";
 import Modal from "./Modal";
-import { useTransition, animated, useSpring } from "react-spring";
+import { useTransition, animated, useSpring, useTrail } from "react-spring";
 const Header: React.FC<{}> = () => {
     const [showModal, setShowModal] = useState(false);
+    const [showPresentation, setShowPresentation] = useState(false);
+
     const { width } = useWindowDimensions();
+
+    const games = [
+        {
+            title: "WoW",
+            image:
+                "https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png",
+        },
+        {
+            title: "Hearthstone",
+            image:
+                "https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png",
+        },
+        {
+            title: "Warzone",
+            image:
+                "https://blznav.akamaized.net/img/games/logo-codwz-f474cad4f5c0636a.svg",
+        },
+    ];
+
+    const trail = useTrail(games.length, {
+        // marginTop: showPresentation ? `1.5rem` : `0px`,
+        transform: showPresentation
+            ? `translate3d(0px,20%,0px)`
+            : `translate3d(0px,0px,0px)`,
+
+        opacity: showPresentation ? 1 : 0,
+
+        config: {
+            duration: 200,
+        },
+    });
+
+    const renderGamesPresentation = () => {
+        return (
+            <React.Fragment>
+                <div>
+                    <div className="headerPresentation">
+                        {trail.map((animation, index) => {
+                            return (
+                                <animated.div
+                                    className="presentationGameLogo"
+                                    style={animation}
+                                >
+                                    <img
+                                        key={index}
+                                        className="test"
+                                        src={games[index].image}
+                                        alt=""
+                                    ></img>
+                                    <p className="presentationGameTitle">
+                                        {games[index].title}
+                                    </p>
+                                </animated.div>
+                            );
+                        })}
+                    </div>
+                    <div
+                        className="presentationOverlay"
+                        onClick={() => setShowPresentation(false)}
+                    ></div>
+                </div>
+            </React.Fragment>
+        );
+    };
+
     const modalAnimation = useSpring({
         transform: showModal
             ? `translate3d(0px,0px,0px)`
@@ -24,16 +91,7 @@ const Header: React.FC<{}> = () => {
         },
     });
 
-    console.log(modalAnimation);
-
     const renderModal = () => {
-        // return (
-        //     <animated.div
-        //         className="modalTest"
-        //         style={modalAnimation}
-        //         onClick={() => setShowModal(false)}
-        //     ></animated.div>
-        // );
         return (
             <Modal
                 animation={modalAnimation}
@@ -42,28 +100,6 @@ const Header: React.FC<{}> = () => {
                 onDismiss={modalOnCancel}
             />
         );
-
-        // return transition((style, item) => {
-        //     // return (
-        //     //     <Modal
-        //     //         animation={style}
-        //     //         fade={fade}
-        //     //         content={renderModalContent()}
-        //     //         onDismiss={modalOnCancel}
-        //     //     />
-        //     // );
-
-        //     return (
-        //         item && (
-        //             <Modal
-        //                 animation={style}
-        //                 fade={fade}
-        //                 content={renderModalContent()}
-        //                 onDismiss={modalOnCancel}
-        //             />
-        //         )
-        //     );
-        // });
     };
 
     const renderModalContent = () => {
@@ -200,7 +236,12 @@ const Header: React.FC<{}> = () => {
                         </use>
                     </svg>
 
-                    <h1>Games</h1>
+                    <h1
+                        className={showPresentation ? `toggledGamesHeader` : ""}
+                        onClick={() => setShowPresentation(!showPresentation)}
+                    >
+                        Games
+                    </h1>
                     <h1>Shop</h1>
                 </div>
                 <h1>My Account</h1>
@@ -219,6 +260,7 @@ const Header: React.FC<{}> = () => {
                     </use>
                 </svg>
             </div>
+            {showPresentation && renderGamesPresentation()}
         </React.Fragment>
     );
 };
