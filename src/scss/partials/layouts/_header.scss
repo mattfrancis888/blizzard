@@ -54,43 +54,23 @@
     display: flex;
     align-items: center;
 }
-.headerAuthWrap {
+
+.modalBlizzardWrap {
     display: flex;
-    align-items: center;
-    color: #d9dadd;
+    justify-content: center;
+    margin-bottom: 2rem;
 }
 
-.headerProfileText {
-    cursor: pointer;
-    margin-right: 2rem;
-    font-size: 1.3rem;
-    font-weight: normal;
-    @media screen and (min-width: $sm_breakpoint) {
-        font-size: 1.7rem;
-    }
-
-    @media screen and (min-width: $lg_breakpoint) {
-        font-size: 1.7rem;
-    }
+.modalBlizzardLogo {
+    width: 12rem;
+    height: 7rem;
+    margin: 0 auto;
 }
-
-.headerAuthText {
-    cursor: pointer;
-
-    font-weight: normal;
-    font-size: 1.3rem;
-    @media screen and (min-width: $sm_breakpoint) {
-        font-size: 1.7rem;
-    }
-
-    @media screen and (min-width: $lg_breakpoint) {
-        font-size: 1.7rem;
-    }
-}
-.headerLogoImageWrap {
-    width: 15rem;
-    img {
-        width: 100%;
-    }
-    cursor: pointer;
+.modalText {
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 1.4rem 0.5rem;
+    border-top: solid 1px rgba(255, 255, 255, 0.08);
 }
