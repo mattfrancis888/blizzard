@@ -2,15 +2,42 @@ import React, { useEffect, useState } from "react";
 import useWindowDimensions from "../windowDimensions";
 import { LG_SCREEN_SIZE, MED_SCREEN_SIZE } from "../constants";
 import Modal from "./Modal";
-import { useSpring, animated } from "react-spring";
+import { useTransition, animated, useSpring } from "react-spring";
 const Header: React.FC<{}> = () => {
     const [showModal, setShowModal] = useState(false);
     const { width } = useWindowDimensions();
+    const modalAnimation = useSpring({
+        transform: showModal
+            ? `translate3d(0px,0px,0px)`
+            : `translate3d(-500%,0px,0px)`,
+
+        config: {
+            duration: 1000,
+        },
+    });
+
+    const modalBg = useSpring({
+        backgroundColor: showModal ? `rgba(0,0,0,0.5)` : `rgba(0,0,0,0.0)`,
+        pointerEvents: showModal ? `all` : `none`,
+        config: {
+            duration: 1000,
+        },
+    });
+
+    console.log(modalAnimation);
+
     const renderModal = () => {
+        // return (
+        //     <animated.div
+        //         className="modalTest"
+        //         style={modalAnimation}
+        //         onClick={() => setShowModal(false)}
+        //     ></animated.div>
+        // );
         return (
             <Modal
-                // animation={style}
-                // fade={fade}
+                animation={modalAnimation}
+                fade={modalBg}
                 content={renderModalContent()}
                 onDismiss={modalOnCancel}
             />
@@ -117,6 +144,7 @@ const Header: React.FC<{}> = () => {
                     focusable="false"
                     aria-hidden="true"
                     className="navBarSvg hamburger"
+                    onClick={() => setShowModal(true)}
                 >
                     <use xlinkHref="#Navbar-icon-menu">
                         <g id="Navbar-icon-menu">
