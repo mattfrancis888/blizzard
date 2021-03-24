@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
     CarouselProvider,
     Slider,
     Slide,
-    DotGroup,
+    Dot,
     ButtonBack,
     ButtonNext,
 } from "pure-react-carousel";
@@ -39,16 +39,27 @@ const slides = [
 ];
 const HomeCarousel: React.FC<{}> = () => {
     const { width } = useWindowDimensions();
+    const itemEls = useRef(new Array());
     const [showSlide, setShowSlide] = useState(false);
+    const [fillButton, setFillButton] = useState(-1);
+    const [timer, setTimer] = useState(0);
+    // const handleStart = () => {
+    //     increment.current = setInterval(() => {
+    //         setTimer((timer) => timer + 1);
+    //     }, 5000);
+    // };
 
+    useEffect(() => {
+        // console.log(itemEls.current[1].focus());
+    }, []);
+    setTimeout(() => {
+        console.log(fillButton);
+        if (fillButton > 1) {
+            //Reset after third button
+            setFillButton(0);
+        } else setFillButton(fillButton + 1);
+    }, 1000);
     const transition = useTransition(showSlide, {
-        // from: {
-        //     scale: 1,
-        // },
-        // enter: {
-        //     scale: 1.2,
-        // },
-
         from: {
             transform: "translate3d(2% , 0px, 0px)",
             opacity: 0,
@@ -60,6 +71,19 @@ const HomeCarousel: React.FC<{}> = () => {
 
         config: {
             duration: 3000,
+        },
+    });
+
+    const fill = useTransition(fillButton, {
+        from: {
+            width: "0%",
+        },
+        enter: {
+            width: "50%",
+        },
+
+        config: {
+            duration: 1000,
         },
     });
 
@@ -94,6 +118,37 @@ const HomeCarousel: React.FC<{}> = () => {
         });
     };
 
+    const renderDots = () => {
+        return slides.map((slide, index) => {
+            return fill((style, item) => {
+                return (
+                    <div
+                        key={index}
+                        ref={(element) => (itemEls.current[index] = element)}
+                    >
+                        <Dot
+                            slide={index}
+                            onClick={() => {
+                                setFillButton(index);
+                                // setShowSlide(true);
+                            }}
+                            children={
+                                item === index ? (
+                                    <animated.div
+                                        className="dotFill"
+                                        style={style}
+                                    ></animated.div>
+                                ) : (
+                                    ""
+                                )
+                            }
+                        />
+                    </div>
+                );
+            });
+        });
+    };
+
     const renderCarousel = (): JSX.Element | JSX.Element[] => {
         return (
             <div
@@ -112,17 +167,30 @@ const HomeCarousel: React.FC<{}> = () => {
                     infinite={true}
                     step={1}
                     // isPlaying={true}
-                    interval={5000}
+                    // interval={3000}
                 >
                     <div className="sliderAndDotWrap">
                         <Slider>{renderSlides()}</Slider>
                         <div className="dotWrap">
-                            <DotGroup
-                                onClick={() => {
-                                    setShowSlide(!showSlide);
-                                    // setShowSlide(true);
-                                }}
-                            ></DotGroup>
+                            {renderDots()}
+
+                            {/* {fill((style, item) => {
+                                return (
+                                    <Dot
+                                        slide={0}
+                                        onClick={() => {
+                                            setShowSlide(!showSlide);
+                                            // setShowSlide(true);
+                                        }}
+                                        children={
+                                            <animated.div
+                                                className="dotFill"
+                                                style={style}
+                                            ></animated.div>
+                                        }
+                                    />
+                                );
+                            })} */}
                         </div>
                     </div>
                 </CarouselProvider>
