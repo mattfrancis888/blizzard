@@ -1,15 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
-import {
-    CarouselProvider,
-    Slider,
-    Slide,
-    Dot,
-    ButtonBack,
-    ButtonNext,
-} from "pure-react-carousel";
+import { CarouselProvider, Slider, Slide, Dot } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
-import LazyLoad from "react-lazyload";
 import { useHistory } from "react-router-dom";
 import useWindowDimensions from "../windowDimensions";
 import history from "../browserHistory";

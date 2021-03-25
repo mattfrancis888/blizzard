@@ -2,6 +2,7 @@ import React from "react";
 import { Router } from "react-router-dom";
 import history from "../browserHistory";
 import HomeCarousel from "./HomeCarousel";
+import HomeCareer from "./HomeCareer";
 const Body: React.FC<{}> = () => {
     return (
         <div>
@@ -41,6 +42,7 @@ const Body: React.FC<{}> = () => {
                     </div>
                 </div>
             </div>
+            <HomeCareer />
         </div>
     );
 };
