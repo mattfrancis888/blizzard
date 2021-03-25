@@ -37,28 +37,31 @@ const slides = [
             "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/bltc1312ef8fbc2b4c6/60550544c6713d4e7a4d554c/wow-bcc-beta-now-live-web-2500x514-RD01.jpg",
     },
 ];
+// const IFillTimeOut {
+//     index: number,
+//     clicked:false;
+// }
 const HomeCarousel: React.FC<{}> = () => {
     const { width } = useWindowDimensions();
-    const itemEls = useRef(new Array());
     const [showSlide, setShowSlide] = useState(false);
-    const [fillButton, setFillButton] = useState(-1);
-    const [timer, setTimer] = useState(0);
-    // const handleStart = () => {
-    //     increment.current = setInterval(() => {
-    //         setTimer((timer) => timer + 1);
-    //     }, 5000);
-    // };
+    const [fillButton, setFillButton] = useState(0);
+    const [stopAutoplay, setStopAutoplay] = useState(false);
 
     useEffect(() => {
-        // console.log(itemEls.current[1].focus());
-    }, []);
-    setTimeout(() => {
-        console.log(fillButton);
-        if (fillButton > 1) {
-            //Reset after third button
-            setFillButton(0);
-        } else setFillButton(fillButton + 1);
-    }, 1000);
+        console.log("fillButton", fillButton);
+        let fillTimeOut = setTimeout(() => {
+            console.log(fillButton);
+            if (fillButton > 2) {
+                //Reset after third button
+                setFillButton(0);
+            } else setFillButton(fillButton + 1);
+        }, 5000);
+
+        return () => {
+            clearTimeout(fillTimeOut);
+        };
+    }, [fillButton]);
+
     const transition = useTransition(showSlide, {
         from: {
             transform: "translate3d(2% , 0px, 0px)",
@@ -79,11 +82,11 @@ const HomeCarousel: React.FC<{}> = () => {
             width: "0%",
         },
         enter: {
-            width: "50%",
+            width: "100%",
         },
 
         config: {
-            duration: 1000,
+            duration: 3000,
         },
     });
 
@@ -97,7 +100,7 @@ const HomeCarousel: React.FC<{}> = () => {
                 >
                     {transition((style, item) => {
                         return (
-                            <div key={index} className="backgroundContainer">
+                            <div className="backgroundContainer">
                                 <animated.img
                                     src={slide.image}
                                     alt="game slide"
@@ -106,13 +109,6 @@ const HomeCarousel: React.FC<{}> = () => {
                             </div>
                         );
                     })}
-
-                    {/* <animated.div
-                        key={index}
-                        style={transition}
-                    >
-                        <img src={slide.image} alt="game slide"></img>
-                    </animated.div> */}
                 </Slide>
             );
         });
@@ -120,32 +116,40 @@ const HomeCarousel: React.FC<{}> = () => {
 
     const renderDots = () => {
         return slides.map((slide, index) => {
-            return fill((style, item) => {
-                return (
-                    <div
-                        key={index}
-                        ref={(element) => (itemEls.current[index] = element)}
-                    >
-                        <Dot
-                            slide={index}
-                            onClick={() => {
-                                setFillButton(index);
-                                // setShowSlide(true);
-                            }}
-                            children={
-                                item === index ? (
-                                    <animated.div
-                                        className="dotFill"
-                                        style={style}
-                                    ></animated.div>
-                                ) : (
-                                    ""
-                                )
-                            }
-                        />
-                    </div>
-                );
-            });
+            return (
+                <div
+                    key={index}
+                    className="dotInnerWrap"
+                    onMouseEnter={() => {
+                        //there is a caveat with the caorusel library
+                        //the first dot's onclick (the dot with an index of 0) will NOT trigger unless another dot
+                        //dot is clicked. I opted out using onMouseEnter to stop the carousel instead of onclick because of this
+                        setStopAutoplay(true);
+                    }}
+                >
+                    {fill((style, item) => {
+                        return (
+                            <Dot
+                                slide={index}
+                                children={
+                                    item === index ? (
+                                        <animated.div
+                                            className={
+                                                stopAutoplay
+                                                    ? "dotfillHide"
+                                                    : "dotFill"
+                                            }
+                                            style={style}
+                                        ></animated.div>
+                                    ) : (
+                                        ""
+                                    )
+                                }
+                            />
+                        );
+                    })}
+                </div>
+            );
         });
     };
 
@@ -166,32 +170,17 @@ const HomeCarousel: React.FC<{}> = () => {
                     totalSlides={slides.length}
                     infinite={true}
                     step={1}
-                    // isPlaying={true}
-                    // interval={3000}
+                    isPlaying={stopAutoplay ? false : true}
+                    interval={5000}
                 >
-                    <div className="sliderAndDotWrap">
+                    <div
+                        className="sliderAndDotWrap"
+                        onClick={() => {
+                            setStopAutoplay(true);
+                        }}
+                    >
                         <Slider>{renderSlides()}</Slider>
-                        <div className="dotWrap">
-                            {renderDots()}
-
-                            {/* {fill((style, item) => {
-                                return (
-                                    <Dot
-                                        slide={0}
-                                        onClick={() => {
-                                            setShowSlide(!showSlide);
-                                            // setShowSlide(true);
-                                        }}
-                                        children={
-                                            <animated.div
-                                                className="dotFill"
-                                                style={style}
-                                            ></animated.div>
-                                        }
-                                    />
-                                );
-                            })} */}
-                        </div>
+                        <div className="dotWrap">{renderDots()}</div>
                     </div>
                 </CarouselProvider>
             </div>
