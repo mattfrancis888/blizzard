@@ -357,7 +357,7 @@ html {
 
 body {
   /*Make default font-size bigger. If default font-size is 16px; 1.6 rem = 16 px*/
-  font: 1.1rem "", Arial, sans-serif, Helvetica;
+  font: 1.1rem "", Helvetica, Arial, sans-serif;
 }
 
 .loadingCenter {
@@ -578,8 +578,11 @@ body {
   display: flex;
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  justify-content: center;
+  width: 100%;
+  background-color: #0b0d12;
+  width: 100%;
 }
 .dotWrap button {
   position: relative;
@@ -588,13 +591,17 @@ body {
   outline: none !important;
   box-shadow: none !important;
   border: none;
+  margin: 0;
   margin-right: 0.3rem;
   width: 10rem;
-  height: 0.6rem;
   padding: 0.4rem;
 }
 .dotWrap .carousel__dot--selected {
   background: #0086ca !important;
+}
+
+.dotInnerWrap {
+  padding-bottom: 0.5rem;
 }
 
 .homeCarouselContainer {
@@ -604,15 +611,26 @@ body {
   cursor: pointer;
   height: 100%;
 }
-.homeCarouselContainer .slideImage {
+.homeCarouselContainer .pictureImageWrap {
+  position: relative;
+}
+.homeCarouselContainer .pictureImageWrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 0%;
+}
+@media screen and (min-width: 768px) {
+  .homeCarouselContainer .pictureImageWrap img {
+    object-position: 50% 50%;
+  }
 }
 
 .backgroundContainer {
+  position: relative;
   background: black;
   height: 100%;
+  text-align: center;
 }
 
 .dotFill {
@@ -621,7 +639,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  background: red;
+  background: #00aeff;
 }
 
 .dotFillHide {
@@ -633,11 +651,62 @@ body {
   background: transparent;
 }
 
-.slideImageLogo {
+.slideImageLogoAndDescWrap {
   position: absolute;
-  top: 5rem;
-  left: 5rem;
-  width: 20rem;
+  top: 0;
+  left: 0;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 768px) {
+  .slideImageLogoAndDescWrap {
+    padding-top: 5rem;
+    padding-left: 5rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+.slideImageLogo {
+  width: 18rem;
+}
+@media screen and (min-width: 768px) {
+  .slideImageLogo {
+    width: 26rem;
+  }
+}
+
+.slideDesc {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin: 0;
+  margin-top: 1.5rem;
+  text-shadow: 4px 7px 17px rgba(0, 0, 0, 0.8);
+}
+@media screen and (min-width: 520px) {
+  .slideDesc {
+    font-size: 4rem;
+    margin-top: 2rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .slideDesc {
+    font-size: 4rem;
+    margin-top: 3rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .slideDesc {
+    font-size: 6.8rem;
+    width: 50rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

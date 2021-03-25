@@ -20,27 +20,37 @@ import {
     SM_SCREEN_SIZE,
 } from "../constants";
 import { useTransition, animated, useSpring, useTrail } from "react-spring";
+const timer = 3000;
 const slides = [
     {
         title: "Crash Bandicoot",
+        mobileImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616678348/blizzard/CB4_Launch_Keyart-Bnet-Home_Banner_Mobile_Home-1536x1536.jpg",
         image:
             "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/bltc1446fda2f87e332/60134add9d2dcf0eda34fc8c/CB4_Launch_Keyart-Bnet-Home_Banner_Desktop_Home-2500x514.webp?auto=webp&format=pjpg",
         logo:
             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620195/blizzard/crash.png",
+        description: "Coming Soon!",
     },
     {
         title: "Warzone",
+        mobileImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616678520/blizzard/CODCW_S2_Keyart-Bnet-Home_Banner_Mobile_Home-1536x1536.jpg",
         image:
             "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt430768244603486e/6036f8ed0b1d853be8ad56fc/CODCW_S2_Keyart-Bnet-Home_Banner_Desktop_Home-2500x514.webp?auto=webp&format=pjpg",
         logo:
             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620270/blizzard/d20201211-017_CW_WZ_Logo_Lock_Up_1P_Stacked.png",
+        description: "Season 2  now live",
     },
     {
         title: "WOW",
+        mobileImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616678431/blizzard/wow-bcc-beta-now-live-web-1536x1536-RD01.jpg",
         image:
             "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/bltc1312ef8fbc2b4c6/60550544c6713d4e7a4d554c/wow-bcc-beta-now-live-web-2500x514-RD01.jpg",
         logo:
             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620350/blizzard/WoW_C_BurningCrusade_Logo_DarkBG_MN03.png",
+        description: "Beta is now live",
     },
 ];
 interface IShowSlide {
@@ -53,13 +63,10 @@ const HomeCarousel: React.FC<{}> = () => {
         index: 0,
         stopAutoplay: false,
     });
-    const [fillButton, setFillButton] = useState(0);
-    const [stopAutoplay, setStopAutoplay] = useState(false);
 
     const itemEls = useRef(new Array());
     useEffect(() => {
         let fillTimeOut: any;
-        console.log(showSlide);
         if (!showSlide.stopAutoplay) {
             itemEls.current[showSlide.index].children[0].click();
             fillTimeOut = setTimeout(() => {
@@ -76,7 +83,7 @@ const HomeCarousel: React.FC<{}> = () => {
                         index: showSlide.index + 1,
                         stopAutoplay: false,
                     });
-            }, 3000);
+            }, timer);
         } else {
             itemEls.current[showSlide.index].children[0].click();
         }
@@ -85,23 +92,19 @@ const HomeCarousel: React.FC<{}> = () => {
         };
     }, [showSlide]);
 
-    useEffect(() => {
-        // itemEls.current[1].children[0].click();
-        // console.log(itemEls.current[1].children[0].click());
-    }, []);
-
     const transition = useTransition(showSlide, {
         from: {
             transform: "translate3d(2% , 0px, 0px)",
+
             opacity: 0,
         },
         enter: {
-            transform: "translate3d(0% , 0px, 0px)",
+            transform: "translate3d(0px , 0px, 0px)",
             opacity: 1,
         },
 
         config: {
-            duration: 3000,
+            duration: timer,
         },
     });
 
@@ -114,7 +117,7 @@ const HomeCarousel: React.FC<{}> = () => {
         },
 
         config: {
-            duration: 3000,
+            duration: timer,
         },
     });
 
@@ -129,22 +132,37 @@ const HomeCarousel: React.FC<{}> = () => {
                     <div className="backgroundContainer">
                         {transition((style, item) => {
                             return (
-                                <animated.img
-                                    className="slideImage"
-                                    src={slide.image}
-                                    alt="game slide"
-                                    style={style}
-                                ></animated.img>
+                                <animated.picture className="pictureImageWrap">
+                                    <source
+                                        media={`(min-width:${MED_SCREEN_SIZE}px)`}
+                                        srcSet={slide.image}
+                                    />
+                                    <source
+                                        media={`(min-width:320px`}
+                                        srcSet={slide.mobileImage}
+                                    />
+
+                                    <img src={slide.image} alt="project" />
+                                </animated.picture>
                             );
                         })}
                         {transition((style, item) => {
                             return (
-                                <animated.img
-                                    className="slideImageLogo"
-                                    src={slide.logo}
-                                    alt="game slide"
-                                    style={style}
-                                ></animated.img>
+                                <div
+                                    className={`slideImageLogoAndDescWrap
+                                    `}
+                                >
+                                    <animated.div style={style}>
+                                        <img
+                                            className="slideImageLogo"
+                                            src={slide.logo}
+                                            alt="game slide"
+                                        ></img>
+                                        <h1 className="slideDesc">
+                                            {slide.description}
+                                        </h1>
+                                    </animated.div>
+                                </div>
                             );
                         })}
                     </div>
@@ -157,18 +175,12 @@ const HomeCarousel: React.FC<{}> = () => {
         return slides.map((slide, index) => {
             return (
                 <div
-                    key={index}
                     className="dotInnerWrap"
-                    onMouseEnter={() => {
-                        //there is a caveat with the caorusel library
-                        //the first dot's onclick (the dot with an index of 0) will NOT trigger unless another dot
-                        //dot is clicked. I opted out using onMouseEnter to stop the carousel instead of onclick because of this
-                        //setStopAutoplay(true);
-                    }}
-                    //Because of the ref click above, using onClick would trigger this unintentionally
+                    key={index}
+                    //Because of the ref click above, using onClick={..} would trigger this unintentionally
                     //But if we do onfocus, when a user clicks on the button, it will stop the autoplay
                     onFocus={() => {
-                        // setStopAutoplay(true);
+                        //If we don't use the setHook below, the animation for slide changing won't be rendered.
                         setShowSlide({ index: index, stopAutoplay: true });
                     }}
                     ref={(element) => (itemEls.current[index] = element)}
@@ -177,13 +189,8 @@ const HomeCarousel: React.FC<{}> = () => {
                         return (
                             <Dot
                                 disabled={false}
-                                //Must USE DISABLED, OR else when the carousel first renders..Dot's onclick won't be rendered for the first Dot because it was
-                                //automatically selected by the carousel
-                                // onClick={() => {
-                                //     setShowSlide(index);
-                                //     console.log("buttonClick", index);
-                                //     setStopAutoplay(true);
-                                // }}
+                                //Must USE DISABLED, OR else when the carousel first renders..Dot's onclick won't be rendered
+                                // for the first Dot because it was automatically selected by the carousel
                                 slide={index}
                                 children={
                                     item.index === index ? (
@@ -207,6 +214,21 @@ const HomeCarousel: React.FC<{}> = () => {
         });
     };
 
+    const renderHeight = () => {
+        if (width < SM_SCREEN_SIZE) {
+            return 90;
+        } else if (width < MED_SCREEN_SIZE) {
+            return 70;
+        } else if (width < LG_SCREEN_SIZE) {
+            return 50;
+        } else if (width < XL_SCREEN_SIZE) {
+            return 50;
+        } else if (width >= XL_SCREEN_SIZE) {
+            return 40;
+        }
+        return 1;
+    };
+
     const renderCarousel = (): JSX.Element | JSX.Element[] => {
         return (
             <div
@@ -219,7 +241,7 @@ const HomeCarousel: React.FC<{}> = () => {
             >
                 <CarouselProvider
                     naturalSlideWidth={100}
-                    naturalSlideHeight={23}
+                    naturalSlideHeight={renderHeight()}
                     visibleSlides={1}
                     totalSlides={slides.length}
                     infinite={true}
