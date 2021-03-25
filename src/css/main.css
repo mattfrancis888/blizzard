@@ -372,6 +372,8 @@ body {
 }
 
 .headerContainer {
+  position: relative;
+  z-index: 1;
   background: black;
   display: flex;
   justify-content: space-between;
@@ -455,6 +457,8 @@ body {
 }
 
 .headerPresentation {
+  position: relative;
+  z-index: 1;
   display: flex;
   padding: 1rem 4rem;
   padding-bottom: 10rem;
@@ -478,10 +482,11 @@ body {
 
 .presentationOverlay {
   position: fixed;
+  bottom: 0;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
 .toggledGamesHeader {
@@ -806,7 +811,6 @@ body {
   position: relative;
   overflow: hidden;
   border: 1px solid transparent;
-  margin-bottom: 5rem;
 }
 .homeCareerContainer img {
   width: 100%;
