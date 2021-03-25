@@ -123,18 +123,23 @@ const HomeCarousel: React.FC<{}> = () => {
                     <div className="backgroundContainer">
                         {transition((style, item) => {
                             return (
-                                <animated.picture className="pictureImageWrap">
-                                    <source
-                                        media={`(min-width:${MED_SCREEN_SIZE}px)`}
-                                        srcSet={slide.image}
-                                    />
-                                    <source
-                                        media={`(min-width:320px`}
-                                        srcSet={slide.mobileImage}
-                                    />
+                                <animated.div
+                                    className="pictureImageWrap"
+                                    style={style}
+                                >
+                                    <picture>
+                                        <source
+                                            media={`(min-width:${MED_SCREEN_SIZE}px)`}
+                                            srcSet={slide.image}
+                                        />
+                                        <source
+                                            media={`(min-width:320px`}
+                                            srcSet={slide.mobileImage}
+                                        />
 
-                                    <img src={slide.image} alt="project" />
-                                </animated.picture>
+                                        <img src={slide.image} alt="project" />
+                                    </picture>
+                                </animated.div>
                             );
                         })}
                         {transition((style, item) => {

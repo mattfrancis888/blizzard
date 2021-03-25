@@ -702,6 +702,8 @@ body {
 }
 .homeCarouselContainer .pictureImageWrap {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 .homeCarouselContainer .pictureImageWrap img {
   width: 100%;
@@ -803,13 +805,49 @@ body {
   height: 40rem;
   position: relative;
   overflow: hidden;
+  border: 1px solid transparent;
+  margin-bottom: 5rem;
 }
 .homeCareerContainer img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+}
+
+.homeCareerTextWrap {
   position: absolute;
-  right: 0;
-  left: 0;
+  left: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.createWorldText {
+  margin: 0;
+  font-size: 4.4rem;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+.careerDescText {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: normal;
+  font-size: 2rem;
+}
+
+footer {
+  background-image: url("https://res.cloudinary.com/du8n2aa4p/image/upload/v1616711603/blizzard/footer-bg-lg.cef2f4d2919f03a2e3f60244cba138cc.jpg");
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+
+.footerBlizzardLogo {
+  width: 12rem;
+  height: 12rem;
 }
 
 /*# sourceMappingURL=main.css.map */
