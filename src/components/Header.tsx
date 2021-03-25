@@ -64,11 +64,11 @@ const Header: React.FC<{}> = () => {
                             );
                         })}
                     </div>
-                    <div
-                        className="presentationOverlay"
-                        onClick={() => setShowPresentation(false)}
-                    ></div>
                 </div>
+                {/* <div
+                    className="presentationOverlay"
+                    onClick={() => setShowPresentation(false)}
+                ></div> */}
             </React.Fragment>
         );
     };
@@ -172,7 +172,12 @@ const Header: React.FC<{}> = () => {
     return (
         <React.Fragment>
             {renderModal()}
-
+            {showPresentation && (
+                <div
+                    className="presentationOverlay"
+                    onClick={() => setShowPresentation(false)}
+                ></div>
+            )}
             <div className="headerContainer">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -357,7 +357,7 @@ html {
 
 body {
   /*Make default font-size bigger. If default font-size is 16px; 1.6 rem = 16 px*/
-  font: 1.1rem "", Arial, sans-serif, Helvetica;
+  font: 1.1rem "", Helvetica, Arial, sans-serif;
 }
 
 .loadingCenter {
@@ -372,6 +372,8 @@ body {
 }
 
 .headerContainer {
+  position: relative;
+  z-index: 1;
   background: black;
   display: flex;
   justify-content: space-between;
@@ -455,6 +457,8 @@ body {
 }
 
 .headerPresentation {
+  position: relative;
+  z-index: 1;
   display: flex;
   padding: 1rem 4rem;
   padding-bottom: 10rem;
@@ -478,10 +482,11 @@ body {
 
 .presentationOverlay {
   position: fixed;
+  bottom: 0;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 
 .toggledGamesHeader {
@@ -564,6 +569,289 @@ body {
   .serverErrorContainer {
     padding: 10rem 0;
   }
+}
+
+.homeGamesSection {
+  background: url("https://res.cloudinary.com/du8n2aa4p/image/upload/v1616696651/blizzard/background-generic-landscape-short.31b43a7823e13c6383e5e613b04b5b58.jpg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3rem 3rem;
+  background-size: cover;
+}
+@media screen and (min-width: 520px) {
+  .homeGamesSection {
+    padding: 3rem 11rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .homeGamesSection {
+    padding: 3rem 12rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .homeGamesSection {
+    padding: 3rem 20rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .homeGamesSection {
+    padding: 3rem 16rem;
+  }
+}
+
+.homeGamesTitle {
+  margin: 0;
+  font-size: 2.7rem;
+  letter-spacing: 0.1rem;
+  font-weight: normal;
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .homeGamesTitle {
+    font-size: 3.5rem;
+    letter-spacing: 0.3rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .homeGamesTitle {
+    font-size: 4rem;
+  }
+}
+
+.homeGamesCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .homeGamesCardsContainer {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .homeGamesCardsContainer {
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 3rem;
+  }
+}
+
+.homeGamesCard {
+  cursor: pointer;
+  width: 100%;
+  transition: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 100ms;
+  transition: filter 500ms, transform 500ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotate(0.01deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.homeGamesCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.homeGamesCard:hover {
+  -webkit-filter: brightness(115%) contrast(90%);
+  filter: brightness(115%) contrast(90%);
+  transform: scale(1.05);
+  border: solid 1px rgba(255, 255, 255, 0.15);
+  border-color: rgba(0, 174, 255, 0.5);
+}
+
+.gameCarouselWrap {
+  width: 100%;
+}
+
+.sliderAndDotWrap {
+  position: relative;
+}
+
+.dotWrap {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  justify-content: center;
+  width: 100%;
+  background-color: #0b0d12;
+  width: 100%;
+}
+.dotWrap button {
+  position: relative;
+  transition: background-color 0.2s;
+  background: rgba(255, 255, 255, 0.5);
+  outline: none !important;
+  box-shadow: none !important;
+  border: none;
+  margin: 0;
+  margin-right: 0.3rem;
+  width: 10rem;
+  padding: 0.4rem;
+}
+.dotWrap .carousel__dot--selected {
+  background: #0086ca !important;
+}
+
+.dotInnerWrap {
+  padding-bottom: 0.5rem;
+}
+
+.homeCarouselContainer {
+  position: relative;
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  height: 100%;
+}
+.homeCarouselContainer .pictureImageWrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.homeCarouselContainer .pictureImageWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+@media screen and (min-width: 768px) {
+  .homeCarouselContainer .pictureImageWrap img {
+    object-position: 50% 50%;
+  }
+}
+
+.backgroundContainer {
+  position: relative;
+  background: black;
+  height: 100%;
+  text-align: center;
+}
+
+.dotFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #00aeff;
+}
+
+.dotFillHide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.slideImageLogoAndDescWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 768px) {
+  .slideImageLogoAndDescWrap {
+    padding-top: 5rem;
+    padding-left: 5rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+.slideImageLogo {
+  width: 18rem;
+}
+@media screen and (min-width: 768px) {
+  .slideImageLogo {
+    width: 26rem;
+  }
+}
+
+.slideDesc {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin: 0;
+  margin-top: 1.5rem;
+  text-shadow: 4px 7px 17px rgba(0, 0, 0, 0.8);
+}
+@media screen and (min-width: 520px) {
+  .slideDesc {
+    font-size: 4rem;
+    margin-top: 2rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .slideDesc {
+    font-size: 4rem;
+    margin-top: 3rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .slideDesc {
+    font-size: 6.8rem;
+    width: 50rem;
+  }
+}
+
+.homeCareerContainer {
+  width: 100%;
+  height: 40rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+.homeCareerContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.homeCareerTextWrap {
+  position: absolute;
+  left: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.createWorldText {
+  margin: 0;
+  font-size: 4.4rem;
+  font-weight: normal;
+  margin-bottom: 1rem;
+}
+
+.careerDescText {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: normal;
+  font-size: 2rem;
+}
+
+footer {
+  background-image: url("https://res.cloudinary.com/du8n2aa4p/image/upload/v1616711603/blizzard/footer-bg-lg.cef2f4d2919f03a2e3f60244cba138cc.jpg");
+  width: 100%;
+  height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+
+.footerBlizzardLogo {
+  width: 12rem;
+  height: 12rem;
 }
 
 /*# sourceMappingURL=main.css.map */
