@@ -566,6 +566,95 @@ body {
   }
 }
 
+.homeGamesSection {
+  background: url("https://res.cloudinary.com/du8n2aa4p/image/upload/v1616696651/blizzard/background-generic-landscape-short.31b43a7823e13c6383e5e613b04b5b58.jpg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3rem 3rem;
+  background-size: cover;
+}
+@media screen and (min-width: 520px) {
+  .homeGamesSection {
+    padding: 3rem 11rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .homeGamesSection {
+    padding: 3rem 12rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .homeGamesSection {
+    padding: 3rem 20rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .homeGamesSection {
+    padding: 3rem 16rem;
+  }
+}
+
+.homeGamesTitle {
+  margin: 0;
+  font-size: 2.7rem;
+  letter-spacing: 0.1rem;
+  font-weight: normal;
+  margin-bottom: 2rem;
+}
+@media screen and (min-width: 768px) {
+  .homeGamesTitle {
+    font-size: 3.5rem;
+    letter-spacing: 0.3rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .homeGamesTitle {
+    font-size: 4rem;
+  }
+}
+
+.homeGamesCardsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+  .homeGamesCardsContainer {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 3rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .homeGamesCardsContainer {
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 3rem;
+  }
+}
+
+.homeGamesCard {
+  cursor: pointer;
+  width: 100%;
+  transition: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 100ms;
+  transition: filter 500ms, transform 500ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotate(0.01deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.homeGamesCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.homeGamesCard:hover {
+  -webkit-filter: brightness(115%) contrast(90%);
+  filter: brightness(115%) contrast(90%);
+  transform: scale(1.05);
+  border: solid 1px rgba(255, 255, 255, 0.15);
+  border-color: rgba(0, 174, 255, 0.5);
+}
+
 .gameCarouselWrap {
   width: 100%;
 }
