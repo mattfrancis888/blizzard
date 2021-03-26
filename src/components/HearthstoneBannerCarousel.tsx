@@ -11,7 +11,7 @@ import {
     SM_SCREEN_SIZE,
 } from "../constants";
 import { useTransition, animated, useSpring, useTrail } from "react-spring";
-const timer = 20000;
+const timer = 3000;
 const slides = [
     {
         image:
@@ -22,6 +22,11 @@ const slides = [
         image:
             "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt0b5997ac49a51fad/6026e8320b1d853be8ad4fe8/20p0_Mega_Bundle_Homepage_20p0_Mega_Bundle_PHS_desktop_1600x500.jpg?format=webp",
         description: "Season 2  now live",
+    },
+    {
+        image:
+            "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt0b5997ac49a51fad/6026e8320b1d853be8ad4fe8/20p0_Mega_Bundle_Homepage_20p0_Mega_Bundle_PHS_desktop_1600x500.jpg?format=webp",
+        description: "Season 3 now live",
     },
 ];
 interface IShowSlide {
@@ -65,7 +70,7 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
 
     const transition = useTransition(showSlide, {
         from: {
-            transform: "translate3d(2% , 0px, 0px)",
+            transform: "translate3d(0px , 50%, 0px)",
 
             opacity: 0,
         },
@@ -95,11 +100,7 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
     const renderSlides = () => {
         return slides.map((slide, index) => {
             return (
-                <Slide
-                    index={index}
-                    key={index}
-                    className={`hearthstoneBannerCarouselContainer`}
-                >
+                <Slide index={index} key={index} className={`hearthstoneSlide`}>
                     <div className="hearthstoneBannerBackgroundContainer">
                         {scale((style, item) => {
                             return (

@@ -1,11 +1,41 @@
 .hearthstoneBannerCarouselContainer {
     position: relative;
-
     z-index: 1;
+    @media screen and (min-width: $sm_breakpoint) {
+        padding: 1rem 3rem;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
+        padding: 1rem 5rem;
+    }
+
+    & > .horizontalSlider___281Ls {
+        display: flex;
+
+        overflow: visible;
+        @media screen and (min-width: $sm_breakpoint) {
+            overflow: hidden;
+            display: block;
+        }
+    }
+
+    & > .hearthstoneBannerSliderContainer {
+        width: 50%;
+        height: 100%;
+        @media screen and (min-width: $sm_breakpoint) {
+            width: 100%;
+        }
+    }
 }
-.hearthstoneBannerSliderContainer {
-    top: -9px;
-    left: -9px;
+
+.hearthstoneSlide {
+    padding: 1rem 10rem;
+    @media screen and (min-width: 500px) {
+        padding: 1rem 15rem;
+    }
+    @media screen and (min-width: $sm_breakpoint) {
+        padding: 0;
+    }
+    overflow: hidden;
     width: calc(100% + 18px);
     height: calc(100% + 23px);
     border-style: solid;
@@ -13,7 +43,6 @@
     border-image: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt47cbe0118299f668/5f1ef3b8bb238f5556376422/homepage-frame-grid.png)
         27 27 31 fill / 1 / 0 stretch;
 }
-
 .hearthstoneBannerCarouselDotWrap {
     display: flex;
     justify-content: center;

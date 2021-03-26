@@ -4,7 +4,6 @@
 
 .hearthstoneBanner {
     position: relative;
-    padding: 3rem;
     &:after {
         content: "";
         position: absolute;
@@ -32,15 +31,16 @@
     object-fit: cover;
 }
 .hearthstoneBannerTextWrap {
+    padding: 3rem;
     position: relative;
     z-index: 1;
     width: 100%;
-    margin-top: 5rem;
+    padding-top: 5rem;
     @media screen and (min-width: $md_breakpoint) {
         width: 50rem;
     }
     @media screen and (min-width: $lg_breakpoint) {
-        margin-top: 15rem;
+        padding-top: 15rem;
     }
     @media screen and (min-width: $xl_breakpoint) {
         width: 70rem;

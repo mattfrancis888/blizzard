@@ -670,7 +670,6 @@ body {
 
 .hearthstoneBanner {
   position: relative;
-  padding: 3rem;
   min-height: 70rem;
 }
 .hearthstoneBanner:after {
@@ -699,10 +698,11 @@ body {
 }
 
 .hearthstoneBannerTextWrap {
+  padding: 3rem;
   position: relative;
   z-index: 1;
   width: 100%;
-  margin-top: 5rem;
+  padding-top: 5rem;
 }
 @media screen and (min-width: 768px) {
   .hearthstoneBannerTextWrap {
@@ -711,7 +711,7 @@ body {
 }
 @media screen and (min-width: 992px) {
   .hearthstoneBannerTextWrap {
-    margin-top: 15rem;
+    padding-top: 15rem;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -883,15 +883,54 @@ body {
   position: relative;
   z-index: 1;
 }
+@media screen and (min-width: 520px) {
+  .hearthstoneBannerCarouselContainer {
+    padding: 1rem 3rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .hearthstoneBannerCarouselContainer {
+    padding: 1rem 5rem;
+  }
+}
+.hearthstoneBannerCarouselContainer > .horizontalSlider___281Ls {
+  display: flex;
+  overflow: visible;
+}
+@media screen and (min-width: 520px) {
+  .hearthstoneBannerCarouselContainer > .horizontalSlider___281Ls {
+    overflow: hidden;
+    display: block;
+  }
+}
+.hearthstoneBannerCarouselContainer > .hearthstoneBannerSliderContainer {
+  width: 50%;
+  height: 100%;
+}
+@media screen and (min-width: 520px) {
+  .hearthstoneBannerCarouselContainer > .hearthstoneBannerSliderContainer {
+    width: 100%;
+  }
+}
 
-.hearthstoneBannerSliderContainer {
-  top: -9px;
-  left: -9px;
+.hearthstoneSlide {
+  padding: 1rem 10rem;
+  overflow: hidden;
   width: calc(100% + 18px);
   height: calc(100% + 23px);
   border-style: solid;
   border-width: 27px 27px 31px;
   border-image: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt47cbe0118299f668/5f1ef3b8bb238f5556376422/homepage-frame-grid.png) 27 27 31 fill/1/0 stretch;
+}
+@media screen and (min-width: 500px) {
+  .hearthstoneSlide {
+    padding: 1rem 15rem;
+  }
+}
+@media screen and (min-width: 520px) {
+  .hearthstoneSlide {
+    padding: 0;
+  }
 }
 
 .hearthstoneBannerCarouselDotWrap {
