@@ -38,6 +38,7 @@
     padding-top: 5rem;
     @media screen and (min-width: $md_breakpoint) {
         width: 50rem;
+        padding: 3rem 5rem;
     }
     @media screen and (min-width: $lg_breakpoint) {
         padding-top: 15rem;
@@ -57,4 +58,12 @@
 
 .hearthstoneBannerDesc {
     font-size: 1.7rem;
+}
+
+.hearthstoneCardsSection {
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-around;
+    background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt87edf02f20f6dafb/5f974530ab20b60bdceae855/red-felt-bg.jpg)
+        center top / cover no-repeat;
 }

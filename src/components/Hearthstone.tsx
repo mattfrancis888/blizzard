@@ -8,6 +8,7 @@ import {
     SM_SCREEN_SIZE,
 } from "../constants";
 import HearthstoneBannerCarousel from "./HearthstoneBannerCarousel";
+import HearthstoneCard from "./HearthstoneCard";
 
 const Hearthstone: React.FC<{}> = () => {
     const { width } = useWindowDimensions();
@@ -43,6 +44,10 @@ const Hearthstone: React.FC<{}> = () => {
                     </p>
                 </div>
                 <HearthstoneBannerCarousel />
+            </div>
+            <div className="hearthstoneCardsSection">
+                <HearthstoneCard />
+                <HearthstoneCard />
             </div>
         </div>
     );

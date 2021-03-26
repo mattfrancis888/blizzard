@@ -707,6 +707,7 @@ body {
 @media screen and (min-width: 768px) {
   .hearthstoneBannerTextWrap {
     width: 50rem;
+    padding: 3rem 5rem;
   }
 }
 @media screen and (min-width: 992px) {
@@ -733,6 +734,13 @@ body {
 
 .hearthstoneBannerDesc {
   font-size: 1.7rem;
+}
+
+.hearthstoneCardsSection {
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: space-around;
+  background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt87edf02f20f6dafb/5f974530ab20b60bdceae855/red-felt-bg.jpg) center top/cover no-repeat;
 }
 
 .gameCarouselWrap {
@@ -1038,6 +1046,53 @@ footer {
 .footerBlizzardLogo {
   width: 12rem;
   height: 12rem;
+}
+
+.hearthstoneCard {
+  position: relative;
+  width: 22rem;
+  height: 31rem;
+  z-index: 1;
+}
+
+.glow {
+  display: block;
+  content: "";
+  position: absolute;
+  animation: glow 1s infinite alternate;
+  width: 85%;
+  height: 85%;
+  top: 50%;
+  left: 50%;
+  z-index: -1;
+  opacity: 0.45;
+  transform: translate3d(-50%, -50%, 0px);
+  transition: opacity 0.25s ease-out 0s;
+  max-width: 270px;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px -10px #aef4af;
+  }
+  to {
+    box-shadow: 0 0 10px 10px #aef4af;
+  }
+}
+.front,
+.back {
+  position: absolute;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.back {
+  background-image: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltcbd3f175e6b989c0/60020fcd0d1ff8616fdd18ff/cardback.png?format=webp);
+}
+
+.front {
+  background-image: url(https://d15f34w2p8l1cc.cloudfront.net/hearthstone/92363d0d08f0a71e7ef4c886795def7c5df95167ea299e2b6acad37e2a7073bd.png);
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -10,7 +10,7 @@ import {
     MED_SCREEN_SIZE,
     SM_SCREEN_SIZE,
 } from "../constants";
-import { useTransition, animated, useSpring, useTrail } from "react-spring";
+import { useTransition, animated, useSpring, useChain } from "react-spring";
 const timer = 3000;
 const slides = [
     {
@@ -68,7 +68,9 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
         };
     }, [showSlide]);
 
+    const transitionRef = useRef();
     const transition = useTransition(showSlide, {
+        transitionRef,
         from: {
             transform: "translate3d(0px , 50%, 0px)",
 
@@ -80,9 +82,28 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
         },
 
         config: {
-            duration: timer,
+            duration: timer / 2,
         },
     });
+
+    const transitionOutRef = useRef();
+    const transitionOut = useSpring({
+        transitionOutRef,
+        from: {
+            transform: "translate3d(0px , 0px, 0px)",
+            opacity: 1,
+        },
+        to: {
+            transform: "translate3d(0px , -50%, 0px)",
+            opacity: 0,
+        },
+        config: {
+            duration: timer / 2,
+        },
+    });
+
+    //NOTE:Currently broken in this version, come back to it later when new version releases
+    // useChain([transitionRef, transitionOutRef]);
 
     const scale = useTransition(showSlide, {
         from: {
@@ -106,7 +127,7 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
                             return (
                                 <animated.div
                                     className="hearthstoneBannerCarouselImageWrap"
-                                    style={style}
+                                    style={width > SM_SCREEN_SIZE ? style : {}}
                                 >
                                     <img src={slide.image} alt="project" />
                                 </animated.div>
@@ -118,7 +139,11 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
                                     className={`slideImageLogoAndDescWrap
                                     `}
                                 >
-                                    <animated.div style={style}>
+                                    <animated.div
+                                        style={
+                                            width > SM_SCREEN_SIZE ? style : {}
+                                        }
+                                    >
                                         <h1 className="slideDesc">
                                             {slide.description}
                                         </h1>
