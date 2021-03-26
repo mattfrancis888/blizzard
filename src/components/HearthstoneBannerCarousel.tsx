@@ -11,7 +11,7 @@ import {
     SM_SCREEN_SIZE,
 } from "../constants";
 import { useTransition, animated, useSpring, useTrail } from "react-spring";
-const timer = 3000;
+const timer = 20000;
 const slides = [
     {
         image:
@@ -79,12 +79,12 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
         },
     });
 
-    const fill = useTransition(showSlide, {
+    const scale = useTransition(showSlide, {
         from: {
-            width: "0%",
+            transform: "scale(1.5)",
         },
         enter: {
-            width: "100%",
+            transform: "scale(1)",
         },
 
         config: {
@@ -98,27 +98,16 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
                 <Slide
                     index={index}
                     key={index}
-                    className={`homeCarouselContainer`}
+                    className={`hearthstoneBannerCarouselContainer`}
                 >
-                    <div className="backgroundContainer">
-                        {transition((style, item) => {
+                    <div className="hearthstoneBannerBackgroundContainer">
+                        {scale((style, item) => {
                             return (
                                 <animated.div
-                                    className="pictureImageWrap"
+                                    className="hearthstoneBannerCarouselImageWrap"
                                     style={style}
                                 >
-                                    <picture>
-                                        <source
-                                            media={`(min-width:${MED_SCREEN_SIZE}px)`}
-                                            srcSet={slide.image}
-                                        />
-                                        {/* <source
-                                            media={`(min-width:320px`}
-                                            srcSet={slide.mobileImage}
-                                        /> */}
-
-                                        <img src={slide.image} alt="project" />
-                                    </picture>
+                                    <img src={slide.image} alt="project" />
                                 </animated.div>
                             );
                         })}
@@ -156,19 +145,15 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
                     }}
                     ref={(element) => (itemEls.current[index] = element)}
                 >
-                    {fill((style, item) => {
-                        return (
-                            <React.Fragment>
-                                <Dot
-                                    disabled={false}
-                                    //Must USE DISABLED, OR else when the carousel first renders..Dot's onclick won't be rendered
-                                    // for the first Dot because it was automatically selected by the carousel
-                                    slide={index}
-                                    className="hearthstoneBannerCarouselDot"
-                                />
-                            </React.Fragment>
-                        );
-                    })}
+                    <React.Fragment>
+                        <Dot
+                            disabled={false}
+                            //Must USE DISABLED, OR else when the carousel first renders..Dot's onclick won't be rendered
+                            // for the first Dot because it was automatically selected by the carousel
+                            slide={index}
+                            className="hearthstoneBannerCarouselDot"
+                        />
+                    </React.Fragment>
                 </div>
             );
         });
@@ -191,14 +176,7 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
 
     const renderCarousel = (): JSX.Element | JSX.Element[] => {
         return (
-            <div
-                onMouseEnter={(e) => {
-                    // setStyle({ opacity: "1" });
-                }}
-                onMouseLeave={(e) => {
-                    // setStyle({ opacity: "0" });
-                }}
-            >
+            <div>
                 <CarouselProvider
                     className="hearthstoneBannerCarouselContainer"
                     naturalSlideWidth={100}
@@ -210,11 +188,12 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
                     // isPlaying={stopAutoplay ? false : true}
                     // interval={5000}
                 >
-                    <div className="sliderAndDotWrap">
-                        <Slider>{renderSlides()}</Slider>
-                        <div className="hearthstoneBannerCarouselDotWrap">
-                            {renderDots()}
-                        </div>
+                    <Slider className="hearthstoneBannerSliderContainer">
+                        {renderSlides()}
+                    </Slider>
+
+                    <div className="hearthstoneBannerCarouselDotWrap">
+                        {renderDots()}
                     </div>
                 </CarouselProvider>
             </div>
