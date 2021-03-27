@@ -70,6 +70,50 @@ const Hearthstone: React.FC<{}> = () => {
                     Discover New Cards and Build Your Own Deck
                 </h2>
             </div>
+            <div className="hearthstonePlaySection">
+                <video
+                    className="hearthstonePlayGirl"
+                    autoPlay={true}
+                    playsInline={false}
+                    muted={true}
+                    loop={true}
+                    // style={style}
+                >
+                    <source
+                        src={
+                            "https://assets.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt61940e6a1136f4e1/5f935a529d68980b2e94e681/homepage_ava_npe_small.webm"
+                        }
+                        type="video/mp4"
+                    />
+                </video>
+                <div className="chatWrap">
+                    <div className="chatTop"></div>
+
+                    <div className="chatMiddle">
+                        <p>
+                            No matter how you sling cards, Hearthstone is for
+                            you!
+                        </p>
+                    </div>
+
+                    <div className="chatBottom"></div>
+                </div>
+                <video
+                    className="hearthstonePlayBoy"
+                    autoPlay={true}
+                    playsInline={false}
+                    muted={true}
+                    loop={true}
+                    // style={style}
+                >
+                    <source
+                        src={
+                            "https://assets.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt2aacb18ff09fc8d8/5f935c8b161ae70b23afc28c/homepage_innkeeper_npe_small.webm"
+                        }
+                        type="video/mp4"
+                    />
+                </video>
+            </div>
         </div>
     );
 };
