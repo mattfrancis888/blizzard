@@ -11,7 +11,8 @@ import HearthstoneBannerCarousel from "./HearthstoneBannerCarousel";
 import HearthstoneCard from "./HearthstoneCard";
 import HearthstoneCardsCarousel from "./HearthstoneCardCarousel";
 import HearthstoneHeroesCarousel from "./HearthstoneHeroesCarousel";
-
+import LazyLoad from "react-lazyload";
+import SongsPlaceholder from "./SquarePlaceholder";
 const cards = [
     "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a4d4a85f3addd14115f39c4f0a7aa05e85a1dda3c993927b988980536aef59b3.png",
     "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f4da378778158d9c0617ad47de49e187741bfcfd0c1307cdfbf8367a84fd7927.png",
@@ -21,7 +22,24 @@ const cards = [
 
 const Hearthstone: React.FC<{}> = () => {
     const { width } = useWindowDimensions();
+    const [load, setLoad] = useState(false);
+    console.log("load", load);
+    //useSpring does not work with lazyload,  so we use useTransition
+    const transition = useTransition(load, {
+        from: {
+            transform: "translate3d(0px , 15rem, 0px)",
 
+            opacity: 0,
+        },
+        enter: {
+            transform: "translate3d(0px , 0px, 0px)",
+            opacity: 1,
+        },
+
+        config: {
+            duration: 5000,
+        },
+    });
     return (
         <div className="hearthstoneContainer">
             <div
@@ -115,12 +133,27 @@ const Hearthstone: React.FC<{}> = () => {
                     />
                 </video>
             </div>
-            <div className="hearthstoneHeroesSection">
-                <h1 className="hearthstoneHeroesSSectionTitle">
-                    Master Unique Hero Classes
-                </h1>
-                <HearthstoneHeroesCarousel />
-            </div>
+            <LazyLoad>
+                {transition((style, item) => {
+                    return (
+                        <animated.div
+                            className="hearthstoneHeroesSection"
+                            // style={style}
+                            // onLoad={() => setLoad(true)}
+                        >
+                            <h1 className="hearthstoneHeroesSSectionTitle">
+                                Master Unique Hero Classes
+                            </h1>
+                            <animated.div
+                                onLoad={() => setLoad(true)}
+                                style={style}
+                            >
+                                <HearthstoneHeroesCarousel />
+                            </animated.div>
+                        </animated.div>
+                    );
+                })}
+            </LazyLoad>
         </div>
     );
 };

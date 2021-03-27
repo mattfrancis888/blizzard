@@ -1315,11 +1315,12 @@ footer {
 
 .hearthstoneHeroesSlideInnerWrap {
   width: 12rem;
+  height: 100%;
   position: relative;
 }
 .hearthstoneHeroesSlideInnerWrap img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
 }
 @media screen and (min-width: 1200px) {
@@ -1381,6 +1382,11 @@ footer {
 
 .hideHearthstoneButton {
   display: none;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -17,6 +17,7 @@ import {
     SM_SCREEN_SIZE,
 } from "../constants";
 import { useTransition, animated, useSpring, useChain } from "react-spring";
+import SquarePlaceholder from "./SquarePlaceholder";
 const timer = 3000;
 
 const heroes = [
@@ -58,7 +59,7 @@ const heroes = [
 ];
 const HearthstoneHeroesCarousel: React.FC<{}> = (props) => {
     const { width } = useWindowDimensions();
-
+    const [heroImageLoaded, setHeroImageLoaded] = useState(false);
     const renderSlides = () => {
         return heroes.map((hero, index) => {
             return (
@@ -68,7 +69,12 @@ const HearthstoneHeroesCarousel: React.FC<{}> = (props) => {
                     className={`hearthstoneHeroeslide`}
                 >
                     <div className="hearthstoneHeroesSlideInnerWrap">
-                        <img src={hero.image} alt="hero"></img>
+                        {!heroImageLoaded && <SquarePlaceholder />}
+                        <img
+                            src={hero.image}
+                            onLoad={() => setHeroImageLoaded(true)}
+                            alt="hero"
+                        ></img>
                         <h4>{hero.name}</h4>
                     </div>
                 </Slide>
