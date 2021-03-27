@@ -10,6 +10,7 @@ import {
 import HearthstoneBannerCarousel from "./HearthstoneBannerCarousel";
 import HearthstoneCard from "./HearthstoneCard";
 import HearthstoneCardsCarousel from "./HearthstoneCardCarousel";
+import HearthstoneHeroesCarousel from "./HearthstoneHeroesCarousel";
 
 const cards = [
     "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a4d4a85f3addd14115f39c4f0a7aa05e85a1dda3c993927b988980536aef59b3.png",
@@ -113,6 +114,9 @@ const Hearthstone: React.FC<{}> = () => {
                         type="video/mp4"
                     />
                 </video>
+            </div>
+            <div className="hearthstoneHeroesSection">
+                <HearthstoneHeroesCarousel />
             </div>
         </div>
     );
