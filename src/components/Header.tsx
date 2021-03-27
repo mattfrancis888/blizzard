@@ -161,14 +161,14 @@ const Header: React.FC<{}> = () => {
         setShowModal(false);
     };
 
-    const fade = useSpring({
-        from: {
-            opacity: 0,
-        },
-        to: {
-            opacity: 1,
-        },
-    });
+    // const fade = useSpring({
+    //     from: {
+    //         opacity: 0,
+    //     },
+    //     to: {
+    //         opacity: 1,
+    //     },
+    // });
     return (
         <React.Fragment>
             {renderModal()}
