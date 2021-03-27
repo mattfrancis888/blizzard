@@ -16,17 +16,17 @@ const slides = [
     {
         image:
             "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt9aa5402bd2364d7c/603d5c7ac484333be943e53f/01_28_HS_ClassicBundle_PlayHS_Homepage_Desktop_1600x500_JY_v01.jpg?format=webp",
-        description: "Coming Soon!",
+        description: "Get a jump on The New Classic Format",
+    },
+    {
+        image:
+            "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltdcda7b9ef0acc809/603d5bb802ccfb4d0f672543/02_18_HS_Classic_Launch_LoginReward_PlayHS_Homepage_Desktop_1600x500_JY_v01.jpg?format=webp",
+        description: "A Golden Gift!",
     },
     {
         image:
             "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt0b5997ac49a51fad/6026e8320b1d853be8ad4fe8/20p0_Mega_Bundle_Homepage_20p0_Mega_Bundle_PHS_desktop_1600x500.jpg?format=webp",
-        description: "Season 2  now live",
-    },
-    {
-        image:
-            "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt0b5997ac49a51fad/6026e8320b1d853be8ad4fe8/20p0_Mega_Bundle_Homepage_20p0_Mega_Bundle_PHS_desktop_1600x500.jpg?format=webp",
-        description: "Season 3 now live",
+        description: "Prepare for the barrens with a Mega Bundle",
     },
 ];
 interface IShowSlide {
@@ -48,7 +48,7 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
             fillTimeOut = setTimeout(() => {
                 //Note: dont put  itemEls.current[showSlide].children[0].click();
                 //here, for some reason it acts weird
-                if (showSlide.index > 0) {
+                if (showSlide.index > 1) {
                     //Reset after third button
                     setShowSlide({
                         index: 0,
@@ -70,7 +70,7 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
 
     const transitionRef = useRef();
     const transition = useTransition(showSlide, {
-        transitionRef,
+        //transitionRef,
         from: {
             transform: "translate3d(0px , 50%, 0px)",
 
@@ -108,9 +108,11 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
     const scale = useTransition(showSlide, {
         from: {
             transform: "scale(1.5)",
+            opacity: 0,
         },
         enter: {
             transform: "scale(1)",
+            opacity: 1,
         },
 
         config: {
@@ -123,7 +125,7 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
             return (
                 <Slide index={index} key={index} className={`hearthstoneSlide`}>
                     <div className="hearthstoneBannerBackgroundContainer">
-                        {scale((style, item) => {
+                        {scale((style, item, key) => {
                             return (
                                 <animated.div
                                     className="hearthstoneBannerCarouselImageWrap"
@@ -136,7 +138,7 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
                         {transition((style, item) => {
                             return (
                                 <div
-                                    className={`slideImageLogoAndDescWrap
+                                    className={`hearthstoneSlideImageLogoAndDescWrap
                                     `}
                                 >
                                     <animated.div
@@ -144,7 +146,7 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
                                             width > SM_SCREEN_SIZE ? style : {}
                                         }
                                     >
-                                        <h1 className="slideDesc">
+                                        <h1 className="hearthstoneSlideDesc">
                                             {slide.description}
                                         </h1>
                                     </animated.div>

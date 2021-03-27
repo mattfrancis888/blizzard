@@ -23,17 +23,17 @@ const cards = [
 const Hearthstone: React.FC<{}> = () => {
     const { width } = useWindowDimensions();
     const [load, setLoad] = useState(false);
-    console.log("load", load);
+
     //useSpring does not work with lazyload,  so we use useTransition
     const transition = useTransition(load, {
         from: {
-            transform: "translate3d(0px , 15rem, 0px)",
+            transform: load ? "translate3d(0px , 15rem, 0px)" : "",
 
-            opacity: 0,
+            opacity: load ? 0 : "",
         },
         enter: {
-            transform: "translate3d(0px , 0px, 0px)",
-            opacity: 1,
+            transform: load ? "translate3d(0px , 0px, 0px)" : "",
+            opacity: load ? 1 : "",
         },
 
         config: {

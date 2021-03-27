@@ -737,7 +737,8 @@ body {
 }
 
 .hearthstoneCardsSection {
-  padding: 1rem 0;
+  padding: 5rem 0;
+  padding-left: 1rem;
   background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt87edf02f20f6dafb/5f974530ab20b60bdceae855/red-felt-bg.jpg) center top/cover no-repeat;
 }
 @media screen and (min-width: 1200px) {
@@ -745,6 +746,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    padding: 5rem 5rem;
   }
 }
 
@@ -772,11 +774,12 @@ body {
   .hearthstoneDiscoverText {
     text-align: left;
     margin-top: none;
+    font-size: 3rem;
   }
 }
 @media screen and (min-width: 1300px) {
   .hearthstoneDiscoverText {
-    font-size: 4.4rem;
+    font-size: 4.2rem;
   }
 }
 
@@ -1179,9 +1182,58 @@ body {
 
 .hearthstoneBannerBackgroundContainer {
   position: relative;
+  background-color: black;
   width: 100%;
   height: 100%;
   text-align: center;
+}
+
+.hearthstoneSlideImageLogoAndDescWrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 768px) {
+  .hearthstoneSlideImageLogoAndDescWrap {
+    padding-top: 5rem;
+    padding-left: 5rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+.hearthstoneSlideDesc {
+  font-weight: bold;
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin: 0;
+  margin-top: 1.5rem;
+  text-shadow: 4px 7px 17px rgba(0, 0, 0, 0.8);
+}
+@media screen and (min-width: 520px) {
+  .hearthstoneSlideDesc {
+    font-size: 4rem;
+    margin-top: 2rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .hearthstoneSlideDesc {
+    font-size: 4.5rem;
+    margin-top: 3rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .hearthstoneSlideDesc {
+    font-size: 6rem;
+    width: 50rem;
+  }
 }
 
 .homeCareerContainer {

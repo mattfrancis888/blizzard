@@ -61,11 +61,13 @@
 }
 
 .hearthstoneCardsSection {
-    padding: 1rem 0;
+    padding: 5rem 0;
+    padding-left: 1rem;
     @media screen and (min-width: $xl_breakpoint) {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+        padding: 5rem 5rem;
     }
 
     background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt87edf02f20f6dafb/5f974530ab20b60bdceae855/red-felt-bg.jpg)
@@ -95,9 +97,10 @@
     @media screen and (min-width: $xl_breakpoint) {
         text-align: left;
         margin-top: none;
+        font-size: 3rem;
     }
     @media screen and (min-width: 1300px) {
-        font-size: 4.4rem;
+        font-size: 4.2rem;
     }
 }
 
