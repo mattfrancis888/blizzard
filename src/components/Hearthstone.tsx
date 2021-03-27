@@ -116,6 +116,9 @@ const Hearthstone: React.FC<{}> = () => {
                 </video>
             </div>
             <div className="hearthstoneHeroesSection">
+                <h1 className="hearthstoneHeroesSSectionTitle">
+                    Master Unique Hero Classes
+                </h1>
                 <HearthstoneHeroesCarousel />
             </div>
         </div>
