@@ -1,24 +1,30 @@
+.hearthstoneCardCarouselProvider {
+    .sliderTray___-vHFQ {
+        width: calc(23rem * 4) !important;
+    }
+}
 .hearthstoneCardSlide {
     // &:nth-child(even) {
     //     left: -8rem;
     // }
     // &:nth-child(odd) {
-    //     left: -5rem;
+    //     left: -8rem;
     //     background: red;
     // }
     // &:nth-last-child(1) {
     //     left: 0rem;
     //     background: orange;
     // }
-    // &:nth-child(1) {
-    //     margin-right: -6rem;
-    // }
+
     // @media screen and (min-width: $sm_breakpoint) {
     //     left: -5rem;
     // }
+    // left: -1rem;
+    // &:nth-child(1) {
+    //     left: 3rem;
+    // }
 }
 .hearthstoneCardSlideInnerWrap {
-    display: flex;
-    justify-content: center;
+    width: 22rem;
     margin-top: 2rem;
 }

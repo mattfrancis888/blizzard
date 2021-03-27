@@ -80,17 +80,22 @@
         margin-top: none;
     }
 
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .hearthstoneDiscoverText {
     padding: 0 4rem;
     margin: 0;
     text-shadow: rgb(0 0 0) 2px 0px 0px;
+    text-align: center;
 
     font-size: 3.4rem;
-    margin: 5rem 0;
+    margin: 0;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+
     @media screen and (min-width: $xl_breakpoint) {
+        text-align: left;
         margin-top: none;
     }
     @media screen and (min-width: 1300px) {

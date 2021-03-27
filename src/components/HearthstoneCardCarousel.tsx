@@ -39,12 +39,15 @@ const HearthstoneCardsCarousel: React.FC<HearthstoneCardsCarouselProps> = (
     };
 
     const renderHeight = () => {
+        if (width < 400) {
+            return 140;
+        }
         if (width < SM_SCREEN_SIZE) {
-            return 100;
+            return 140;
         } else if (width < MED_SCREEN_SIZE) {
-            return 160;
+            return 150;
         } else if (width < LG_SCREEN_SIZE) {
-            return 110;
+            return 150;
         }
         return 1;
     };
@@ -53,6 +56,7 @@ const HearthstoneCardsCarousel: React.FC<HearthstoneCardsCarouselProps> = (
         return (
             <div>
                 <CarouselProvider
+                    className="hearthstoneCardCarouselProvider"
                     naturalSlideWidth={100}
                     naturalSlideHeight={renderHeight()}
                     visibleSlides={width < SM_SCREEN_SIZE ? 1 : 2}
