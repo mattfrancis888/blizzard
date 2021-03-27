@@ -61,9 +61,39 @@
 }
 
 .hearthstoneCardsSection {
-    padding: 1rem 3rem;
-    display: flex;
-    justify-content: space-around;
+    padding: 1rem 0;
+    @media screen and (min-width: $xl_breakpoint) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
     background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt87edf02f20f6dafb/5f974530ab20b60bdceae855/red-felt-bg.jpg)
         center top / cover no-repeat;
+}
+
+.hearthstoneCardsWrap {
+    // flex-wrap: wrap;
+
+    @media screen and (min-width: $lg_breakpoint) {
+        display: flex;
+        margin-top: none;
+    }
+
+    justify-content: space-between;
+}
+
+.hearthstoneDiscoverText {
+    padding: 0 4rem;
+    margin: 0;
+    text-shadow: rgb(0 0 0) 2px 0px 0px;
+
+    font-size: 3.4rem;
+    margin: 5rem 0;
+    @media screen and (min-width: $xl_breakpoint) {
+        margin-top: none;
+    }
+    @media screen and (min-width: 1300px) {
+        font-size: 4.4rem;
+    }
 }

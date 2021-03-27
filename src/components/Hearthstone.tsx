@@ -9,6 +9,14 @@ import {
 } from "../constants";
 import HearthstoneBannerCarousel from "./HearthstoneBannerCarousel";
 import HearthstoneCard from "./HearthstoneCard";
+import HearthstoneCardsCarousel from "./HearthstoneCardCarousel";
+
+const cards = [
+    "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a4d4a85f3addd14115f39c4f0a7aa05e85a1dda3c993927b988980536aef59b3.png",
+    "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f4da378778158d9c0617ad47de49e187741bfcfd0c1307cdfbf8367a84fd7927.png",
+    "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0ace69fb56c22c898ee0d77a703031fdc229dc7de0d190d62c9493f1f043707b.png",
+    "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/92363d0d08f0a71e7ef4c886795def7c5df95167ea299e2b6acad37e2a7073bd.png",
+];
 
 const Hearthstone: React.FC<{}> = () => {
     const { width } = useWindowDimensions();
@@ -46,8 +54,21 @@ const Hearthstone: React.FC<{}> = () => {
                 <HearthstoneBannerCarousel />
             </div>
             <div className="hearthstoneCardsSection">
-                <HearthstoneCard />
-                <HearthstoneCard />
+                <div className="hearthstoneCardsWrap">
+                    {width > LG_SCREEN_SIZE &&
+                        cards.map((card, index) => {
+                            return (
+                                <HearthstoneCard key={index} cardImage={card} />
+                            );
+                        })}
+                </div>
+
+                {width < LG_SCREEN_SIZE && (
+                    <HearthstoneCardsCarousel cards={cards} />
+                )}
+                <h2 className="hearthstoneDiscoverText">
+                    Discover New Cards and Build Your Own Deck
+                </h2>
             </div>
         </div>
     );

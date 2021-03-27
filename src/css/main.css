@@ -737,10 +737,43 @@ body {
 }
 
 .hearthstoneCardsSection {
-  padding: 1rem 3rem;
-  display: flex;
-  justify-content: space-around;
+  padding: 1rem 0;
   background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt87edf02f20f6dafb/5f974530ab20b60bdceae855/red-felt-bg.jpg) center top/cover no-repeat;
+}
+@media screen and (min-width: 1200px) {
+  .hearthstoneCardsSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+.hearthstoneCardsWrap {
+  justify-content: space-between;
+}
+@media screen and (min-width: 992px) {
+  .hearthstoneCardsWrap {
+    display: flex;
+    margin-top: none;
+  }
+}
+
+.hearthstoneDiscoverText {
+  padding: 0 4rem;
+  margin: 0;
+  text-shadow: black 2px 0px 0px;
+  font-size: 3.4rem;
+  margin: 5rem 0;
+}
+@media screen and (min-width: 1200px) {
+  .hearthstoneDiscoverText {
+    margin-top: none;
+  }
+}
+@media screen and (min-width: 1300px) {
+  .hearthstoneDiscoverText {
+    font-size: 4.4rem;
+  }
 }
 
 .gameCarouselWrap {
@@ -1053,6 +1086,7 @@ footer {
   width: 22rem;
   height: 31rem;
   z-index: 1;
+  cursor: pointer;
 }
 
 .glow {
@@ -1093,6 +1127,12 @@ footer {
 
 .front {
   background-image: url(https://d15f34w2p8l1cc.cloudfront.net/hearthstone/92363d0d08f0a71e7ef4c886795def7c5df95167ea299e2b6acad37e2a7073bd.png);
+}
+
+.hearthstoneCardSlideInnerWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 /*# sourceMappingURL=main.css.map */

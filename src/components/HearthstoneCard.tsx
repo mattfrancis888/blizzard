@@ -1,8 +1,10 @@
 import { render } from "react-dom";
 import React, { useState } from "react";
 import { useSpring, animated as a } from "react-spring";
-
-const HearthstoneCard: React.FC<{}> = () => {
+interface HearthstoneCardProps {
+    cardImage: string;
+}
+const HearthstoneCard: React.FC<HearthstoneCardProps> = (props) => {
     const [flipped, set] = useState(false);
     const { transform, opacity } = useSpring({
         opacity: flipped ? 1 : 0,
@@ -12,7 +14,7 @@ const HearthstoneCard: React.FC<{}> = () => {
     return (
         <div className="hearthstoneCard" onClick={() => set((state) => !state)}>
             <a.div
-                className="c back"
+                className="back"
                 style={{
                     //.to is interpolate; interpolate is depercated in spring v9
                     opacity: opacity.to((o) => 1 - o),
@@ -20,10 +22,11 @@ const HearthstoneCard: React.FC<{}> = () => {
                 }}
             />
             <a.div
-                className="c front"
+                className="front"
                 style={{
                     opacity,
                     transform: transform.to((t) => `${t} rotateX(180deg)`),
+                    backgroundImage: `url(${props.cardImage})`,
                 }}
             />
             {!flipped && <div className="glow"></div>}

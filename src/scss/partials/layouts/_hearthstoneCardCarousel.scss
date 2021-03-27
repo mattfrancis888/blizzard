@@ -1,0 +1,24 @@
+.hearthstoneCardSlide {
+    // &:nth-child(even) {
+    //     left: -8rem;
+    // }
+    // &:nth-child(odd) {
+    //     left: -5rem;
+    //     background: red;
+    // }
+    // &:nth-last-child(1) {
+    //     left: 0rem;
+    //     background: orange;
+    // }
+    // &:nth-child(1) {
+    //     margin-right: -6rem;
+    // }
+    // @media screen and (min-width: $sm_breakpoint) {
+    //     left: -5rem;
+    // }
+}
+.hearthstoneCardSlideInnerWrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}

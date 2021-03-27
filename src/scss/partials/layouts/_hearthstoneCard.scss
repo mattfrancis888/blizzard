@@ -3,24 +3,7 @@
     width: 22rem;
     height: 31rem;
     z-index: 1;
-    // &::after {
-    //     display: block;
-    //     content: "";
-    //     position: absolute;
-    //     // animation: 2s ease-in-out 0s infinite alternate none running front;
-    //     animation: glow 1s infinite alternate;
-    //     width: 85%;
-    //     height: 85%;
-    //     top: 50%;
-    //     left: 50%;
-    //     z-index: -1;
-    //     //Check out why z-index -1 for the psuedo element and z-index 1 for the element is needed; perculiar behaviour
-    //     //https://stackoverflow.com/questions/3032856/is-it-possible-to-set-the-stacking-order-of-pseudo-elements-below-their-parent-e
-    //     opacity: 0.45;
-    //     transform: translate3d(-50%, -50%, 0px);
-    //     transition: opacity 0.25s ease-out 0s;
-    //     max-width: 270px;
-    // }
+    cursor: pointer;
 }
 
 .glow {
