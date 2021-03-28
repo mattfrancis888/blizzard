@@ -1245,6 +1245,113 @@ body {
   }
 }
 
+.wowContainer {
+  font-family: Open Sans, Arial, Helvetica, sans-serif;
+  background: black;
+}
+
+.wowBanner {
+  width: 100%;
+  position: relative;
+}
+@media screen and (min-width: 992px) {
+  .wowBanner {
+    height: 60rem;
+  }
+}
+
+.wowBannerVid {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mobileBannerImageWrap {
+  width: 100%;
+}
+.mobileBannerImageWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wowBannerTextWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 3rem;
+}
+@media screen and (min-width: 768px) {
+  .wowBannerTextWrap {
+    padding: 0 4rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .wowBannerTextWrap {
+    padding: 0;
+    display: block;
+    position: absolute;
+    left: 3rem;
+    top: 15rem;
+    max-width: 75%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .wowBannerTextWrap {
+    max-width: 50%;
+  }
+}
+
+.wowBannerTitle {
+  font-size: 3.7rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 1px transparent, 0 1px 2px rgba(0, 0, 0, 0.8);
+  margin: 0;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+@media screen and (min-width: 992px) {
+  .wowBannerTitle {
+    font-size: 4.3rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .wowBannerTitle {
+    text-align: left;
+  }
+}
+
+.wowBannerDesc {
+  text-align: center;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  color: #ebdec2;
+  margin: 0;
+  font-weight: 400;
+  text-shadow: 0 0 1px transparent, 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+@media screen and (min-width: 520px) {
+  .wowBannerDesc {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .wowBannerDesc {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .wowBannerDesc {
+    text-align: left;
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+
 .gameCarouselWrap {
   width: 100%;
 }
