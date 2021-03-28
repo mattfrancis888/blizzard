@@ -986,6 +986,7 @@ body {
 
 .heroesSectionTitle {
   font-weight: normal;
+  font-style: italic;
   font-size: 3.1rem;
   margin: 0;
 }
@@ -1156,6 +1157,92 @@ body {
 .overwatchHeroPortraitAndNameWrap:hover .overwatchHeroPortraitName {
   background: white;
   transition: all 0.1s ease-in;
+}
+
+.overwatchBuySection {
+  border-top: 1px solid #ededed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  margin-top: -0.3rem;
+  background-image: url("https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc424f99fa4ed7a53/5d9560a541d64904687cf013/Buy-Footer-BG-2560.jpg?auto=webp");
+  background-size: cover;
+}
+@media screen and (min-width: 520px) {
+  .overwatchBuySection {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.overwatchBuyImageWrap {
+  width: 32rem;
+  padding: 0 2rem;
+  margin-bottom: 3rem;
+}
+@media screen and (min-width: 520px) {
+  .overwatchBuyImageWrap {
+    padding: 0;
+    margin-bottom: 0;
+    margin-right: 2rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .overwatchBuyImageWrap {
+    margin-right: 4rem;
+  }
+}
+.overwatchBuyImageWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overwatchBuyTextWrap .overwatchBuyTitle {
+  text-align: center;
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 5.4rem;
+  margin: 0;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+@media screen and (min-width: 520px) {
+  .overwatchBuyTextWrap .overwatchBuyTitle {
+    text-align: left;
+  }
+}
+@media screen and (min-width: 992px) {
+  .overwatchBuyTextWrap .overwatchBuyTitle {
+    font-size: 5.4rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overwatchBuyTextWrap .overwatchBuyTitle {
+    margin-bottom: 0.5rem;
+    font-size: 6.4rem;
+  }
+}
+.overwatchBuyTextWrap p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  text-align: center;
+  font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+}
+@media screen and (min-width: 520px) {
+  .overwatchBuyTextWrap p {
+    text-align: left;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overwatchBuyTextWrap p {
+    font-size: 1.8rem;
+  }
 }
 
 .gameCarouselWrap {

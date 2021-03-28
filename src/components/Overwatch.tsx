@@ -333,14 +333,21 @@ const Overwatch: React.FC<{}> = () => {
                             </div>
                         );
                     })}
-                    {/* <div className="overwatchHeroportraitAndNameWrap">
-                        <div className="overwatchHeroportrait">
-                            <img src={heroes[0].portrait} alt="hero portrait" />
-                        </div>
-                        <p className="overwatchHeroportraitName">
-                            {heroes[0].name}
-                        </p>
-                    </div> */}
+                </div>
+            </div>
+            <div className="overwatchBuySection">
+                <div className="overwatchBuyImageWrap">
+                    <img
+                        src="https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/blt138432be14780f67/5dd4935d0386806c8e4e1001/Buy-Footer-Art.png?auto=webp"
+                        alt="buy"
+                    ></img>
+                </div>
+                <div className="overwatchBuyTextWrap">
+                    <h1 className="overwatchBuyTitle">Begin Your Watch</h1>
+                    <p>
+                        Join the fight for the future in the ultimate team-based
+                        shooter.
+                    </p>
                 </div>
             </div>
         </div>
