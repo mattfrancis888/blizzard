@@ -1081,7 +1081,16 @@ body {
   }
 }
 
-.overwatchhHeroPotriatAndNameWrap {
+.overwatchHeroesList {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+.overwatchHeroPotriatAndNameWrap {
+  transform: skew(25rad);
+}
+
+.overwatchHeroPotriat {
   position: relative;
   width: 7.6rem;
   height: 8.4rem;
@@ -1093,36 +1102,35 @@ body {
   transform: skew(25rad);
   background-color: rgba(51, 51, 51, 0.9);
 }
-.overwatchhHeroPotriatAndNameWrap img {
-  width: 100%;
-}
-.overwatchhHeroPotriatAndNameWrap:hover {
-  transform: skew(25rad) scale(1.3);
-  background-color: #ff9c00;
-}
-.overwatchhHeroPotriatAndNameWrap p {
-  position: absolute;
-  bottom: 0rem;
-  left: 50%;
-  padding: 1rem;
-  margin: 0;
-  transform: translateX(-50%);
-  background: white;
-}
-.overwatchhHeroPotriatAndNameWrap p:hover {
-  color: #b36000;
-}
-.overwatchhHeroPotriatAndNameWrap img {
+.overwatchHeroPotriat img {
   transform: skew(-25rad) translateX(-5px);
   width: 100%;
   width: calc(100% + 10px);
   height: 100%;
 }
 
-.overwatchHeroesList {
-  margin-top: 10rem;
-  display: flex;
-  flex-wrap: wrap;
+.overwatchHeroPotriatName {
+  display: inline;
+  position: relative;
+  padding: 0.25rem 1rem;
+  z-index: 1;
+  background: transparent;
+  margin: 0;
+  border-radius: 0.4rem;
+  font-size: 1.4rem;
+  margin-top: 0.25rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.1s ease-in;
+}
+
+.overwatchHeroPotriatAndNameWrap:hover .overwatchHeroPotriat:hover {
+  transform: skew(25rad) scale(1.3);
+  background-color: #ff9c00;
+}
+.overwatchHeroPotriatAndNameWrap:hover .overwatchHeroPotriatName {
+  background: white;
+  transition: all 0.1s ease-in;
 }
 
 .gameCarouselWrap {

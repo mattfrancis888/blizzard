@@ -20,7 +20,15 @@ const heroes = [
         description:
             "This Overwatch stalwart has emerged from years of seclusion to defend a new generation.",
     },
-    { name: "Ana", potriat: "", displayImage: "", description: "" },
+    {
+        name: "Ashe",
+        potriat:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/ashe/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/ashe/full-portrait.png",
+        description:
+            "The leader of the notorious Deadlock Gang menaces the American Southwest. ",
+    },
 ];
 
 const Overwatch: React.FC<{}> = () => {
@@ -109,9 +117,13 @@ const Overwatch: React.FC<{}> = () => {
                     </div>
                 </div>
                 <div className="overwatchHeroesList">
-                    <div className="overwatchhHeroPotriatAndNameWrap">
-                        <img src={heroes[0].potriat} alt="hero potriat" />
-                        <p>{heroes[0].name}</p>
+                    <div className="overwatchHeroPotriatAndNameWrap">
+                        <div className="overwatchHeroPotriat">
+                            <img src={heroes[0].potriat} alt="hero potriat" />
+                        </div>
+                        <p className="overwatchHeroPotriatName">
+                            {heroes[0].name}
+                        </p>
                     </div>
                 </div>
             </div>
