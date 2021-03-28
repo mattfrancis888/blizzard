@@ -77,6 +77,19 @@ const Overwatch: React.FC<{}> = () => {
                     </g>
                 </svg>
             </div>
+            <div className="overwatchHeroesSection">
+                <div className="overwatchHeroesSectionTitleWrap">
+                    <h1 className="heroesSectionTitle">
+                        The World Needs Heroes
+                    </h1>
+                    <p className="heroesSectionTitleDesc">
+                        Slow down time, rain destruction from above in a
+                        jet-powered armor suit, or pilot a superpowered hamster
+                        ball: In Overwatch, every hero has a unique set of
+                        devastating abilities.
+                    </p>
+                </div>
+            </div>
         </div>
     );
 };
