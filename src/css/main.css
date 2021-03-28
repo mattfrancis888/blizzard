@@ -364,6 +364,10 @@ body {
   font-family: "Belwe Bold";
   src: url(../fonts/BelweBold.otf) format("opentype");
 }
+@font-face {
+  font-family: "Big Noodle Titling";
+  src: url(../fonts/big_noodle_titling.ttf) format("truetype");
+}
 .loadingCenter {
   display: flex;
   justify-content: center;
@@ -692,7 +696,6 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
   object-fit: cover;
 }
@@ -927,6 +930,318 @@ body {
   .hearthstoneHeroesSSectionTitle {
     font-size: 3rem;
     margin-bottom: 10rem;
+  }
+}
+
+.overwatchContainer {
+  font-family: Big Noodle Titling, impact, sans-serif;
+  color: #4b535d;
+}
+
+.overwatchBanner {
+  width: 100%;
+  height: 60rem;
+  position: relative;
+}
+
+.overwatchBannerVid {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overwatchBannerLogo {
+  position: absolute;
+  width: 75%;
+  max-width: 90rem;
+  min-width: 30rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  fill: #fff;
+}
+
+.overwatchHeroesSection {
+  position: relative;
+  text-align: center;
+  background-image: url("https://static.playoverwatch.com/img/scene/candy-5d74c9b93f.jpg");
+  background-position: top;
+  background-position-x: center;
+  background-position-y: top;
+  background-size: cover;
+  clip-path: polygon(0 0, calc(50% - 720px) 0, calc(50% - 710px) 21px, calc(50% + 710px) 21px, calc(50% + 720px) 0, 100% 0, 100% 100%, 0 100%);
+  margin-top: -8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.overwatchHeroesSectionTitleWrap {
+  padding-top: 6rem;
+}
+
+.heroesSectionTitle {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 3.1rem;
+  margin: 0;
+}
+@media screen and (min-width: 520px) {
+  .heroesSectionTitle {
+    font-size: 5.4rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .heroesSectionTitle {
+    font-size: 6.4rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .overwatchHeroesSectionTitleWrap {
+    max-width: 75%;
+  }
+}
+
+.heroesSectionTitleDesc {
+  text-align: center;
+  margin: 0;
+  margin-top: 2rem;
+  font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 1.4;
+}
+@media screen and (min-width: 992px) {
+  .heroesSectionTitleDesc {
+    font-size: 2rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .heroesSectionTitleDesc {
+    font-size: 2.1rem;
+  }
+}
+
+.overwatchHeroSpotlight {
+  display: none;
+  width: 100%;
+  height: 20rem;
+  align-items: center;
+  background-image: linear-gradient(90deg, rgba(64, 82, 117, 0) 0, rgba(64, 82, 117, 0.8) 25%, rgba(64, 82, 117, 0.8) 75%, rgba(64, 82, 117, 0));
+  background-position: 50%;
+  background-size: 100% 200px;
+  margin-top: 20rem;
+}
+@media screen and (min-width: 992px) {
+  .overwatchHeroSpotlight {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.heroSpotlightImage {
+  height: 44rem;
+  margin-top: 0rem;
+  margin-right: 2rem;
+}
+
+.heroSpotlightTextWrap {
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heroSpotlightName {
+  color: white;
+  margin: 0;
+  margin-bottom: 1rem;
+  font-size: 4.5rem;
+}
+@media screen and (min-width: 1200px) {
+  .heroSpotlightName {
+    font-size: 5.4rem;
+  }
+}
+
+.heroSpotlightDesc {
+  color: white;
+  margin: 0;
+  font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+}
+@media screen and (min-width: 1200px) {
+  .heroSpotlightDesc {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+  }
+}
+
+.overwatchHeroesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 5rem;
+  margin-bottom: 10rem;
+}
+@media screen and (min-width: 520px) {
+  .overwatchHeroesList {
+    padding: 0 5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .overwatchHeroesList {
+    padding: 0 10rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .overwatchHeroesList {
+    margin-top: 15rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overwatchHeroesList {
+    padding: 0 30rem;
+  }
+}
+
+.overwatchHeroPortraitAndNameWrap {
+  transform: skew(25rad);
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+
+.overwatchHeroPortrait {
+  position: relative;
+  width: 7.6rem;
+  height: 8.4rem;
+  border: 3px solid #f6f6f6;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.1s, -webkit-transform 0.1s;
+  transform: skew(25rad);
+  background-color: rgba(51, 51, 51, 0.9);
+}
+.overwatchHeroPortrait img {
+  transform: skew(-25rad) translateX(-5px);
+  width: 100%;
+  width: calc(100% + 10px);
+  height: 100%;
+}
+
+.overwatchHeroPortraitName {
+  display: inline;
+  position: relative;
+  padding: 0.25rem 1rem;
+  z-index: 1;
+  background: transparent;
+  margin: 0;
+  border-radius: 0.4rem;
+  font-size: 1.1rem;
+  margin-top: 0.25rem;
+  font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+  margin-left: -18%;
+  transition: all 0.1s ease-in;
+}
+
+.overwatchHeroPortraitAndNameWrap:hover .overwatchHeroPortrait:hover {
+  transform: skew(25rad) scale(1.3);
+  background-color: #ff9c00;
+}
+.overwatchHeroPortraitAndNameWrap:hover .overwatchHeroPortraitName {
+  background: white;
+  transition: all 0.1s ease-in;
+}
+
+.overwatchBuySection {
+  border-top: 1px solid #ededed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  margin-top: -0.3rem;
+  background-image: url("https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc424f99fa4ed7a53/5d9560a541d64904687cf013/Buy-Footer-BG-2560.jpg?auto=webp");
+  background-size: cover;
+}
+@media screen and (min-width: 520px) {
+  .overwatchBuySection {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.overwatchBuyImageWrap {
+  width: 32rem;
+  padding: 0 2rem;
+  margin-bottom: 3rem;
+}
+@media screen and (min-width: 520px) {
+  .overwatchBuyImageWrap {
+    padding: 0;
+    margin-bottom: 0;
+    margin-right: 2rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .overwatchBuyImageWrap {
+    margin-right: 4rem;
+  }
+}
+.overwatchBuyImageWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overwatchBuyTextWrap .overwatchBuyTitle {
+  text-align: center;
+  font-style: italic;
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 5.4rem;
+  margin: 0;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+@media screen and (min-width: 520px) {
+  .overwatchBuyTextWrap .overwatchBuyTitle {
+    text-align: left;
+  }
+}
+@media screen and (min-width: 992px) {
+  .overwatchBuyTextWrap .overwatchBuyTitle {
+    font-size: 5.4rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overwatchBuyTextWrap .overwatchBuyTitle {
+    margin-bottom: 0.5rem;
+    font-size: 6.4rem;
+  }
+}
+.overwatchBuyTextWrap p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+  text-align: center;
+  font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+}
+@media screen and (min-width: 520px) {
+  .overwatchBuyTextWrap p {
+    text-align: left;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overwatchBuyTextWrap p {
+    font-size: 1.8rem;
   }
 }
 
