@@ -1269,10 +1269,10 @@ body {
   object-fit: cover;
 }
 
-.mobileBannerImageWrap {
+.wowMobileBannerImageWrap {
   width: 100%;
 }
-.mobileBannerImageWrap img {
+.wowMobileBannerImageWrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1350,6 +1350,103 @@ body {
     font-size: 2rem;
     line-height: 2.5rem;
   }
+}
+
+.wowContentContainer {
+  color: #ebdec2;
+  text-shadow: 0 0 1px transparent, 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.wowBeginAndReturningWrap {
+  margin-top: 5rem;
+  border-top: 1px solid #504137;
+}
+@media screen and (min-width: 992px) {
+  .wowBeginAndReturningWrap {
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0.5rem;
+  }
+}
+
+.wowBeginContainer,
+.wowReturningContainer {
+  border: 1px solid #504137;
+  background-image: url(https://assets.worldofwarcraft.com/static/components/Panel/Panel-bg-stacked.18def74ed60ab9f1f4139f87349d2f79.jpg);
+  background-size: cover;
+}
+.wowBeginContainer img,
+.wowReturningContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.wowBeginImageWrap {
+  background-image: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/QS8QDZEEPAJZ1591728956978.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 37.5rem;
+}
+
+.wowReturningImageWrap {
+  background-image: url(https://bnetcmsus-a.akamaihd.net/cms/template_resource/ATDGB78UR6T41594224494516.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 37.5rem;
+}
+
+.wowBeginAndReturnTextWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.wowBeginAndReturnSubTitle {
+  margin: 0;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.wowBeginAndReturnTitle {
+  color: #f8b700;
+  margin: 0;
+  text-align: center;
+  line-height: 1.5;
+}
+@media screen and (min-width: 768px) {
+  .wowBeginAndReturnTitle {
+    font-size: 2.8rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .wowBeginAndReturnTitle {
+    font-size: 3rem;
+  }
+}
+
+.wowBeginAndReturnSubTitle,
+.wowBeginAndReturnDesc {
+  line-height: 1.5;
+  font-size: 1.3rem;
+}
+@media screen and (min-width: 768px) {
+  .wowBeginAndReturnSubTitle,
+.wowBeginAndReturnDesc {
+    font-size: 1.3rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .wowBeginAndReturnSubTitle,
+.wowBeginAndReturnDesc {
+    font-size: 1.8rem;
+  }
+}
+
+.wowBeginAndReturnDesc {
+  text-align: center;
 }
 
 .gameCarouselWrap {
