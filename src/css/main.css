@@ -975,7 +975,8 @@ body {
   clip-path: polygon(0 0, calc(50% - 720px) 0, calc(50% - 710px) 21px, calc(50% + 710px) 21px, calc(50% + 720px) 0, 100% 0, 100% 100%, 0 100%);
   margin-top: -8rem;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding: 0 2rem;
 }
 
@@ -1022,6 +1023,106 @@ body {
   .heroesSectionTitleDesc {
     font-size: 2.1rem;
   }
+}
+
+.overwatchHeroSpotlight {
+  display: none;
+  width: 100%;
+  height: 20rem;
+  align-items: center;
+  background-image: linear-gradient(90deg, rgba(64, 82, 117, 0) 0, rgba(64, 82, 117, 0.8) 25%, rgba(64, 82, 117, 0.8) 75%, rgba(64, 82, 117, 0));
+  background-position: 50%;
+  background-size: 100% 200px;
+  margin-top: 20rem;
+}
+@media screen and (min-width: 992px) {
+  .overwatchHeroSpotlight {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.heroSpotlightImage {
+  height: 44rem;
+  margin-top: 0rem;
+  margin-right: 2rem;
+}
+
+.heroSpotlightTextWrap {
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.heroSpotlightName {
+  color: white;
+  margin: 0;
+  margin-bottom: 1rem;
+  font-size: 4.5rem;
+}
+@media screen and (min-width: 1200px) {
+  .heroSpotlightName {
+    font-size: 5.4rem;
+  }
+}
+
+.heroSpotlightDesc {
+  color: white;
+  margin: 0;
+  font-family: Roboto, Helvetica Neue, Arial, sans-serif;
+  font-size: 1.6rem;
+  line-height: 2.2rem;
+}
+@media screen and (min-width: 1200px) {
+  .heroSpotlightDesc {
+    font-size: 1.8rem;
+    line-height: 2.6rem;
+  }
+}
+
+.overwatchhHeroPotriatAndNameWrap {
+  position: relative;
+  width: 7.6rem;
+  height: 8.4rem;
+  border: 3px solid #f6f6f6;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.1s, -webkit-transform 0.1s;
+  transform: skew(25rad);
+  background-color: rgba(51, 51, 51, 0.9);
+}
+.overwatchhHeroPotriatAndNameWrap img {
+  width: 100%;
+}
+.overwatchhHeroPotriatAndNameWrap:hover {
+  transform: skew(25rad) scale(1.3);
+  background-color: #ff9c00;
+}
+.overwatchhHeroPotriatAndNameWrap p {
+  position: absolute;
+  bottom: 0rem;
+  left: 50%;
+  padding: 1rem;
+  margin: 0;
+  transform: translateX(-50%);
+  background: white;
+}
+.overwatchhHeroPotriatAndNameWrap p:hover {
+  color: #b36000;
+}
+.overwatchhHeroPotriatAndNameWrap img {
+  transform: skew(-25rad) translateX(-5px);
+  width: 100%;
+  width: calc(100% + 10px);
+  height: 100%;
+}
+
+.overwatchHeroesList {
+  margin-top: 10rem;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .gameCarouselWrap {

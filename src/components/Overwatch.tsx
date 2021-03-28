@@ -10,11 +10,17 @@ import {
 
 import LazyLoad from "react-lazyload";
 
-const cards = [
-    "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a4d4a85f3addd14115f39c4f0a7aa05e85a1dda3c993927b988980536aef59b3.png",
-    "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f4da378778158d9c0617ad47de49e187741bfcfd0c1307cdfbf8367a84fd7927.png",
-    "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0ace69fb56c22c898ee0d77a703031fdc229dc7de0d190d62c9493f1f043707b.png",
-    "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/92363d0d08f0a71e7ef4c886795def7c5df95167ea299e2b6acad37e2a7073bd.png",
+const heroes = [
+    {
+        name: "Ana",
+        potriat:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/ana/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/ana/full-portrait.png",
+        description:
+            "This Overwatch stalwart has emerged from years of seclusion to defend a new generation.",
+    },
+    { name: "Ana", potriat: "", displayImage: "", description: "" },
 ];
 
 const Overwatch: React.FC<{}> = () => {
@@ -88,6 +94,25 @@ const Overwatch: React.FC<{}> = () => {
                         ball: In Overwatch, every hero has a unique set of
                         devastating abilities.
                     </p>
+                </div>
+                <div className="overwatchHeroSpotlight">
+                    <img
+                        className="heroSpotlightImage"
+                        src={heroes[0].spotlight}
+                        alt="hero"
+                    ></img>
+                    <div className="heroSpotlightTextWrap">
+                        <h3 className="heroSpotlightName">{heroes[0].name}</h3>
+                        <p className="heroSpotlightDesc">
+                            {heroes[0].description}
+                        </p>
+                    </div>
+                </div>
+                <div className="overwatchHeroesList">
+                    <div className="overwatchhHeroPotriatAndNameWrap">
+                        <img src={heroes[0].potriat} alt="hero potriat" />
+                        <p>{heroes[0].name}</p>
+                    </div>
                 </div>
             </div>
         </div>
