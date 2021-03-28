@@ -88,7 +88,7 @@ const heroes: IHero[] = [
         portrait:
             "https://d1u1mce87gyfbn.cloudfront.net/hero/mccree/icon-portrait.png",
         spotlight:
-            "https://d1u1mce87gyfbn.cloudfront.net/hero/lucio/full-portrait.png",
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/mccree/full-portrait.png",
         description:
             "An outlaw gunslinger who doles out justice on his own terms.",
     },
@@ -122,7 +122,7 @@ const heroes: IHero[] = [
     {
         name: "Reaper",
         portrait:
-            "https://d1u1mce87gyfbn.cloudfront.net/hero/pharah/icon-portrait.png",
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/reaper/icon-portrait.png",
         spotlight:
             "https://d1u1mce87gyfbn.cloudfront.net/hero/reaper/full-portrait.png",
         description:
@@ -142,7 +142,7 @@ const heroes: IHero[] = [
         portrait:
             "https://d1u1mce87gyfbn.cloudfront.net/hero/roadhog/icon-portrait.png",
         spotlight:
-            "https://d1u1mce87gyfbn.cloudfront.net/hero/reinhardt/full-portrait.png",
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/roadhog/full-portrait.png",
         description:
             "A ruthless killer with tremendous strength and a reputation for cruelty and wanton destruction.",
     },
