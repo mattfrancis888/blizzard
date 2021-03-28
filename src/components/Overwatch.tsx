@@ -10,10 +10,10 @@ import {
 
 import LazyLoad from "react-lazyload";
 
-const heroes = [
+const heroes: IHero[] = [
     {
         name: "Ana",
-        potriat:
+        portrait:
             "https://d1u1mce87gyfbn.cloudfront.net/hero/ana/icon-portrait.png",
         spotlight:
             "https://d1u1mce87gyfbn.cloudfront.net/hero/ana/full-portrait.png",
@@ -22,18 +22,213 @@ const heroes = [
     },
     {
         name: "Ashe",
-        potriat:
+        portrait:
             "https://d1u1mce87gyfbn.cloudfront.net/hero/ashe/icon-portrait.png",
         spotlight:
             "https://d1u1mce87gyfbn.cloudfront.net/hero/ashe/full-portrait.png",
         description:
             "The leader of the notorious Deadlock Gang menaces the American Southwest. ",
     },
+    {
+        name: "Bastion",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/bastion/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/bastion/full-portrait.png",
+        description:
+            "A transforming robot who explores the world; fascinated by nature, but wary of humanity.",
+    },
+    {
+        name: "D.Va",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/dva/icon-portrait.png",
+
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/dva/full-portrait.png",
+        description:
+            "A former pro gamer who now pilots a state-of-the-art mech in defense of her homeland.",
+    },
+    {
+        name: "Genji",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/genji/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/genji/full-portrait.png",
+        description:
+            "A cyborg ninja and deadly warrior who has found peace with his mechanical body.",
+    },
+    {
+        name: "Hanzo",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/hanzo/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/hanzo/full-portrait.png",
+        description: "A lethal bowman and assassin without peer.",
+    },
+    {
+        name: "Junkrat",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/junkrat/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/junkrat/full-portrait.png",
+        description:
+            "An explosives-obsessed freak who lives to cause chaos and destruction.",
+    },
+    {
+        name: "Lúcio",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/lucio/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/lucio/full-portrait.png",
+        description:
+            "An international celebrity who fights for social change through his music and actions.",
+    },
+    {
+        name: "Mccree",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/mccree/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/lucio/full-portrait.png",
+        description:
+            "An outlaw gunslinger who doles out justice on his own terms.",
+    },
+    {
+        name: "Mei",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/mei/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/mei/full-portrait.png",
+        description:
+            "A specialist in weather manipulation who has taken up the fight to preserve the environment.",
+    },
+    {
+        name: "Mercy",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/mercy/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/mercy/full-portrait.png",
+        description:
+            "A guardian angel, peerless healer, brilliant medical researcher, and staunch advocate for peace.",
+    },
+    {
+        name: "Pharah",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/pharah/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/pharah/full-portrait.png",
+        description:
+            "A decorated soldier who patrols the skies in her experimental Raptora combat suit.",
+    },
+    {
+        name: "Reaper",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/pharah/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/reaper/full-portrait.png",
+        description:
+            "A mercenary and ruthless killer who hunts the former agents of Overwatch.",
+    },
+    {
+        name: "Reinhardt",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/reinhardt/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/reinhardt/full-portrait.png",
+        description:
+            "A champion of a bygone age, who lives by the knightly codes of valor, justice, and courage.",
+    },
+    {
+        name: "Roadhog",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/roadhog/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/reinhardt/full-portrait.png",
+        description:
+            "A ruthless killer with tremendous strength and a reputation for cruelty and wanton destruction.",
+    },
+    {
+        name: "Soldier: 76",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/soldier-76/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/soldier-76/full-portrait.png",
+        description:
+            "A vigilante who will stop at nothing to bring the enemies of Overwatch to justice.",
+    },
+    {
+        name: "Symmetra",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/symmetra/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/symmetra/full-portrait.png",
+        description:
+            "An architech who manipulates hard-light constructs to build her perfect, ordered world.",
+    },
+    {
+        name: "Torbjörn",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/torbjorn/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/torbjorn/full-portrait.png",
+        description:
+            "An ingenious engineer who forges weapons systems on the battlefield.",
+    },
+    {
+        name: "Tracer",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/tracer/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/tracer/full-portrait.png",
+        description:
+            "A former Overwatch agent, time-jumping adventurer, and irrepressible force for good.",
+    },
+    {
+        name: "Widowmaker",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/widowmaker/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/widowmaker/full-portrait.png",
+        description:
+            "A perfect assassin: patient, ruthlessly efficient, and without emotion or remorse.",
+    },
+    {
+        name: "Winston",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/winston/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/winston/full-portrait.png",
+        description:
+            "A super-intelligent, genetically engineered gorilla, scientist, and champion for humanity's potential.",
+    },
+    {
+        name: "Zarya",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/zarya/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/zarya/full-portrait.png",
+        description:
+            "One of the world's strongest women, who sacrificed personal glory to protect her country.",
+    },
+    {
+        name: "Zenyatta",
+        portrait:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/zenyatta/icon-portrait.png",
+        spotlight:
+            "https://d1u1mce87gyfbn.cloudfront.net/hero/zenyatta/full-portrait.png",
+        description:
+            "An omnic monk who wanders the world in search of spiritual enlightenment.",
+    },
 ];
 
+interface IHero {
+    name: string;
+    portrait: string;
+    spotlight: string;
+    description: string;
+}
 const Overwatch: React.FC<{}> = () => {
     const { width } = useWindowDimensions();
-
+    const [spotlightHero, setSpotlightHero] = useState<IHero>(heroes[0]);
     return (
         <div className="overwatchContainer">
             <div className="overwatchBanner">
@@ -106,25 +301,46 @@ const Overwatch: React.FC<{}> = () => {
                 <div className="overwatchHeroSpotlight">
                     <img
                         className="heroSpotlightImage"
-                        src={heroes[0].spotlight}
+                        src={spotlightHero.spotlight}
                         alt="hero"
                     ></img>
                     <div className="heroSpotlightTextWrap">
-                        <h3 className="heroSpotlightName">{heroes[0].name}</h3>
+                        <h3 className="heroSpotlightName">
+                            {spotlightHero.name}
+                        </h3>
                         <p className="heroSpotlightDesc">
-                            {heroes[0].description}
+                            {spotlightHero.description}
                         </p>
                     </div>
                 </div>
                 <div className="overwatchHeroesList">
-                    <div className="overwatchHeroPotriatAndNameWrap">
-                        <div className="overwatchHeroPotriat">
-                            <img src={heroes[0].potriat} alt="hero potriat" />
+                    {heroes.map((hero, index) => {
+                        return (
+                            <div
+                                onMouseEnter={() => setSpotlightHero(hero)}
+                                key={index}
+                                className="overwatchHeroPortraitAndNameWrap"
+                            >
+                                <div className="overwatchHeroPortrait">
+                                    <img
+                                        src={hero.portrait}
+                                        alt="hero portrait"
+                                    />
+                                </div>
+                                <p className="overwatchHeroPortraitName">
+                                    {hero.name}
+                                </p>
+                            </div>
+                        );
+                    })}
+                    {/* <div className="overwatchHeroportraitAndNameWrap">
+                        <div className="overwatchHeroportrait">
+                            <img src={heroes[0].portrait} alt="hero portrait" />
                         </div>
-                        <p className="overwatchHeroPotriatName">
+                        <p className="overwatchHeroportraitName">
                             {heroes[0].name}
                         </p>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
