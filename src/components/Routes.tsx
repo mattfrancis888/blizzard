@@ -6,15 +6,17 @@ import Footer from "./Footer";
 import Hearthstone from "./Hearthstone";
 import Overwatch from "./Overwatch";
 import WoW from "./WoW";
+import Warzone from "./Warzone";
 const Routes: React.FC<{}> = () => {
     return (
         <React.Fragment>
             <Header />
             <Switch>
-                {/* <Route path="/" exact component={Home} /> */}
+                <Route path="/" exact component={Home} />
                 <Route path="/hearthstone" exact component={Hearthstone} />
                 <Route path="/overwatch" exact component={Overwatch} />
                 <Route path="/wow" exact component={WoW} />
+                <Route path="/warzone" exact component={Warzone} />
             </Switch>
             <Footer />
         </React.Fragment>

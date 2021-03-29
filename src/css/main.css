@@ -368,6 +368,10 @@ body {
   font-family: "Big Noodle Titling";
   src: url(../fonts/big_noodle_titling.ttf) format("truetype");
 }
+@font-face {
+  font-family: "Alegreya Sans";
+  src: url(../fonts/AlegreyaSans-Regular.ttf) format("truetype");
+}
 .loadingCenter {
   display: flex;
   justify-content: center;
@@ -1642,6 +1646,70 @@ body {
     background-size: 110%;
     background-position: 0% 50%;
   }
+}
+
+.warzoneContainer {
+  font-family: "Roboto", sans-serif;
+}
+
+.warzoneBanner {
+  width: 100%;
+  position: relative;
+}
+@media screen and (min-width: 992px) {
+  .warzoneBanner {
+    height: 60rem;
+  }
+}
+.warzoneBanner img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.warzoneContentContainer {
+  background: black;
+  padding: 2rem 5rem;
+  margin-top: -0.3rem;
+}
+
+.warzoneContentIntroWrapText {
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+}
+@media screen and (min-width: 992px) {
+  .warzoneContentIntroWrapText {
+    max-width: 70%;
+  }
+}
+.warzoneContentIntroWrapText .warzoneContentIntroTitle {
+  transition: all 0.5s ease-in-out;
+  transition-delay: 0.6s;
+  font-size: 100%;
+  text-transform: uppercase;
+  color: #e5e3e3;
+  margin: 0 0 1.6rem 0;
+  font-size: calc(20px + 10 * ((100vw - 680px) / 520));
+}
+.warzoneContentIntroWrapText p {
+  transition: all 0.5s ease-in-out;
+  transition-delay: 0.6s;
+  margin: 0;
+  color: #a9a6a1;
+  font-weight: 700;
+  font-family: "Alegreya Sans", sans-serif;
+  font-size: calc(20px + 10 * ((100vw - 680px) / 520));
+}
+
+.warzoneSingleImageContentWrap {
+  width: 100%;
+}
+.warzoneSingleImageContentWrap img {
+  width: 100%;
 }
 
 .gameCarouselWrap {
