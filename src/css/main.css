@@ -1359,7 +1359,6 @@ body {
 
 .wowBeginAndReturningWrap {
   margin-top: 5rem;
-  border-top: 1px solid #504137;
 }
 @media screen and (min-width: 992px) {
   .wowBeginAndReturningWrap {
@@ -1580,7 +1579,12 @@ body {
 .wowTBCBackground {
   background: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/DBTWQDK3WSU01615485387498.jpg");
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: 65% 50%;
+}
+@media screen and (min-width: 992px) {
+  .wowTBCBackground {
+    background-position: 50% 50%;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -1591,6 +1595,52 @@ body {
   .wowContentInfoAdjustLeftTextWrapForLgScreens .wowContentInfoDesc {
     margin-left: 0;
     margin-right: auto;
+  }
+}
+
+.wowMountBackground {
+  background: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/TQCYYTFQRSMN1612287065914.jpg");
+  background-size: cover;
+  background-position: 65% 50%;
+}
+@media screen and (min-width: 992px) {
+  .wowMountBackground {
+    background-position: 50% 50%;
+  }
+}
+
+.wowCelebrationBackground {
+  background: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/3OQAZOKO05A21612222755219.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+}
+@media screen and (min-width: 992px) {
+  .wowCelebrationBackground {
+    background-size: 120%;
+    background-position: 0% 50%;
+  }
+}
+
+.wowRecruitAFriendBackground {
+  background: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/e0/E05HQYQ5JP6G1574128274055.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+}
+@media screen and (min-width: 992px) {
+  .wowRecruitAFriendBackground {
+    background-position: 50% 50%;
+  }
+}
+
+.wowShadowlandsBackground {
+  background: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/8CYVIMJNXFNZ1606119674398.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+}
+@media screen and (min-width: 992px) {
+  .wowShadowlandsBackground {
+    background-size: 110%;
+    background-position: 0% 50%;
   }
 }
 
