@@ -118,14 +118,24 @@
     background-size: cover;
     // height: 100%;
     width: 100%;
-    height: 37.5rem;
 }
+
 .wowReturningImageWrap {
     background-image: url(https://bnetcmsus-a.akamaihd.net/cms/template_resource/ATDGB78UR6T41594224494516.jpg);
     background-size: cover;
     // height: 100%;
     width: 100%;
-    height: 37.5rem;
+}
+
+.wowBeginImageWrap,
+.wowReturningImageWrap {
+    height: 16rem;
+    @media screen and (min-width: $sm_breakpoint) {
+        height: 33.5rem;
+    }
+    @media screen and (min-width: $md_breakpoint) {
+        height: 37.5rem;
+    }
 }
 
 .wowBeginAndReturnTextWrap {
@@ -171,12 +181,30 @@
 .wowContentInfoContainer {
     // padding: 10rem;
     position: relative;
+    margin-bottom: 0.5rem;
+    border-top: 1px solid #504137;
+}
+.wowBackground {
+    height: 22rem;
+    width: 100%;
+    @media screen and (min-width: $sm_breakpoint) {
+        height: 33rem;
+    }
+
+    @media screen and (min-width: $md_breakpoint) {
+        height: 47rem;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
+        height: 51rem;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        height: 55rem;
+    }
 }
 .wowAdoptBackground {
     background: url(https://bnetcmsus-a.akamaihd.net/cms/template_resource/37RJCZ9ZI4YL1616000970213.jpg);
     background-position: 30% 50%;
-    height: 48rem;
-    width: 100%;
+    background-size: cover;
     @media screen and (min-width: $lg_breakpoint) {
         background-position: 50% 50%;
     }
@@ -232,5 +260,22 @@
     }
     @media screen and (min-width: $xl_breakpoint) {
         font-size: 2rem;
+    }
+}
+
+.wowTBCBackground {
+    background: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/DBTWQDK3WSU01615485387498.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.wowContentInfoAdjustLeftTextWrapForLgScreens {
+    @media screen and (min-width: $lg_breakpoint) {
+        text-align: left;
+        left: 10rem;
+        .wowContentInfoDesc {
+            margin-left: 0;
+            margin-right: auto;
+        }
     }
 }

@@ -92,7 +92,7 @@ const WoW: React.FC<{}> = () => {
                     </div>
                 </div>
                 <div className="wowContentInfoContainer">
-                    <div className="wowAdoptBackground"></div>
+                    <div className="wowBackground wowAdoptBackground"></div>
                     <div className="wowContentInfoTextWrap">
                         <p className="wowContentInfoSubTitle">
                             Wow Charity Pet Program
@@ -107,6 +107,23 @@ const WoW: React.FC<{}> = () => {
                             Frontières (MSF). Your donations can help gift two
                             adorable pets to the World of Warcraft
                             community—Bananas the Monkey, and Daisy the Sloth.
+                        </p>
+                    </div>
+                </div>
+                <div className="wowContentInfoContainer">
+                    <div className="wowBackground wowTBCBackground"></div>
+                    <div className="wowContentInfoTextWrap wowContentInfoAdjustLeftTextWrapForLgScreens">
+                        <p className="wowContentInfoSubTitle">
+                            Burning Crusade Classic
+                        </p>
+                        <h1 className="wowContentInfoTitle">
+                            Prepare for Beta
+                        </h1>
+                        <p className="wowContentInfoDesc">
+                            The Burning Crusade Classic™ Beta Test is underway!
+                            Opt-in for a chance to participate in the future.
+                            Subscribe today and play WoW® Classic—and be
+                            prepared to return to Outland later in 2021.
                         </p>
                     </div>
                 </div>
