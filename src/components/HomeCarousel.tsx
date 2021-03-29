@@ -11,37 +11,59 @@ import {
     SM_SCREEN_SIZE,
 } from "../constants";
 import { useTransition, animated, useSpring, useTrail } from "react-spring";
-const timer = 3000;
+
+import anime from "animejs/lib/anime.es.js";
+const timer = 5000;
+
+// const slides = [
+//     {
+//         title: "Crash Bandicoot",
+//         mobileImage:
+//             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616678348/blizzard/CB4_Launch_Keyart-Bnet-Home_Banner_Mobile_Home-1536x1536.jpg",
+//         image:
+//             "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/bltc1446fda2f87e332/60134add9d2dcf0eda34fc8c/CB4_Launch_Keyart-Bnet-Home_Banner_Desktop_Home-2500x514.webp?auto=webp&format=pjpg",
+//         logo:
+//             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620195/blizzard/crash.png",
+//         description: "Coming Soon!",
+//     },
+//     {
+//         title: "Warzone",
+//         mobileImage:
+//             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616678520/blizzard/CODCW_S2_Keyart-Bnet-Home_Banner_Mobile_Home-1536x1536.jpg",
+//         image:
+//             "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt430768244603486e/6036f8ed0b1d853be8ad56fc/CODCW_S2_Keyart-Bnet-Home_Banner_Desktop_Home-2500x514.webp?auto=webp&format=pjpg",
+//         logo:
+//             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620270/blizzard/d20201211-017_CW_WZ_Logo_Lock_Up_1P_Stacked.png",
+//         description: "Season 2  now live",
+//     },
+//     {
+//         title: "WOW",
+//         mobileImage:
+//             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616678431/blizzard/wow-bcc-beta-now-live-web-1536x1536-RD01.jpg",
+//         image:
+//             "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/bltc1312ef8fbc2b4c6/60550544c6713d4e7a4d554c/wow-bcc-beta-now-live-web-2500x514-RD01.jpg",
+//         logo:
+//             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620350/blizzard/WoW_C_BurningCrusade_Logo_DarkBG_MN03.png",
+//         description: "Beta is now live",
+//     },
+// ];
+
 const slides = [
     {
         title: "Crash Bandicoot",
-        mobileImage:
-            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616678348/blizzard/CB4_Launch_Keyart-Bnet-Home_Banner_Mobile_Home-1536x1536.jpg",
+        mobileImage: "",
         image:
-            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/bltc1446fda2f87e332/60134add9d2dcf0eda34fc8c/CB4_Launch_Keyart-Bnet-Home_Banner_Desktop_Home-2500x514.webp?auto=webp&format=pjpg",
-        logo:
-            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620195/blizzard/crash.png",
+            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt7bcb2291026d0dde/6025e2a8415d5f4e80324945/D2R_2021_Blizzard.comDesktop_2500x514_MB01.png",
+        logo: "",
         description: "Coming Soon!",
     },
     {
         title: "Warzone",
-        mobileImage:
-            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616678520/blizzard/CODCW_S2_Keyart-Bnet-Home_Banner_Mobile_Home-1536x1536.jpg",
+        mobileImage: "",
         image:
             "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt430768244603486e/6036f8ed0b1d853be8ad56fc/CODCW_S2_Keyart-Bnet-Home_Banner_Desktop_Home-2500x514.webp?auto=webp&format=pjpg",
-        logo:
-            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620270/blizzard/d20201211-017_CW_WZ_Logo_Lock_Up_1P_Stacked.png",
+        logo: "",
         description: "Season 2  now live",
-    },
-    {
-        title: "WOW",
-        mobileImage:
-            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616678431/blizzard/wow-bcc-beta-now-live-web-1536x1536-RD01.jpg",
-        image:
-            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/bltc1312ef8fbc2b4c6/60550544c6713d4e7a4d554c/wow-bcc-beta-now-live-web-2500x514-RD01.jpg",
-        logo:
-            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620350/blizzard/WoW_C_BurningCrusade_Logo_DarkBG_MN03.png",
-        description: "Beta is now live",
     },
 ];
 interface IShowSlide {
@@ -63,7 +85,7 @@ const HomeCarousel: React.FC<{}> = () => {
             fillTimeOut = setTimeout(() => {
                 //Note: dont put  itemEls.current[showSlide].children[0].click();
                 //here, for some reason it acts weird
-                if (showSlide.index > 1) {
+                if (showSlide.index > slides.length - 2) {
                     //Reset after third button
                     setShowSlide({
                         index: 0,
@@ -78,6 +100,28 @@ const HomeCarousel: React.FC<{}> = () => {
         } else {
             itemEls.current[showSlide.index].children[0].click();
         }
+        //There is a reason why I used anime.js, look at renderSlides()
+        anime({
+            targets: `.pictureImageWrap`,
+            // Properties
+            // Animation Parameters
+
+            opacity: [
+                {
+                    value: [0, 1],
+                    duration: timer,
+                    easing: "easeOutQuad",
+                },
+            ],
+            translateX: [
+                {
+                    value: ["0%", "2%"],
+                    duration: timer,
+                    easing: "easeOutQuad",
+                },
+            ],
+        });
+
         return () => {
             clearTimeout(fillTimeOut);
         };
@@ -121,13 +165,21 @@ const HomeCarousel: React.FC<{}> = () => {
                     className={`homeCarouselContainer`}
                 >
                     <div className="backgroundContainer">
+                        {/* Whenever the slide gets clicked, it makes a network request for the image becasue of
+                        the hook this is bad.
+                        Issue on: https://github.com/pmndrs/react-spring/discussions/1377
+                        I solved this by using animejs to animate it;
+                        // it will NOT make a new network request call when we re-render 
+                        // with a hook's setStatd - 
+                        //we are manipulating button onclick instead of using it to render a
+                        //image with a new src :)
                         {transition((style, item) => {
                             return (
                                 <animated.div
                                     className="pictureImageWrap"
                                     style={style}
                                 >
-                                    <picture>
+                                     <picture>
                                         <source
                                             media={`(min-width:${MED_SCREEN_SIZE}px)`}
                                             srcSet={slide.image}
@@ -138,10 +190,25 @@ const HomeCarousel: React.FC<{}> = () => {
                                         />
 
                                         <img src={slide.image} alt="project" />
-                                    </picture>
+                                    </picture> 
                                 </animated.div>
                             );
-                        })}
+                        })} */}
+
+                        <div className="pictureImageWrap">
+                            <picture>
+                                <source
+                                    media={`(min-width:${MED_SCREEN_SIZE}px)`}
+                                    srcSet={slide.image}
+                                />
+                                <source
+                                    media={`(min-width:320px`}
+                                    srcSet={slide.mobileImage}
+                                />
+
+                                <img src={slide.image} alt="project" />
+                            </picture>
+                        </div>
                         {transition((style, item) => {
                             return (
                                 <div

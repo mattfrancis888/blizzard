@@ -1883,6 +1883,7 @@ body {
   height: 100%;
 }
 .homeCarouselContainer .pictureImageWrap {
+  transform: "translate3d(0px , 0px, 0px)";
   position: relative;
   width: 100%;
   height: 100%;
@@ -1980,6 +1981,13 @@ body {
     font-size: 6.8rem;
     width: 50rem;
   }
+}
+
+.slideBackground {
+  width: 100%;
+  height: 100%;
+  background: red;
+  background-size: cover;
 }
 
 .hearthstoneBannerCarouselContainer {

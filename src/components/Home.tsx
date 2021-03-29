@@ -6,7 +6,7 @@ import HomeCareer from "./HomeCareer";
 const Body: React.FC<{}> = () => {
     return (
         <div>
-            {/* <HomeCarousel /> */}
+            <HomeCarousel />
             <div className="homeGamesSection">
                 <h3 className="homeGamesTitle">Games</h3>
                 <div className="homeGamesCardsContainer">
@@ -14,7 +14,7 @@ const Body: React.FC<{}> = () => {
                         <img
                             src="https://res.cloudinary.com/du8n2aa4p/image/upload/v1616697194/blizzard/game-card_wow_enUS.jpg"
                             alt=""
-                        ></img>
+                       p ></img>
                     </div>
                     <div className="homeGamesCard">
                         <img
@@ -42,7 +42,7 @@ const Body: React.FC<{}> = () => {
                     </div>
                 </div>
             </div>
-            {/* <HomeCareer /> */}
+            <HomeCareer />
         </div>
     );
 };

@@ -11,6 +11,7 @@ import {
     SM_SCREEN_SIZE,
 } from "../constants";
 import { useTransition, animated, useSpring, useChain } from "react-spring";
+import anime from "animejs/lib/anime.es.js";
 const timer = 3000;
 const slides = [
     {
@@ -63,6 +64,29 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
         } else {
             itemEls.current[showSlide.index].children[0].click();
         }
+
+        //There is a reason why I used anime.js, look at renderSlides()
+        if (width > SM_SCREEN_SIZE)
+            anime({
+                targets: `.hearthstoneBannerCarouselImageWrap`,
+                // Properties
+                // Animation Parameters
+
+                opacity: [
+                    {
+                        value: [0, 1],
+                        duration: timer,
+                        easing: "easeOutQuad",
+                    },
+                ],
+                scale: [
+                    {
+                        value: [1.5, 1],
+                        duration: timer,
+                        easing: "easeOutQuad",
+                    },
+                ],
+            });
         return () => {
             clearTimeout(fillTimeOut);
         };
@@ -125,6 +149,15 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
             return (
                 <Slide index={index} key={index} className={`hearthstoneSlide`}>
                     <div className="hearthstoneBannerBackgroundContainer">
+                        {/* 
+                         Whenever the slide gets clicked, it makes a network request for the image becasue of
+                        the hook this is bad.
+                        Issue on: https://github.com/pmndrs/react-spring/discussions/1377
+                        I solved this by using animejs to animate it;
+                        // it will NOT make a new network request call when we re-render 
+                        // with a hook's setStatd - 
+                        //we are manipulating button onclick instead of using it to render a
+                        //image with a new src :)
                         {scale((style, item, key) => {
                             return (
                                 <animated.div
@@ -134,7 +167,10 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
                                     <img src={slide.image} alt="project" />
                                 </animated.div>
                             );
-                        })}
+                        })} */}
+                        <div className="hearthstoneBannerCarouselImageWrap">
+                            <img src={slide.image} alt="project" />
+                        </div>
                         {transition((style, item) => {
                             return (
                                 <div
