@@ -3,10 +3,12 @@ import useWindowDimensions from "../windowDimensions";
 import { LG_SCREEN_SIZE, MED_SCREEN_SIZE } from "../constants";
 import Modal from "./Modal";
 import { useTransition, animated, useSpring, useTrail } from "react-spring";
+import history from "../browserHistory";
+import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 const Header: React.FC<{}> = () => {
     const [showModal, setShowModal] = useState(false);
     const [showPresentation, setShowPresentation] = useState(false);
-
+    const [showModalPresentation, setShowModalPresentation] = useState(false);
     const { width } = useWindowDimensions();
 
     const games = [
@@ -26,7 +28,7 @@ const Header: React.FC<{}> = () => {
                 "https://blznav.akamaized.net/img/games/logo-codwz-f474cad4f5c0636a.svg",
         },
     ];
-
+    //Trail for games at lg screen
     const trail = useTrail(games.length, {
         // marginTop: showPresentation ? `1.5rem` : `0px`,
         transform: showPresentation
@@ -34,6 +36,20 @@ const Header: React.FC<{}> = () => {
             : `translate3d(0px,0px,0px)`,
 
         opacity: showPresentation ? 1 : 0,
+
+        config: {
+            duration: 200,
+        },
+    });
+
+    //Trail for games at small screens
+    const modalTrail = useTrail(games.length, {
+        // marginTop: showPresentation ? `1.5rem` : `0px`,
+        transform: showModalPresentation
+            ? `translate3d(0px,20%,0px)`
+            : `translate3d(0px,0px,0px)`,
+
+        opacity: showModalPresentation ? 1 : 0,
 
         config: {
             duration: 200,
@@ -79,7 +95,7 @@ const Header: React.FC<{}> = () => {
             : `translate3d(-500%,0px,0px)`,
 
         config: {
-            duration: 1000,
+            duration: 500,
         },
     });
 
@@ -90,7 +106,7 @@ const Header: React.FC<{}> = () => {
             duration: 1000,
         },
     });
-
+    //Modal for smaller screens when hamburger is clicked
     const renderModal = () => {
         return (
             <Modal
@@ -112,6 +128,7 @@ const Header: React.FC<{}> = () => {
                         focusable="false"
                         aria-hidden="true"
                         className="navBarSvg modalBlizzardLogo"
+                        onClick={() => history.push("/")}
                     >
                         <use xlinkHref="#Navbar-logo-blizzard">
                             <g id="Navbar-logo-blizzard">
@@ -151,14 +168,62 @@ const Header: React.FC<{}> = () => {
                         </use>
                     </svg>
                 </div>
-                <div className="modalText">Home</div>
-                <div className="modalText">Games</div>
+                <div className="modalText" onClick={() => history.push("/")}>
+                    Home
+                </div>
+
+                <div
+                    className={`modalText gamesModalText ${
+                        showModalPresentation ? `toggledGamesHeader` : ""
+                    }`}
+                    onClick={() =>
+                        setShowModalPresentation(!showModalPresentation)
+                    }
+                >
+                    Games
+                    {showModalPresentation && (
+                        <RiArrowDownSLine
+                            style={{ color: "white" }}
+                            className="headerTextArrow"
+                        />
+                    )}
+                    {!showModalPresentation && (
+                        <RiArrowUpSLine
+                            style={{ color: "grey" }}
+                            className="headerTextArrow"
+                        />
+                    )}
+                </div>
+
+                {showModalPresentation && (
+                    <div className="modalPresentation">
+                        {modalTrail.map((animation, index) => {
+                            return (
+                                <animated.div
+                                    className="modalPresentationGameWrap"
+                                    style={animation}
+                                >
+                                    <img
+                                        key={index}
+                                        className="modalPresentationGameLogo"
+                                        src={games[index].image}
+                                        alt=""
+                                    ></img>
+                                    <p className="modalPresentationGameTitle">
+                                        {games[index].title}
+                                    </p>
+                                </animated.div>
+                            );
+                        })}
+                    </div>
+                )}
             </div>
         );
     };
 
     const modalOnCancel = () => {
         setShowModal(false);
+        setShowModalPresentation(false);
     };
 
     // const fade = useSpring({
@@ -169,9 +234,11 @@ const Header: React.FC<{}> = () => {
     //         opacity: 1,
     //     },
     // });
+
     return (
         <React.Fragment>
-            {renderModal()}
+            {width < LG_SCREEN_SIZE && renderModal()}
+
             {showPresentation && (
                 <div
                     className="presentationOverlay"
@@ -202,6 +269,7 @@ const Header: React.FC<{}> = () => {
                         focusable="false"
                         aria-hidden="true"
                         className="navBarSvg blizzardLogo"
+                        onClick={() => history.push("/")}
                     >
                         <use xlinkHref="#Navbar-logo-blizzard">
                             <g id="Navbar-logo-blizzard">
@@ -240,22 +308,40 @@ const Header: React.FC<{}> = () => {
                             </g>
                         </use>
                     </svg>
-
-                    <h1
-                        className={showPresentation ? `toggledGamesHeader` : ""}
+                    <div
+                        className="gamesHeaderTextWrap"
                         onClick={() => setShowPresentation(!showPresentation)}
                     >
-                        Games
-                    </h1>
-                    <h1>Shop</h1>
+                        <h1
+                            className={
+                                showPresentation ? `toggledGamesHeader` : ""
+                            }
+                        >
+                            Games
+                        </h1>
+                        {showPresentation && (
+                            <RiArrowDownSLine
+                                style={{ color: "white" }}
+                                className="headerTextArrow"
+                            />
+                        )}
+                        {!showPresentation && (
+                            <RiArrowUpSLine
+                                style={{ color: "grey" }}
+                                className="headerTextArrow"
+                            />
+                        )}
+                    </div>
+                    {/* <h1>Shop</h1> */}
                 </div>
-                <h1>My Account</h1>
+                {/* <h1>My Account</h1> */}
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 48 48"
                     focusable="false"
                     aria-hidden="true"
                     className="navBarSvg accountIcon"
+                    style={{ visibility: "hidden" }}
                 >
                     <use xlinkHref="#Navbar-icon-profile">
                         <g id="Navbar-icon-profile">

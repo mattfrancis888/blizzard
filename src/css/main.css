@@ -408,12 +408,6 @@ body {
   font-weight: normal;
   font-size: 1.7rem;
   margin-left: 3rem;
-  display: none;
-}
-@media screen and (min-width: 768px) {
-  .headerContainer h1 {
-    display: block;
-  }
 }
 
 .navBarSvg {
@@ -464,12 +458,14 @@ body {
 }
 
 .modalText {
+  cursor: pointer;
   text-transform: uppercase;
   font-size: 1.6rem;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.7);
-  padding: 1.4rem 0.5rem;
+  padding: 1.4rem 1.5rem;
   border-top: solid 1px rgba(255, 255, 255, 0.08);
+  margin: 0 1rem;
 }
 
 .headerPresentation {
@@ -510,6 +506,55 @@ body {
   transition: all 0.2s ease-in;
 }
 
+.modalPresentation {
+  padding: 2rem 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modalPresentationGameWrap {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+.modalPresentationGameLogo {
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-right: 0.75rem;
+}
+
+.modalPresentationGameTitle {
+  margin: 0;
+  margin-left: 0.75rem;
+  font-size: 1.4rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 400;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+.gamesHeaderTextWrap {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .gamesHeaderTextWrap {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.headerTextArrow {
+  font-size: 3rem;
+}
+
+.gamesModalText {
+  display: flex;
+  align-items: center;
+  border-top: solid 1px rgba(255, 255, 255, 0.08);
+}
+
 .modal {
   display: flex;
   position: fixed;
@@ -524,7 +569,6 @@ body {
 
 .modalBox {
   position: relative;
-  padding: 1rem;
   cursor: initial;
   background-color: #151a23;
   height: 100%;
