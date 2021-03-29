@@ -158,7 +158,7 @@
     line-height: 1.5;
     font-size: 1.3rem;
     @media screen and (min-width: $md_breakpoint) {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
     }
     @media screen and (min-width: $lg_breakpoint) {
         font-size: 1.8rem;
@@ -166,4 +166,71 @@
 }
 .wowBeginAndReturnDesc {
     text-align: center;
+}
+
+.wowContentInfoContainer {
+    // padding: 10rem;
+    position: relative;
+}
+.wowAdoptBackground {
+    background: url(https://bnetcmsus-a.akamaihd.net/cms/template_resource/37RJCZ9ZI4YL1616000970213.jpg);
+    background-position: 30% 50%;
+    height: 48rem;
+    width: 100%;
+    @media screen and (min-width: $lg_breakpoint) {
+        background-position: 50% 50%;
+    }
+}
+
+.wowContentInfoTextWrap {
+    padding: 2rem;
+    text-align: center;
+    line-height: 1.5;
+    position: relative;
+    @media screen and (min-width: $sm_breakpoint) {
+        padding: 2rem 5rem;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
+        padding: 0;
+        text-align: right;
+        position: absolute;
+        right: 10rem;
+        top: 10rem;
+    }
+}
+.wowContentInfoSubTitle {
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    font-weight: 400;
+    @media screen and (min-width: $md_breakpoint) {
+        font-size: 1.6rem;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        font-size: 1.8rem;
+    }
+    margin: 0;
+    margin-bottom: 1rem;
+}
+.wowContentInfoTitle {
+    color: white;
+    @media screen and (min-width: $md_breakpoint) {
+        font-size: 3.6rem;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        font-size: 4.3rem;
+    }
+    margin: 0;
+    margin-bottom: 1rem;
+}
+.wowContentInfoDesc {
+    margin: 0;
+    font-size: 1.4rem;
+
+    @media screen and (min-width: $lg_breakpoint) {
+        max-width: 50%;
+        margin-left: auto;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        font-size: 2rem;
+    }
 }

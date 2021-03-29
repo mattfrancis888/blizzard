@@ -1435,7 +1435,7 @@ body {
 @media screen and (min-width: 768px) {
   .wowBeginAndReturnSubTitle,
 .wowBeginAndReturnDesc {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
 }
 @media screen and (min-width: 992px) {
@@ -1447,6 +1447,93 @@ body {
 
 .wowBeginAndReturnDesc {
   text-align: center;
+}
+
+.wowContentInfoContainer {
+  position: relative;
+}
+
+.wowAdoptBackground {
+  background: url(https://bnetcmsus-a.akamaihd.net/cms/template_resource/37RJCZ9ZI4YL1616000970213.jpg);
+  background-position: 30% 50%;
+  height: 48rem;
+  width: 100%;
+}
+@media screen and (min-width: 992px) {
+  .wowAdoptBackground {
+    background-position: 50% 50%;
+  }
+}
+
+.wowContentInfoTextWrap {
+  padding: 2rem;
+  text-align: center;
+  line-height: 1.5;
+  position: relative;
+}
+@media screen and (min-width: 520px) {
+  .wowContentInfoTextWrap {
+    padding: 2rem 5rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .wowContentInfoTextWrap {
+    padding: 0;
+    text-align: right;
+    position: absolute;
+    right: 10rem;
+    top: 10rem;
+  }
+}
+
+.wowContentInfoSubTitle {
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .wowContentInfoSubTitle {
+    font-size: 1.6rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .wowContentInfoSubTitle {
+    font-size: 1.8rem;
+  }
+}
+
+.wowContentInfoTitle {
+  color: white;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .wowContentInfoTitle {
+    font-size: 3.6rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .wowContentInfoTitle {
+    font-size: 4.3rem;
+  }
+}
+
+.wowContentInfoDesc {
+  margin: 0;
+  font-size: 1.4rem;
+}
+@media screen and (min-width: 992px) {
+  .wowContentInfoDesc {
+    max-width: 50%;
+    margin-left: auto;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .wowContentInfoDesc {
+    font-size: 2rem;
+  }
 }
 
 .gameCarouselWrap {

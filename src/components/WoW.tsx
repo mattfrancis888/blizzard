@@ -91,6 +91,25 @@ const WoW: React.FC<{}> = () => {
                         </div>
                     </div>
                 </div>
+                <div className="wowContentInfoContainer">
+                    <div className="wowAdoptBackground"></div>
+                    <div className="wowContentInfoTextWrap">
+                        <p className="wowContentInfoSubTitle">
+                            Wow Charity Pet Program
+                        </p>
+                        <h1 className="wowContentInfoTitle">
+                            Introducing Daisy And Bananas
+                        </h1>
+                        <p className="wowContentInfoDesc">
+                            You can make a difference in the global response to
+                            COVID-19 by supporting the medical humanitarian aid
+                            organization Doctors Without Borders/Médecins Sans
+                            Frontières (MSF). Your donations can help gift two
+                            adorable pets to the World of Warcraft
+                            community—Bananas the Monkey, and Daisy the Sloth.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     );
