@@ -31,7 +31,7 @@
 .overwatchHeroesSection {
     position: relative;
     text-align: center;
-    background-image: url("https://static.playoverwatch.com/img/scene/candy-5d74c9b93f.jpg");
+    background-image: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616893557/blizzard/overwatch/candy-5d74c9b93f.jpg);
     background-position: top;
     background-position-x: center;
     background-position-y: top;
@@ -234,7 +234,7 @@
     justify-content: center;
     padding: 3rem 2rem;
     margin-top: -0.3rem;
-    background-image: url("https://images.blz-contentstack.com/v3/assets/blt2477dcaf4ebd440c/bltc424f99fa4ed7a53/5d9560a541d64904687cf013/Buy-Footer-BG-2560.jpg?auto=webp");
+    background-image: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616958812/blizzard/overwatch/Buy-Footer-BG-2560.jpg);
     background-size: cover;
     @media screen and (min-width: $sm_breakpoint) {
         flex-direction: row;
