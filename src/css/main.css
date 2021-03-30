@@ -414,6 +414,7 @@ body {
   fill: currentColor;
   color: #009ae4;
   background-size: auto 28px;
+  cursor: pointer;
 }
 
 .hamburger,
@@ -1424,7 +1425,7 @@ body {
 .wowBeginContainer,
 .wowReturningContainer {
   border: 1px solid #504137;
-  background-image: url(https://assets.worldofwarcraft.com/static/components/Panel/Panel-bg-stacked.18def74ed60ab9f1f4139f87349d2f79.jpg);
+  background-image: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616969079/blizzard/wow/Panel-bg-stacked.18def74ed60ab9f1f4139f87349d2f79.jpg);
   background-size: cover;
 }
 .wowBeginContainer img,
@@ -1435,13 +1436,13 @@ body {
 }
 
 .wowBeginImageWrap {
-  background-image: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/QS8QDZEEPAJZ1591728956978.jpg");
+  background-image: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616966965/blizzard/wow/QS8QDZEEPAJZ1591728956978.jpg);
   background-size: cover;
   width: 100%;
 }
 
 .wowReturningImageWrap {
-  background-image: url(https://bnetcmsus-a.akamaihd.net/cms/template_resource/ATDGB78UR6T41594224494516.jpg);
+  background-image: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616968095/blizzard/wow/ATDGB78UR6T41594224494516.jpg);
   background-size: cover;
   width: 100%;
 }
@@ -1547,7 +1548,7 @@ body {
 }
 
 .wowAdoptBackground {
-  background: url(https://bnetcmsus-a.akamaihd.net/cms/template_resource/37RJCZ9ZI4YL1616000970213.jpg);
+  background: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616975031/blizzard/wow/37RJCZ9ZI4YL1616000970213.jpg);
   background-position: 30% 50%;
   background-size: cover;
 }
@@ -1629,7 +1630,7 @@ body {
 }
 
 .wowTBCBackground {
-  background: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/DBTWQDK3WSU01615485387498.jpg");
+  background: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616979345/blizzard/wow/DBTWQDK3WSU01615485387498.jpg);
   background-size: cover;
   background-position: 65% 50%;
 }
@@ -1651,7 +1652,7 @@ body {
 }
 
 .wowMountBackground {
-  background: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/TQCYYTFQRSMN1612287065914.jpg");
+  background: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616980645/blizzard/wow/TQCYYTFQRSMN1612287065914.jpg);
   background-size: cover;
   background-position: 65% 50%;
 }
@@ -1662,7 +1663,7 @@ body {
 }
 
 .wowCelebrationBackground {
-  background: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/3OQAZOKO05A21612222755219.jpg");
+  background: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616982056/blizzard/wow/3OQAZOKO05A21612222755219.jpg);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -1674,7 +1675,7 @@ body {
 }
 
 .wowRecruitAFriendBackground {
-  background: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/e0/E05HQYQ5JP6G1574128274055.jpg");
+  background: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616982388/blizzard/wow/E05HQYQ5JP6G1574128274055.jpg);
   background-size: cover;
   background-position: 50% 50%;
 }
@@ -1685,7 +1686,7 @@ body {
 }
 
 .wowShadowlandsBackground {
-  background: url("https://bnetcmsus-a.akamaihd.net/cms/template_resource/8CYVIMJNXFNZ1606119674398.jpg");
+  background: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616982771/blizzard/wow/8CYVIMJNXFNZ1606119674398.jpg);
   background-size: cover;
   background-position: 50% 50%;
 }

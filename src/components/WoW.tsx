@@ -1,5 +1,6 @@
 import React from "react";
 import useWindowDimensions from "../windowDimensions";
+import wowBannerVid from "../vid/wow_banner_video.mp4";
 import history from "../browserHistory";
 import {
     LG_SCREEN_SIZE,
@@ -45,12 +46,7 @@ const WoW: React.FC<{}> = () => {
                         loop={true}
                         // style={style}
                     >
-                        <source
-                            src={
-                                "https://bnetcmsus-a.akamaihd.net/cms/template_resource/MIADXRRLBRCP1606119959603.mp4"
-                            }
-                            type="video/mp4"
-                        />
+                        <source src={wowBannerVid} type="video/mp4" />
                     </video>
                 )}
 
@@ -59,6 +55,11 @@ const WoW: React.FC<{}> = () => {
                         <img
                             src="https://bnetcmsus-a.akamaihd.net/cms/template_resource/UXK7M895FJ3Q1606119959229.jpg"
                             alt="banner"
+                            onError={(e: any) => {
+                                e.target.onError = null;
+                                e.target.src =
+                                    "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616964647/blizzard/wow/UXK7M895FJ3Q1606119959229.jpg";
+                            }}
                         ></img>
                     </div>
                 )}
@@ -79,6 +80,11 @@ const WoW: React.FC<{}> = () => {
                             <img
                                 src="https://bnetcmsus-a.akamaihd.net/cms/template_resource/bd/BDMOXH9OQ6B31594740408177.png"
                                 alt="adventurers"
+                                onError={(e: any) => {
+                                    e.target.onError = null;
+                                    e.target.src =
+                                        "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616967479/blizzard/wow/BDMOXH9OQ6B31594740408177.png";
+                                }}
                             ></img>
                         </div>
                         <div className="wowBeginAndReturnTextWrap">
@@ -99,6 +105,11 @@ const WoW: React.FC<{}> = () => {
                             <img
                                 src="https://bnetcmsus-a.akamaihd.net/cms/template_resource/et/ETA7LQVBODH61594740917046.png"
                                 alt="ragnarok and lich king"
+                                onError={(e: any) => {
+                                    e.target.onError = null;
+                                    e.target.src =
+                                        "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616968138/blizzard/wow/ETA7LQVBODH61594740917046.png";
+                                }}
                             ></img>
                         </div>
                         <div className="wowBeginAndReturnTextWrap">
