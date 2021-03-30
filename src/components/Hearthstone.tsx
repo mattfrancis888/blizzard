@@ -12,12 +12,19 @@ import HearthstoneCard from "./HearthstoneCard";
 import HearthstoneCardsCarousel from "./HearthstoneCardCarousel";
 import HearthstoneHeroesCarousel from "./HearthstoneHeroesCarousel";
 import LazyLoad from "react-lazyload";
-import SongsPlaceholder from "./SquarePlaceholder";
+//Note, look at desc.ts, typescript isnt happy with webm
+import hearthstoneVid from "../vid/hearthstone_homepage_header_video.webm";
+import hearthstoneGirl from "../vid/hearthstone_girl.webm";
+import hearthstoneBoy from "../vid/hearthstone_boy.webm";
+
 const cards = [
-    "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/a4d4a85f3addd14115f39c4f0a7aa05e85a1dda3c993927b988980536aef59b3.png",
-    "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/f4da378778158d9c0617ad47de49e187741bfcfd0c1307cdfbf8367a84fd7927.png",
-    "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/0ace69fb56c22c898ee0d77a703031fdc229dc7de0d190d62c9493f1f043707b.png",
-    "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/92363d0d08f0a71e7ef4c886795def7c5df95167ea299e2b6acad37e2a7073bd.png",
+    "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616789808/blizzard/hearthstone/a4d4a85f3addd14115f39c4f0a7aa05e85a1dda3c993927b988980536aef59b3.png",
+
+    "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616789858/blizzard/hearthstone/f4da378778158d9c0617ad47de49e187741bfcfd0c1307cdfbf8367a84fd7927.png",
+
+    "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616789840/blizzard/hearthstone/0ace69fb56c22c898ee0d77a703031fdc229dc7de0d190d62c9493f1f043707b.png",
+
+    "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616784435/blizzard/hearthstone/92363d0d08f0a71e7ef4c886795def7c5df95167ea299e2b6acad37e2a7073bd.png",
 ];
 
 const Hearthstone: React.FC<{}> = () => {
@@ -27,7 +34,7 @@ const Hearthstone: React.FC<{}> = () => {
     //useSpring does not work with lazyload,  so we use useTransition
     const transition = useTransition(load, {
         from: {
-            transform: load ? "translate3d(0px , 15rem, 0px)" : "",
+            transform: load ? "translate3d(0px , 2rem, 0px)" : "",
 
             opacity: load ? 0 : "",
         },
@@ -37,7 +44,7 @@ const Hearthstone: React.FC<{}> = () => {
         },
 
         config: {
-            duration: 5000,
+            duration: 1000,
         },
     });
     return (
@@ -55,10 +62,7 @@ const Hearthstone: React.FC<{}> = () => {
                         muted={true}
                         loop={true}
                     >
-                        <source
-                            src="https://assets.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltaade578b5ef7e8e4/5f076b23d494e612aff463bf/homepage_header_video.webm"
-                            type="video/mp4"
-                        />
+                        <source src={hearthstoneVid} type="video/mp4" />
                     </video>
                 )}
                 <div className="hearthstoneBannerTextWrap">
@@ -98,12 +102,7 @@ const Hearthstone: React.FC<{}> = () => {
                     loop={true}
                     // style={style}
                 >
-                    <source
-                        src={
-                            "https://assets.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt61940e6a1136f4e1/5f935a529d68980b2e94e681/homepage_ava_npe_small.webm"
-                        }
-                        type="video/mp4"
-                    />
+                    <source src={hearthstoneGirl} type="video/mp4" />
                 </video>
                 <div className="chatWrap">
                     <div className="chatTop"></div>
@@ -125,12 +124,7 @@ const Hearthstone: React.FC<{}> = () => {
                     loop={true}
                     // style={style}
                 >
-                    <source
-                        src={
-                            "https://assets.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt2aacb18ff09fc8d8/5f935c8b161ae70b23afc28c/homepage_innkeeper_npe_small.webm"
-                        }
-                        type="video/mp4"
-                    />
+                    <source src={hearthstoneBoy} type="video/mp4" />
                 </video>
             </div>
             <LazyLoad>

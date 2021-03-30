@@ -15,57 +15,75 @@ import { useTransition, animated, useSpring, useTrail } from "react-spring";
 import anime from "animejs/lib/anime.es.js";
 const timer = 5000;
 
+const slides = [
+    {
+        title: "Diablo",
+        mobileImage:
+            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/bltd193570a0665fcd5/6025ea3fee3eea3d58382719/D2R_2021_Blizzard.comMobile_1536x1536_MB01.jpg",
+        image:
+            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt7bcb2291026d0dde/6025e2a8415d5f4e80324945/D2R_2021_Blizzard.comDesktop_2500x514_MB01.png",
+        logo:
+            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/bltd8a7795d91122b89/6025e878c484333be943db63/D2R_DiabloResurrected_Logo_blizz.png?format=png",
+        description: "Coming Soon",
+        fallbackMobileImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617117304/blizzard/D2R_2021_Blizzard.comMobile_1536x1536_MB01.jpg",
+        fallbackImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617117361/blizzard/D2R_2021_Blizzard.comDesktop_2500x514_MB01.png",
+        fallbackLogo:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617117443/blizzard/D2R_DiabloResurrected_Logo_blizz.png",
+    },
+    {
+        title: "Warzone",
+        mobileImage:
+            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt72a65c1ea9b4e021/6036f901ee3eea3d58382eb1/CODCW_S2_Keyart-Bnet-Home_Banner_Mobile_Home-1536x1536.webp?auto=webp&format=pjpg",
+        image:
+            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt430768244603486e/6036f8ed0b1d853be8ad56fc/CODCW_S2_Keyart-Bnet-Home_Banner_Desktop_Home-2500x514.webp?auto=webp&format=pjpg",
+        logo:
+            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt99a6a6b625f0456f/5fd8228f89d9d54751de540d/d20201211-017_CW_WZ_Logo_Lock_Up_1P_Stacked.png?format=png",
+        description: "Season 2  now live",
+        fallbackMobileImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616678520/blizzard/CODCW_S2_Keyart-Bnet-Home_Banner_Mobile_Home-1536x1536.jpg",
+        fallbackImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620251/blizzard/CODCW_S2_Keyart-Bnet-Home_Banner_Desktop_Home-2500x514.jpg",
+        fallbackLogo:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620270/blizzard/d20201211-017_CW_WZ_Logo_Lock_Up_1P_Stacked.png",
+    },
+    {
+        title: "WOW",
+        mobileImage:
+            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt0742cb14167fd273/6055055bc484333be943eb10/wow-bcc-beta-now-live-web-1536x1536-RD01.jpg",
+        image:
+            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/bltc1312ef8fbc2b4c6/60550544c6713d4e7a4d554c/wow-bcc-beta-now-live-web-2500x514-RD01.jpg",
+        logo:
+            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blta82b68446e5cb096/6025e7a202ccfb4d0f671c0b/WoW_C_BurningCrusade_Logo_DarkBG_MN03.png?format=png",
+        description: "Beta is now live",
+        fallbackMobileImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616678431/blizzard/wow-bcc-beta-now-live-web-1536x1536-RD01.jpg",
+        fallbackImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620285/blizzard/wow-bcc-beta-now-live-web-2500x514-RD01.jpg",
+        fallbackLogo:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620350/blizzard/WoW_C_BurningCrusade_Logo_DarkBG_MN03.png",
+    },
+];
+
 // const slides = [
 //     {
 //         title: "Crash Bandicoot",
-//         mobileImage:
-//             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616678348/blizzard/CB4_Launch_Keyart-Bnet-Home_Banner_Mobile_Home-1536x1536.jpg",
+//         mobileImage: "",
 //         image:
-//             "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/bltc1446fda2f87e332/60134add9d2dcf0eda34fc8c/CB4_Launch_Keyart-Bnet-Home_Banner_Desktop_Home-2500x514.webp?auto=webp&format=pjpg",
-//         logo:
-//             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620195/blizzard/crash.png",
+//             "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt7bcb2291026d0dde/6025e2a8415d5f4e80324945/D2R_2021_Blizzard.comDesktop_2500x514_MB01.png",
+//         logo: "",
 //         description: "Coming Soon!",
 //     },
 //     {
 //         title: "Warzone",
-//         mobileImage:
-//             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616678520/blizzard/CODCW_S2_Keyart-Bnet-Home_Banner_Mobile_Home-1536x1536.jpg",
+//         mobileImage: "",
 //         image:
 //             "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt430768244603486e/6036f8ed0b1d853be8ad56fc/CODCW_S2_Keyart-Bnet-Home_Banner_Desktop_Home-2500x514.webp?auto=webp&format=pjpg",
-//         logo:
-//             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620270/blizzard/d20201211-017_CW_WZ_Logo_Lock_Up_1P_Stacked.png",
+//         logo: "",
 //         description: "Season 2  now live",
 //     },
-//     {
-//         title: "WOW",
-//         mobileImage:
-//             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616678431/blizzard/wow-bcc-beta-now-live-web-1536x1536-RD01.jpg",
-//         image:
-//             "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/bltc1312ef8fbc2b4c6/60550544c6713d4e7a4d554c/wow-bcc-beta-now-live-web-2500x514-RD01.jpg",
-//         logo:
-//             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616620350/blizzard/WoW_C_BurningCrusade_Logo_DarkBG_MN03.png",
-//         description: "Beta is now live",
-//     },
 // ];
-
-const slides = [
-    {
-        title: "Crash Bandicoot",
-        mobileImage: "",
-        image:
-            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt7bcb2291026d0dde/6025e2a8415d5f4e80324945/D2R_2021_Blizzard.comDesktop_2500x514_MB01.png",
-        logo: "",
-        description: "Coming Soon!",
-    },
-    {
-        title: "Warzone",
-        mobileImage: "",
-        image:
-            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt430768244603486e/6036f8ed0b1d853be8ad56fc/CODCW_S2_Keyart-Bnet-Home_Banner_Desktop_Home-2500x514.webp?auto=webp&format=pjpg",
-        logo: "",
-        description: "Season 2  now live",
-    },
-];
 interface IShowSlide {
     index: number;
     stopAutoplay: boolean;
@@ -102,10 +120,25 @@ const HomeCarousel: React.FC<{}> = () => {
         }
         //There is a reason why I used anime.js, look at renderSlides()
         anime({
-            targets: `.pictureImageWrap`,
-            // Properties
-            // Animation Parameters
+            targets: ".pictureImageWrap",
+            opacity: [
+                {
+                    value: [0, 1],
+                    duration: timer,
+                    easing: "easeOutQuad",
+                },
+            ],
+            translateX: [
+                {
+                    value: ["0%", "2%"],
+                    duration: timer,
+                    easing: "easeOutQuad",
+                },
+            ],
+        });
 
+        anime({
+            targets: ".slideImageLogoAndDescWrap",
             opacity: [
                 {
                     value: [0, 1],
@@ -200,16 +233,32 @@ const HomeCarousel: React.FC<{}> = () => {
                                 <source
                                     media={`(min-width:${MED_SCREEN_SIZE}px)`}
                                     srcSet={slide.image}
+                                    onError={(e: any) => {
+                                        e.target.onError = null;
+                                        e.target.src = `${slide.fallbackImage}`;
+                                    }}
                                 />
                                 <source
                                     media={`(min-width:320px`}
                                     srcSet={slide.mobileImage}
+                                    onError={(e: any) => {
+                                        e.target.onError = null;
+                                        e.target.src = `${slide.fallbackMobileImage}`;
+                                    }}
                                 />
 
-                                <img src={slide.image} alt="project" />
+                                <img
+                                    src={slide.image}
+                                    onError={(e: any) => {
+                                        e.target.onError = null;
+                                        e.target.src = `${slide.fallbackImage}`;
+                                    }}
+                                    alt="project"
+                                />
                             </picture>
                         </div>
-                        {transition((style, item) => {
+                        {/* Same situation as above
+                         {transition((style, item) => {
                             return (
                                 <div
                                     className={`slideImageLogoAndDescWrap
@@ -220,6 +269,10 @@ const HomeCarousel: React.FC<{}> = () => {
                                             className="slideImageLogo"
                                             src={slide.logo}
                                             alt="game slide"
+                                            onError={(e: any) => {
+                                                e.target.onError = null;
+                                                e.target.src = `${slide.fallbackLogo}`;
+                                            }}
                                         ></img>
                                         <h1 className="slideDesc">
                                             {slide.description}
@@ -227,7 +280,26 @@ const HomeCarousel: React.FC<{}> = () => {
                                     </animated.div>
                                 </div>
                             );
-                        })}
+                        })} */}
+                        <div
+                            className={`slideImageLogoAndDescWrap
+                                    `}
+                        >
+                            <div>
+                                <img
+                                    className="slideImageLogo"
+                                    src={slide.logo}
+                                    alt="game slide"
+                                    onError={(e: any) => {
+                                        e.target.onError = null;
+                                        e.target.src = `${slide.fallbackLogo}`;
+                                    }}
+                                ></img>
+                                <h1 className="slideDesc">
+                                    {slide.description}
+                                </h1>
+                            </div>
+                        </div>
                     </div>
                 </Slide>
             );

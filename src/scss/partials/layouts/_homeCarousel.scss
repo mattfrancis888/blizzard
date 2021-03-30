@@ -52,7 +52,7 @@
             object-fit: cover;
             object-position: 50% 0%;
             @media screen and (min-width: $md_breakpoint) {
-                object-position: 50% 50%; //default
+                object-position: 60% 50%; //default
             }
         }
     }

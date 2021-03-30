@@ -11,21 +11,42 @@ const Header: React.FC<{}> = () => {
     const [showModalPresentation, setShowModalPresentation] = useState(false);
     const { width } = useWindowDimensions();
 
+    useEffect(() => {
+        if (showPresentation && width < MED_SCREEN_SIZE) {
+            setShowPresentation(false);
+        } else if (showModal && width > MED_SCREEN_SIZE) {
+            setShowModal(false);
+        }
+    }, [showPresentation, showModal, width]);
+
     const games = [
-        {
-            title: "WoW",
-            image:
-                "https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png",
-        },
         {
             title: "Hearthstone",
             image:
                 "https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png",
+            fallbackImage:
+                "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617130842/blizzard/logo-hs-93512467e87f82c6.png",
+        },
+        {
+            title: "Overwatch",
+            image:
+                "https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png",
+            fallbackImage:
+                "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617130670/blizzard/logo-ow-4be5755bc0a4cbaf.png",
+        },
+        {
+            title: "WoW",
+            image:
+                "https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png",
+            fallbackImage:
+                "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617130899/blizzard/logo-wow-3dd2cfe06df74407.png",
         },
         {
             title: "Warzone",
             image:
                 "https://blznav.akamaized.net/img/games/logo-codwz-f474cad4f5c0636a.svg",
+            fallbackImage:
+                "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617131002/blizzard/logo-codwz-f474cad4f5c0636a.svg",
         },
     ];
     //Trail for games at lg screen
@@ -72,6 +93,11 @@ const Header: React.FC<{}> = () => {
                                         className="test"
                                         src={games[index].image}
                                         alt=""
+                                        onError={(e: any) => {
+                                            e.target.onError = null;
+                                            e.target.src =
+                                                games[index].fallbackImage;
+                                        }}
                                     ></img>
                                     <p className="presentationGameTitle">
                                         {games[index].title}
@@ -208,6 +234,11 @@ const Header: React.FC<{}> = () => {
                                         className="modalPresentationGameLogo"
                                         src={games[index].image}
                                         alt=""
+                                        onError={(e: any) => {
+                                            e.target.onError = null;
+                                            e.target.src =
+                                                games[index].fallbackImage;
+                                        }}
                                     ></img>
                                     <p className="modalPresentationGameTitle">
                                         {games[index].title}
@@ -237,7 +268,7 @@ const Header: React.FC<{}> = () => {
 
     return (
         <React.Fragment>
-            {width < LG_SCREEN_SIZE && renderModal()}
+            {showModal && renderModal()}
 
             {showPresentation && (
                 <div

@@ -17,16 +17,22 @@ const slides = [
     {
         image:
             "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt9aa5402bd2364d7c/603d5c7ac484333be943e53f/01_28_HS_ClassicBundle_PlayHS_Homepage_Desktop_1600x500_JY_v01.jpg?format=webp",
+        fallbackImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616723296/blizzard/hearthstone/01_28_HS_ClassicBundle_PlayHS_Homepage_Desktop_1600x500_JY_v01.webp",
         description: "Get a jump on The New Classic Format",
     },
     {
         image:
             "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltdcda7b9ef0acc809/603d5bb802ccfb4d0f672543/02_18_HS_Classic_Launch_LoginReward_PlayHS_Homepage_Desktop_1600x500_JY_v01.jpg?format=webp",
+        fallbackImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616878179/blizzard/hearthstone/02_18_HS_Classic_Launch_LoginReward_PlayHS_Homepage_Desktop_1600x500_JY_v01.webp",
         description: "A Golden Gift!",
     },
     {
         image:
             "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt0b5997ac49a51fad/6026e8320b1d853be8ad4fe8/20p0_Mega_Bundle_Homepage_20p0_Mega_Bundle_PHS_desktop_1600x500.jpg?format=webp",
+        fallbackImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616723254/blizzard/hearthstone/20p0_Mega_Bundle_Homepage_20p0_Mega_Bundle_PHS_desktop_1600x500.webp",
         description: "Prepare for the barrens with a Mega Bundle",
     },
 ];
@@ -49,7 +55,7 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
             fillTimeOut = setTimeout(() => {
                 //Note: dont put  itemEls.current[showSlide].children[0].click();
                 //here, for some reason it acts weird
-                if (showSlide.index > 1) {
+                if (showSlide.index > slides.length - 2) {
                     //Reset after third button
                     setShowSlide({
                         index: 0,
@@ -60,7 +66,7 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
                         index: showSlide.index + 1,
                         stopAutoplay: false,
                     });
-            }, timer);
+            }, timer + 3000);
         } else {
             itemEls.current[showSlide.index].children[0].click();
         }
@@ -169,7 +175,14 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
                             );
                         })} */}
                         <div className="hearthstoneBannerCarouselImageWrap">
-                            <img src={slide.image} alt="project" />
+                            <img
+                                src={slide.image}
+                                onError={(e: any) => {
+                                    e.target.onError = null;
+                                    e.target.src = `${slide.fallbackImage}`;
+                                }}
+                                alt="project"
+                            />
                         </div>
                         {transition((style, item) => {
                             return (

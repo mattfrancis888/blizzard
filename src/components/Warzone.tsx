@@ -15,6 +15,11 @@ const Warzone: React.FC<{}> = () => {
                 <img
                     src="https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/hub/tile-bgs/2021/03/hub-hero-wz-s2-desktop.jpg"
                     alt="banner"
+                    onError={(e: any) => {
+                        e.target.onError = null;
+                        e.target.src =
+                            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617026188/blizzard/warzone/hub-hero-wz-s2-desktop.jpg";
+                    }}
                 />
             </div>
 
@@ -32,6 +37,11 @@ const Warzone: React.FC<{}> = () => {
                     <img
                         src="https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/warzone/home/seasons/season-2/wz-home-s2-shipwreck-desktop.jpg"
                         alt="map"
+                        onError={(e: any) => {
+                            e.target.onError = null;
+                            e.target.src =
+                                "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617032672/blizzard/warzone/wz-home-s2-shipwreck-desktop.jpg";
+                        }}
                     ></img>
                     <div className="warzoneSingleImageText">
                         <div className="warzoneSingleImageTitleWrap">
@@ -51,6 +61,11 @@ const Warzone: React.FC<{}> = () => {
                     <img
                         src="https://res.cloudinary.com/du8n2aa4p/image/upload/v1617032649/blizzard/warzone/zeus-s2-roadmap-desktop-en.jpg"
                         alt="map"
+                        onError={(e: any) => {
+                            e.target.onError = null;
+                            e.target.src =
+                                "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617032649/blizzard/warzone/zeus-s2-roadmap-desktop-en.jpg";
+                        }}
                     ></img>
                 </div>
             </div>
