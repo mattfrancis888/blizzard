@@ -11,6 +11,14 @@ const Header: React.FC<{}> = () => {
     const [showModalPresentation, setShowModalPresentation] = useState(false);
     const { width } = useWindowDimensions();
 
+    useEffect(() => {
+        if (showPresentation && width < MED_SCREEN_SIZE) {
+            setShowPresentation(false);
+        } else if (showModal && width > MED_SCREEN_SIZE) {
+            setShowModal(false);
+        }
+    }, [showPresentation, showModal, width]);
+
     const games = [
         {
             title: "Hearthstone",
@@ -260,7 +268,7 @@ const Header: React.FC<{}> = () => {
 
     return (
         <React.Fragment>
-            {width < LG_SCREEN_SIZE && renderModal()}
+            {showModal && renderModal()}
 
             {showPresentation && (
                 <div
