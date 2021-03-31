@@ -37,6 +37,14 @@ const gamesCard = [
             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616994397/blizzard/23d217616446ccdca7452bc01629d2b5-CODCW_S2_Warzone_Keyart-Bnet-Shop_Card_Product_Vert-700x850.jpg",
         link: "/warzone",
     },
+    {
+        name: "Overwatch 2",
+        img:
+            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/bltcdaa7ff86edaacf0/5fb3dfef21b96a46dc51a7fb/game-card_overwatch2_enUS.webp?auto=webp&format=pjpg",
+        fallbackImg:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617152348/blizzard/game-card_overwatch2_enUS.jpg",
+        link: "/overwatch2",
+    },
 ];
 const Body: React.FC<{}> = () => {
     return (

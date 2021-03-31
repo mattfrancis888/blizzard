@@ -1,0 +1,106 @@
+// .embla {
+//     // overflow: hidden;
+//     position: relative;
+//     background-color: #f7f7f7;
+//     padding: 20px;
+//     max-width: 670px;
+//     margin-left: auto;
+//     margin-right: auto;
+// }
+// .embla__container {
+//     //display: flex;
+//     margin-top: -10px;
+//     height: 200px;
+// }
+// .embla__slide {
+//     position: relative;
+//     flex: 0 0 100%;
+// }
+
+// .overwatch2EmblaContainer {
+//     height: 40rem;
+// }
+// .embla__slide__inner {
+//     position: relative;
+//     overflow: hidden;
+//     height: 100%;
+// }
+
+// .embla__slide__img {
+//     position: absolute;
+//     display: block;
+//     top: 50%;
+//     left: 50%;
+//     width: auto;
+//     min-height: 100%;
+//     min-width: 100%;
+//     max-width: none;
+//     transform: translate(-50%, -50%);
+// }
+
+// .embla__viewport {
+//     overflow: hidden;
+//     width: 100%;
+// }
+
+// .embla__viewport.is-draggable {
+//     cursor: move;
+//     cursor: grab;
+// }
+
+// .embla__viewport.is-dragging {
+//     cursor: grabbing;
+// }
+
+.embla {
+    position: relative;
+    background-color: #f7f7f7;
+    padding: 20px;
+    max-width: 670px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.embla__viewport {
+    overflow: hidden;
+    width: 100%;
+}
+
+.embla__viewport.is-draggable {
+    cursor: move;
+    cursor: grab;
+}
+
+.embla__viewport.is-dragging {
+    cursor: grabbing;
+}
+
+.embla__container {
+    user-select: none;
+    margin-top: -10px;
+    height: 400px;
+}
+
+.embla__slide {
+    position: relative;
+    height: 100%;
+    padding-top: 10px;
+}
+
+.embla__slide__inner {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.embla__slide__img {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    min-height: 100%;
+    min-width: 100%;
+    max-width: none;
+    transform: translate(-50%, -50%);
+}
