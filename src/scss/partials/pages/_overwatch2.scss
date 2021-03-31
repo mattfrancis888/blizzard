@@ -2,8 +2,10 @@ body {
     overflow-x: hidden;
 }
 .overwatch2LandingContainer {
-    position: relative;
-    width: 100vw;
+    position: absolute;
+    top: 0;
+    right: -10rem;
+    width: 120vw;
     // height: 110vh;
     height: 80rem;
     display: flex;
@@ -14,9 +16,7 @@ body {
 }
 .overwatch2Sky {
     position: absolute;
-    left: -10rem;
-    top: -10rem;
-    width: 150%;
+    width: 100%;
     height: 140%;
 }
 
@@ -76,7 +76,7 @@ body {
 .overwatch2ExploreGround {
     position: absolute;
     bottom: -10%;
-    left: -10rem;
+    left: -30rem;
     width: 120%;
     height: 100%;
 }
@@ -128,7 +128,7 @@ body {
     position: absolute;
 
     @media screen and (min-width: $lg_breakpoint) {
-        left: -5rem;
+        left: -15rem;
         bottom: -1rem;
         width: 67rem;
         height: 57rem;
@@ -166,22 +166,55 @@ body {
 
     @media screen and (min-width: $lg_breakpoint) {
         bottom: 10rem;
-        right: 10rem;
+        right: 15rem;
         width: 32rem;
         height: 26rem;
     }
     @media screen and (min-width: $xl_breakpoint) {
         bottom: 10rem;
-        right: 15rem;
+        right: 25rem;
         width: 39rem;
         height: 31rem;
     }
 }
 
-.overwatch2ExplorePod {
+.overwatch2ExplorePodRight {
     position: absolute;
-    right: 0;
-    top: 10rem;
-    width: 100%;
-    height: 100%;
+    right: 30rem;
+    top: 0rem;
+    width: 20rem;
+    height: 20rem;
+}
+
+.overwatch2ExplorePodLeft {
+    position: absolute;
+    left: 30rem;
+    top: 0rem;
+    width: 20rem;
+    height: 20rem;
+}
+
+.overwatch2Flier {
+    position: absolute;
+    right: 60rem;
+    top: 20rem;
+    width: 10rem;
+    height: 10rem;
+    animation: floatingFlier 2s infinite alternate;
+    @media screen and (min-width: $lg_breakpoint) {
+        right: 40rem;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        bottom: 10rem;
+        right: 36rem;
+    }
+}
+
+@keyframes floatingFlier {
+    from {
+        transform: translate3d(0px, 10%, 0px);
+    }
+    to {
+        transform: translate3d(0px, 0px, 0px);
+    }
 }
