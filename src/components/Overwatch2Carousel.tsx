@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useEmblaCarousel } from "embla-carousel/react";
-
+import useScrollDirection from "../useScrollDirection";
 const EmblaCarousel = () => {
     const [viewportRef, embla] = useEmblaCarousel({ axis: "y" });
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
-
+    const scrollDir = useScrollDirection();
     const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
     const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
     //const onSelect = useCallback(() => {
@@ -19,6 +19,7 @@ const EmblaCarousel = () => {
     //   embla.on("select", onSelect);
     //   onSelect();
     // }, [embla, onSelect]);
+    console.log(scrollDir);
 
     return (
         <div className="embla">
