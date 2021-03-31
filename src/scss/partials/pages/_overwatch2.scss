@@ -126,7 +126,8 @@ body {
 
 .overwatch2ExploreTracer {
     position: absolute;
-
+    cursor: pointer;
+    z-index: 2;
     @media screen and (min-width: $lg_breakpoint) {
         left: -15rem;
         bottom: -1rem;
@@ -139,7 +140,7 @@ body {
         width: 81rem;
         height: 69rem;
     }
-    // z-index: 2;
+
     // &:before {
     //     content: "";
     //     position: absolute;
@@ -182,16 +183,16 @@ body {
     position: absolute;
     right: 30rem;
     top: 0rem;
-    width: 20rem;
-    height: 20rem;
+    width: 15rem;
+    height: 15rem;
 }
 
 .overwatch2ExplorePodLeft {
     position: absolute;
     left: 30rem;
     top: 0rem;
-    width: 20rem;
-    height: 20rem;
+    width: 15rem;
+    height: 15rem;
 }
 
 .overwatch2Flier {

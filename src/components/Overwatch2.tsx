@@ -9,41 +9,47 @@ const timer = 3000;
 //@ts-ignore
 const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
 //@ts-ignore
-const podTrans1 = (x, y, z) => `translate3d(${x}rem,${y}rem,${z}rem)`;
+const podTrans1 = (x, y, z) => `translate3d(${x}px,${y}px,${z}px)`;
 const Overwatch2: React.FC<{}> = () => {
     const [xHook, setX] = useState(0);
     const [yHook, setY] = useState(0);
-
-    const { xy } = useSpring({
-        from: { xy: [0, 0] },
-        config: { mass: 10, tension: 550, friction: 140 },
-    });
-    // const { podX, podY, podZ } = useSpring({
-    //     from: { podX: [5, 100], podY: [0, 100], podZ: [0, 100] },
-    //     config: { mass: 10, tension: 550, friction: 140 },
-    // });
+    const [renderOverlay, setRenderOverlay] = useState(false);
     const [startPod, setStartPod] = useState(false);
+
     const { podX, podY } = useSpring({
         podX: startPod ? 5 : 0,
-        podY: startPod ? 0 : -5,
+        podY: startPod ? 470 : 0,
 
-        // podZ: [0, 100],
+        config: {
+            duration: 8000,
+            mass: 10,
+            tension: 550,
+            friction: 140,
+        },
+    });
 
-        config: { mass: 10, tension: 550, friction: 140 },
+    const overlaySpring = useSpring({
+        opacity: renderOverlay ? 1 : 0,
+        config: {
+            duration: 2000,
+            mass: 10,
+            tension: 550,
+            friction: 140,
+        },
     });
     useEffect(() => {
         setStartPod(true);
     }, []);
 
-    useEffect(() => {
-        const fillTimeOut = setTimeout(() => {
-            console.log(startPod);
-            setStartPod(!startPod);
-        }, 3000);
-        return () => {
-            clearTimeout(fillTimeOut);
-        };
-    }, [startPod]);
+    // useEffect(() => {
+    //     const fillTimeOut = setTimeout(() => {
+    //         console.log(startPod);
+    //         setStartPod(!startPod);
+    //     }, 3000);
+    //     return () => {
+    //         clearTimeout(fillTimeOut);
+    //     };
+    // }, [startPod]);
 
     const renderLandingSlide = () => {
         return (
@@ -119,7 +125,12 @@ const Overwatch2: React.FC<{}> = () => {
                     transform: trans1(xHook, yHook),
                 }}
             >
-                {/* ' <div className="overlayTest"></div> */}
+                {
+                    <animated.div
+                        style={overlaySpring}
+                        className="overlayTest"
+                    ></animated.div>
+                }
                 <animated.img
                     className="overwatch2Sky"
                     src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/landing/landing-bg-sky-LG.webp"
@@ -129,30 +140,6 @@ const Overwatch2: React.FC<{}> = () => {
                     className="overwatch2Coast"
                     src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bg-coast-LG.webp"
-                    alt=""
-                />
-                <animated.img
-                    className="overwatch2ExploreGround"
-                    src="
-                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bg-ground-LG.webp
-                    "
-                    alt=""
-                />
-                <animated.img
-                    className="overwatch2ExploreShip"
-                    src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bg-ship-LG.webp"
-                    alt=""
-                />
-                <animated.img
-                    className="overwatch2ExploreTracer"
-                    src="
-                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-hero-tracer-LG.webp"
-                    alt=""
-                />
-                <animated.img
-                    className="overwatch2ExploreBot"
-                    src="
-                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bot-main-LG.webp"
                     alt=""
                 />
                 <animated.img
@@ -177,6 +164,36 @@ const Overwatch2: React.FC<{}> = () => {
                     }}
                     src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-pod-1-LG.webp"
+                    alt=""
+                />
+                <animated.img
+                    className="overwatch2ExploreGround"
+                    src="
+                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bg-ground-LG.webp
+                    "
+                    alt=""
+                />
+                <animated.img
+                    className="overwatch2ExploreShip"
+                    src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bg-ship-LG.webp"
+                    alt=""
+                />
+                <animated.img
+                    className="overwatch2ExploreTracer"
+                    src="
+                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-hero-tracer-LG.webp"
+                    alt=""
+                    onMouseEnter={() => {
+                        setRenderOverlay(true);
+                    }}
+                    onMouseLeave={() => {
+                        setRenderOverlay(false);
+                    }}
+                />
+                <animated.img
+                    className="overwatch2ExploreBot"
+                    src="
+                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bot-main-LG.webp"
                     alt=""
                 />
                 <animated.img
