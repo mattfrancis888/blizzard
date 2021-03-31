@@ -1,10 +1,11 @@
 body {
     overflow-x: hidden;
 }
-.overwatch2ImgTestContainer {
+.overwatch2LandingContainer {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    // height: 110vh;
+    height: 80rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,7 +20,7 @@ body {
     height: 140%;
 }
 
-.overwatch2Rein {
+.overwatch2LandingRein {
     position: absolute;
     bottom: -10%;
     left: -40%;
@@ -44,7 +45,7 @@ body {
     }
 }
 
-.overwatch2Tracer {
+.overwatch2LandingTracer {
     position: absolute;
     bottom: -10%;
     width: 36rem;
@@ -70,13 +71,16 @@ body {
     }
 }
 
-.overwatch2City {
+.overwatch2LandingCity,
+.overwatch2Coast,
+.overwatch2ExploreGround {
     position: absolute;
     bottom: -10%;
     left: -10rem;
     width: 120%;
     height: 100%;
 }
+
 .OW2LogoSvg {
     position: absolute;
     left: 5%;
@@ -93,9 +97,91 @@ body {
         height: 14.5rem;
     }
     @media screen and (min-width: $xl_breakpoint) {
-        left: 50%;
         left: 5%;
         width: 27rem;
         height: 16.5rem;
     }
+}
+
+.overwatch2ExploreGround {
+    height: 120%;
+}
+
+.overwatch2ExploreShip {
+    position: absolute;
+
+    @media screen and (min-width: $md_breakpoint) {
+        top: -20rem;
+        left: -15rem;
+        width: 80rem;
+        height: 40rem;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        top: -25rem;
+        left: 15rem;
+        width: 90rem;
+        height: 50rem;
+    }
+}
+
+.overwatch2ExploreTracer {
+    position: absolute;
+
+    @media screen and (min-width: $lg_breakpoint) {
+        left: -5rem;
+        bottom: -1rem;
+        width: 67rem;
+        height: 57rem;
+    }
+    transform: translateX(30%);
+    @media screen and (min-width: $xl_breakpoint) {
+        left: -5rem;
+        width: 81rem;
+        height: 69rem;
+    }
+    // z-index: 2;
+    // &:before {
+    //     content: "";
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     width: 50rem;
+    //     height: 50rem;
+    //     background: red;
+    // }
+}
+
+.overlayTest {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overwatch2ExploreBot {
+    position: absolute;
+
+    @media screen and (min-width: $lg_breakpoint) {
+        bottom: 10rem;
+        right: 10rem;
+        width: 32rem;
+        height: 26rem;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        bottom: 10rem;
+        right: 15rem;
+        width: 39rem;
+        height: 31rem;
+    }
+}
+
+.overwatch2ExplorePod {
+    position: absolute;
+    right: 0;
+    top: 10rem;
+    width: 100%;
+    height: 100%;
 }

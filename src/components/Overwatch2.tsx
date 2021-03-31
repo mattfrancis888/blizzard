@@ -19,11 +19,10 @@ const Overwatch2: React.FC<{}> = () => {
         config: { mass: 10, tension: 550, friction: 140 },
     });
 
-    return (
-        <React.Fragment>
-            <Overwatch2Carousel />
-            {/* <div
-                className="overwatch2ImgTestContainer"
+    const renderLandingSlide = () => {
+        return (
+            <div
+                className="overwatch2LandingContainer"
                 onMouseMove={({ clientX: x, clientY: y }) => {
                     // setX(x);
                     // setY(y);
@@ -41,23 +40,23 @@ const Overwatch2: React.FC<{}> = () => {
                     alt=""
                 />
                 <animated.img
-                    className="overwatch2City"
+                    className="overwatch2LandingCity"
                     style={{ transform: xy.to((x, y) => trans1(xHook, yHook)) }}
                     src="
-            https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/landing/landing-bg-ground-LG.webp"
+        https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/landing/landing-bg-ground-LG.webp"
                     alt=""
                 />
                 <animated.img
-                    className="overwatch2Rein"
+                    className="overwatch2LandingRein"
                     style={{ transform: xy.to((x, y) => trans1(xHook, yHook)) }}
                     src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/landing/landing-hero-rein-LG.webp"
                     alt=""
                 />
                 <animated.img
-                    className="overwatch2Tracer"
+                    className="overwatch2LandingTracer"
                     style={{ transform: xy.to((x, y) => trans1(xHook, yHook)) }}
                     src="
-                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/landing/landing-hero-tracer-XL.webp"
+                https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/landing/landing-hero-tracer-XL.webp"
                     alt=""
                 />
                 <svg
@@ -81,7 +80,72 @@ const Overwatch2: React.FC<{}> = () => {
                     <path d="M31.81,21.1h-.08v.12h0V20.9h.13a.09.09,0,0,1,.1.1.1.1,0,0,1-.07.1l.07.12h-.05Zm-.08,0h.08s.07,0,.07-.06a.07.07,0,0,0-.07-.07h-.08Z"></path>
                     <path d="M31.8,21.36a.3.3,0,1,1,.3-.3A.3.3,0,0,1,31.8,21.36Zm0-.56a.26.26,0,0,0-.27.26.27.27,0,0,0,.53,0A.26.26,0,0,0,31.8,20.8Z"></path>
                 </svg>
-            </div> */}
+            </div>
+        );
+    };
+    return (
+        <React.Fragment>
+            {/* <Overwatch2Carousel /> */}
+
+            {/* {renderLandingSlide()} */}
+
+            <div
+                className="overwatch2LandingContainer"
+                onMouseMove={({ clientX: x, clientY: y }) => {
+                    setX(x - window.innerWidth / 2);
+                    setY(y - window.innerHeight / 2);
+                }}
+            >
+                {/* ' <div className="overlayTest"></div> */}
+                <animated.img
+                    className="overwatch2Sky"
+                    style={{ transform: xy.to((x, y) => trans1(xHook, yHook)) }}
+                    src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/landing/landing-bg-sky-LG.webp"
+                    alt=""
+                />
+                <animated.img
+                    className="overwatch2Coast"
+                    style={{ transform: xy.to((x, y) => trans1(xHook, yHook)) }}
+                    src="
+                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bg-coast-LG.webp"
+                    alt=""
+                />
+                <animated.img
+                    className="overwatch2ExploreGround"
+                    style={{ transform: xy.to((x, y) => trans1(xHook, yHook)) }}
+                    src="
+                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bg-ground-LG.webp
+                    "
+                    alt=""
+                />
+                <animated.img
+                    className="overwatch2ExploreShip"
+                    style={{ transform: xy.to((x, y) => trans1(xHook, yHook)) }}
+                    src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bg-ship-LG.webp"
+                    alt=""
+                />
+                <animated.img
+                    className="overwatch2ExploreTracer"
+                    style={{ transform: xy.to((x, y) => trans1(xHook, yHook)) }}
+                    src="
+                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-hero-tracer-LG.webp"
+                    alt=""
+                />
+                <animated.img
+                    className="overwatch2ExploreBot"
+                    style={{ transform: xy.to((x, y) => trans1(xHook, yHook)) }}
+                    src="
+                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bot-main-LG.webp"
+                    alt=""
+                />
+                {/* <animated.img
+                    className="overwatch2ExplorePod"
+                    style={{ transform: xy.to((x, y) => trans1(xHook, yHook)) }}
+                    src="
+                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-pod-2-LG.webp"
+                    alt=""
+                />  */}
+            </div>
         </React.Fragment>
     );
 };

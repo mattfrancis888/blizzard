@@ -1888,10 +1888,10 @@ body {
   overflow-x: hidden;
 }
 
-.overwatch2ImgTestContainer {
+.overwatch2LandingContainer {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 80rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1907,7 +1907,7 @@ body {
   height: 140%;
 }
 
-.overwatch2Rein {
+.overwatch2LandingRein {
   position: absolute;
   bottom: -10%;
   left: -40%;
@@ -1915,28 +1915,28 @@ body {
   height: 40rem;
 }
 @media screen and (min-width: 520px) {
-  .overwatch2Rein {
+  .overwatch2LandingRein {
     left: -10%;
     width: 60rem;
     height: 50rem;
   }
 }
 @media screen and (min-width: 768px) {
-  .overwatch2Rein {
+  .overwatch2LandingRein {
     left: 5%;
     width: 65rem;
     height: 55rem;
   }
 }
 @media screen and (min-width: 1200px) {
-  .overwatch2Rein {
+  .overwatch2LandingRein {
     left: 10%;
     width: 70.6rem;
     height: 62rem;
   }
 }
 
-.overwatch2Tracer {
+.overwatch2LandingTracer {
   position: absolute;
   bottom: -10%;
   width: 36rem;
@@ -1946,28 +1946,30 @@ body {
   transform: translateX(30%);
 }
 @media screen and (min-width: 520px) {
-  .overwatch2Tracer {
+  .overwatch2LandingTracer {
     left: 35%;
     width: 46rem;
     height: 46rem;
   }
 }
 @media screen and (min-width: 768px) {
-  .overwatch2Tracer {
+  .overwatch2LandingTracer {
     left: 40%;
     width: 51rem;
     height: 51rem;
   }
 }
 @media screen and (min-width: 1200px) {
-  .overwatch2Tracer {
+  .overwatch2LandingTracer {
     left: 50%;
     width: 43rem;
     height: 56rem;
   }
 }
 
-.overwatch2City {
+.overwatch2LandingCity,
+.overwatch2Coast,
+.overwatch2ExploreGround {
   position: absolute;
   bottom: -10%;
   left: -10rem;
@@ -1997,11 +1999,92 @@ body {
 }
 @media screen and (min-width: 1200px) {
   .OW2LogoSvg {
-    left: 50%;
     left: 5%;
     width: 27rem;
     height: 16.5rem;
   }
+}
+
+.overwatch2ExploreGround {
+  height: 120%;
+}
+
+.overwatch2ExploreShip {
+  position: absolute;
+}
+@media screen and (min-width: 768px) {
+  .overwatch2ExploreShip {
+    top: -20rem;
+    left: -15rem;
+    width: 80rem;
+    height: 40rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overwatch2ExploreShip {
+    top: -25rem;
+    left: 15rem;
+    width: 90rem;
+    height: 50rem;
+  }
+}
+
+.overwatch2ExploreTracer {
+  position: absolute;
+  transform: translateX(30%);
+}
+@media screen and (min-width: 992px) {
+  .overwatch2ExploreTracer {
+    left: -5rem;
+    bottom: -1rem;
+    width: 67rem;
+    height: 57rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overwatch2ExploreTracer {
+    left: -5rem;
+    width: 81rem;
+    height: 69rem;
+  }
+}
+
+.overlayTest {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overwatch2ExploreBot {
+  position: absolute;
+}
+@media screen and (min-width: 992px) {
+  .overwatch2ExploreBot {
+    bottom: 10rem;
+    right: 10rem;
+    width: 32rem;
+    height: 26rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overwatch2ExploreBot {
+    bottom: 10rem;
+    right: 15rem;
+    width: 39rem;
+    height: 31rem;
+  }
+}
+
+.overwatch2ExplorePod {
+  position: absolute;
+  right: 0;
+  top: 10rem;
+  width: 100%;
+  height: 100%;
 }
 
 .gameCarouselWrap {
@@ -2569,24 +2652,6 @@ footer {
 .placeholder {
   width: 100%;
   height: 100%;
-}
-
-.embla__slide__inner {
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-}
-
-.embla__slide__img {
-  position: absolute;
-  display: block;
-  top: 50%;
-  left: 50%;
-  width: auto;
-  min-height: 100%;
-  min-width: 100%;
-  max-width: none;
-  transform: translate(-50%, -50%);
 }
 
 /*# sourceMappingURL=main.css.map */
