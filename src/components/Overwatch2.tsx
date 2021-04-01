@@ -1,67 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { useTransition, animated, useSpring, to } from "react-spring";
 import _ from "lodash";
-
-import { AiFillPlusCircle } from "react-icons/ai";
+import useWindowDimensions from "../windowDimensions";
+import Overwatch2SlideExplore from "./Overwatch2SlideExplore";
 import anime from "animejs/lib/anime.es.js";
 import Overwatch2Carousel from "./Overwatch2Carousel";
 const timer = 3000;
-const HIGHLIGHT_TEAM = "HIGHLIGHT_TEAM";
-const HIGHLIGHT_MISSIONS = "HIGHLIGHT_MISSIONS";
 //const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 //@ts-ignore
 const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
 //@ts-ignore
 const podTrans1 = (x, y, z) => `translate3d(${x}px,${y}px,${z}px)`;
+
 const Overwatch2: React.FC<{}> = () => {
     const [xHook, setX] = useState(0);
     const [yHook, setY] = useState(0);
-    const [renderOverlay, setRenderOverlay] = useState<any>({
-        showOverlay: false,
-        highlight: "",
-    });
-    const [startPod, setStartPod] = useState(false);
-
-    const { podX, podY } = useSpring({
-        podX: startPod ? 5 : 0,
-        podY: startPod ? 470 : 0,
-
-        config: {
-            duration: 8000,
-            mass: 10,
-            tension: 550,
-            friction: 140,
-        },
-    });
-
-    const overlaySpring = useSpring({
-        opacity: renderOverlay.showOverlay ? 1 : 0,
-        zIndex: renderOverlay.showOverlay ? 1 : 0,
-        config: {
-            duration: 250,
-            // mass: 10,
-            // tension: 550,
-            // friction: 140,
-        },
-    });
-    useEffect(() => {
-        setStartPod(true);
-    }, []);
-
-    // useEffect(() => {
-    //     const fillTimeOut = setTimeout(() => {
-    //         console.log(startPod);
-    //         setStartPod(!startPod);
-    //     }, 3000);
-    //     return () => {
-    //         clearTimeout(fillTimeOut);
-    //     };
-    // }, [startPod]);
 
     const renderLandingSlide = () => {
         return (
             <div
-                className="overwatch2LandingContainer"
+                className="overwatch2SlideContainer"
                 onMouseMove={({ clientX: x, clientY: y }) => {
                     setX(x - window.innerWidth / 2);
                     setY(y - window.innerHeight / 2);
@@ -116,178 +74,12 @@ const Overwatch2: React.FC<{}> = () => {
             </div>
         );
     };
+
     return (
         <React.Fragment>
             {/* <Overwatch2Carousel /> */}
-
             {/* {renderLandingSlide()} */}
-
-            <div
-                className="overwatch2LandingContainer"
-                onMouseMove={({ clientX: x, clientY: y }) => {
-                    setX(x - window.innerWidth / 2);
-                    setY(y - window.innerHeight / 2);
-                }}
-                style={{
-                    transform: trans1(xHook, yHook),
-                }}
-            >
-                {
-                    <animated.div
-                        style={overlaySpring}
-                        className="overwatch2OverlayExplore"
-                    ></animated.div>
-                }
-                <animated.img
-                    className="overwatch2Sky"
-                    src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/landing/landing-bg-sky-LG.webp"
-                    alt=""
-                />
-                <animated.img
-                    className="overwatch2Coast"
-                    src="
-                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bg-coast-LG.webp"
-                    alt=""
-                />
-                <animated.img
-                    className="overwatch2ExplorePodRight"
-                    style={{
-                        opacity: startPod ? 1 : 0,
-                        transform: to([podX, podY], (podX, podY) =>
-                            podTrans1(podX, podY, 0)
-                        ),
-                    }}
-                    src="
-                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-pod-2-LG.webp"
-                    alt=""
-                />
-                <animated.img
-                    className="overwatch2ExplorePodLeft"
-                    style={{
-                        opacity: startPod ? 1 : 0,
-                        transform: to([podX, podY], (podX, podY) =>
-                            podTrans1(podX, podY, 0)
-                        ),
-                    }}
-                    src="
-                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-pod-1-LG.webp"
-                    alt=""
-                />
-                <animated.img
-                    className="overwatch2ExploreGround"
-                    src="
-                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bg-ground-LG.webp
-                    "
-                    alt=""
-                />
-                <animated.img
-                    className="overwatch2ExploreShip"
-                    src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bg-ship-LG.webp"
-                    alt=""
-                />
-                <animated.img
-                    className={`overwatch2ExploreTracer ${
-                        renderOverlay.showOverlay &&
-                        renderOverlay.highlight === HIGHLIGHT_TEAM
-                            ? "overwatch2ExploreHighlightWhenOverlayIsOn"
-                            : ""
-                    }`}
-                    src="
-                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-hero-tracer-LG.webp"
-                    alt=""
-                    onMouseEnter={() => {
-                        setRenderOverlay({
-                            showOverlay: true,
-                            highlight: HIGHLIGHT_TEAM,
-                        });
-                    }}
-                    onMouseLeave={() => {
-                        setRenderOverlay({
-                            showOverlay: false,
-                            highlight: "",
-                        });
-                    }}
-                />
-                <div
-                    className={`exploreInfoTextWrap exploreTeamvsTeamTextWrap ${
-                        renderOverlay.showOverlay &&
-                        renderOverlay.highlight === HIGHLIGHT_TEAM
-                            ? "overwatch2ExploreHighlightWhenOverlayIsOn"
-                            : ""
-                    }`}
-                    onMouseEnter={() => {
-                        setRenderOverlay({
-                            showOverlay: true,
-                            highlight: HIGHLIGHT_TEAM,
-                        });
-                    }}
-                    onMouseLeave={() => {
-                        setRenderOverlay({
-                            showOverlay: false,
-                            highlight: "",
-                        });
-                    }}
-                >
-                    <AiFillPlusCircle className="overwatch2PlusCircleExplore" />
-                    <h3>Team Vs. Team</h3>
-                </div>
-                <animated.img
-                    onMouseEnter={() => {
-                        setRenderOverlay({
-                            showOverlay: true,
-                            highlight: HIGHLIGHT_MISSIONS,
-                        });
-                    }}
-                    onMouseLeave={() => {
-                        setRenderOverlay({
-                            showOverlay: false,
-                            highlight: "",
-                        });
-                    }}
-                    className={`overwatch2ExploreBot ${
-                        renderOverlay.showOverlay &&
-                        renderOverlay.highlight === HIGHLIGHT_MISSIONS
-                            ? "overwatch2ExploreHighlightWhenOverlayIsOn"
-                            : ""
-                    }`}
-                    src="
-                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bot-main-LG.webp"
-                    alt=""
-                />
-                <div
-                    className={`exploreInfoTextWrap exploreMissionsTextWrap ${
-                        renderOverlay.showOverlay &&
-                        renderOverlay.highlight === HIGHLIGHT_MISSIONS
-                            ? "overwatch2ExploreHighlightWhenOverlayIsOn"
-                            : ""
-                    }`}
-                    onMouseEnter={() => {
-                        setRenderOverlay({
-                            showOverlay: true,
-                            highlight: HIGHLIGHT_MISSIONS,
-                        });
-                    }}
-                    onMouseLeave={() => {
-                        setRenderOverlay({
-                            showOverlay: false,
-                            highlight: "",
-                        });
-                    }}
-                >
-                    <AiFillPlusCircle className="overwatch2PlusCircleExplore" />
-                    <h3>Co-op Missions</h3>
-                </div>
-
-                <animated.img
-                    style={{
-                        transform: trans1(xHook, yHook),
-                    }}
-                    className="overwatch2Flier"
-                    src="
-                    https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-flier-2-LG.webp"
-                    alt=""
-                />
-            </div>
+            <Overwatch2SlideExplore />
         </React.Fragment>
     );
 };

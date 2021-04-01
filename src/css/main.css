@@ -1892,7 +1892,7 @@ body {
   overflow-x: hidden;
 }
 
-.overwatch2LandingContainer {
+.overwatch2SlideContainer {
   position: absolute;
   top: 0;
   right: -10rem;
@@ -1972,8 +1972,7 @@ body {
 }
 
 .overwatch2LandingCity,
-.overwatch2Coast,
-.overwatch2ExploreGround {
+.overwatch2Coast {
   position: absolute;
   bottom: -10%;
   left: -30rem;
@@ -2009,181 +2008,6 @@ body {
   }
 }
 
-.overwatch2ExploreGround {
-  height: 120%;
-}
-
-.overwatch2ExploreShip {
-  position: absolute;
-}
-@media screen and (min-width: 768px) {
-  .overwatch2ExploreShip {
-    top: -20rem;
-    left: -15rem;
-    width: 80rem;
-    height: 40rem;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .overwatch2ExploreShip {
-    top: -25rem;
-    left: 15rem;
-    width: 90rem;
-    height: 50rem;
-  }
-}
-
-.overwatch2ExploreTracer {
-  position: absolute;
-  cursor: pointer;
-  transform: translateX(30%);
-}
-@media screen and (min-width: 992px) {
-  .overwatch2ExploreTracer {
-    left: -15rem;
-    bottom: -1rem;
-    width: 67rem;
-    height: 57rem;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .overwatch2ExploreTracer {
-    left: -5rem;
-    width: 81rem;
-    height: 69rem;
-  }
-}
-
-.overwatch2ExploreHighlightWhenOverlayIsOn {
-  z-index: 2;
-}
-
-.exploreInfoTextWrap {
-  display: flex;
-  align-items: center;
-  font-family: Config, sans-serif;
-  padding: 0.5rem 1.5rem;
-  position: absolute;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.333);
-  border-radius: 5px;
-}
-.exploreInfoTextWrap h3 {
-  text-transform: uppercase;
-  color: #fff;
-  margin: 0;
-  font-weight: 700;
-  font-size: 2rem;
-}
-
-@media screen and (min-width: 992px) {
-  .exploreTeamvsTeamTextWrap {
-    top: 35rem;
-    left: 60rem;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .exploreTeamvsTeamTextWrap {
-    top: 35rem;
-    left: 90rem;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .exploreMissionsTextWrap {
-    bottom: 30rem;
-    right: 25rem;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .exploreMissionsTextWrap {
-    bottom: 25rem;
-    right: 35rem;
-  }
-}
-
-.overwatch2PlusCircleExplore {
-  font-size: 3.5rem;
-  color: white;
-  margin-right: 1rem;
-}
-
-.overwatch2OverlayExplore {
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.overwatch2ExploreBot {
-  position: absolute;
-  cursor: pointer;
-}
-@media screen and (min-width: 992px) {
-  .overwatch2ExploreBot {
-    bottom: 10rem;
-    right: 15rem;
-    width: 32rem;
-    height: 26rem;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .overwatch2ExploreBot {
-    bottom: 10rem;
-    right: 25rem;
-    width: 39rem;
-    height: 31rem;
-  }
-}
-
-.overwatch2ExplorePodRight {
-  position: absolute;
-  right: 30rem;
-  top: 0rem;
-  width: 15rem;
-  height: 15rem;
-}
-
-.overwatch2ExplorePodLeft {
-  position: absolute;
-  left: 30rem;
-  top: 0rem;
-  width: 15rem;
-  height: 15rem;
-}
-
-.overwatch2Flier {
-  position: absolute;
-  right: 60rem;
-  top: 20rem;
-  width: 10rem;
-  height: 10rem;
-  animation: floatingFlier 2s infinite alternate;
-}
-@media screen and (min-width: 992px) {
-  .overwatch2Flier {
-    right: 40rem;
-  }
-}
-@media screen and (min-width: 1200px) {
-  .overwatch2Flier {
-    bottom: 10rem;
-    right: 36rem;
-  }
-}
-
-@keyframes floatingFlier {
-  from {
-    transform: translate3d(0px, 10%, 0px);
-  }
-  to {
-    transform: translate3d(0px, 0px, 0px);
-  }
-}
 .gameCarouselWrap {
   width: 100%;
 }
@@ -2749,6 +2573,309 @@ footer {
 .placeholder {
   width: 100%;
   height: 100%;
+}
+
+.overwatch2ExploreContainer {
+  display: none;
+}
+@media screen and (min-width: 992px) {
+  .overwatch2ExploreContainer {
+    display: block;
+  }
+}
+
+.overwatch2ExploreGround {
+  position: absolute;
+  bottom: -10%;
+  left: -30rem;
+  width: 120%;
+  height: 100%;
+  height: 120%;
+}
+
+.overwatch2ExploreShip {
+  position: absolute;
+}
+@media screen and (min-width: 768px) {
+  .overwatch2ExploreShip {
+    top: -20rem;
+    left: -15rem;
+    width: 80rem;
+    height: 40rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overwatch2ExploreShip {
+    top: -25rem;
+    left: 15rem;
+    width: 90rem;
+    height: 50rem;
+  }
+}
+
+.overwatch2ExploreTracer {
+  position: absolute;
+  cursor: pointer;
+  transform: translateX(30%);
+}
+@media screen and (min-width: 992px) {
+  .overwatch2ExploreTracer {
+    left: -15rem;
+    bottom: -1rem;
+    width: 67rem;
+    height: 57rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overwatch2ExploreTracer {
+    left: -5rem;
+    width: 81rem;
+    height: 69rem;
+  }
+}
+
+.overwatch2ExploreHighlightWhenOverlayIsOn {
+  z-index: 2;
+}
+
+.exploreInfoTextWrap {
+  display: flex;
+  align-items: center;
+  font-family: Config, sans-serif;
+  padding: 0.5rem 1.5rem;
+  position: absolute;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.333);
+  border-radius: 5px;
+}
+.exploreInfoTextWrap h3 {
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 992px) {
+  .exploreTeamvsTeamTextWrap {
+    top: 35rem;
+    left: 60rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .exploreTeamvsTeamTextWrap {
+    top: 35rem;
+    left: 90rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .exploreMissionsTextWrap {
+    bottom: 30rem;
+    right: 25rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .exploreMissionsTextWrap {
+    bottom: 25rem;
+    right: 35rem;
+  }
+}
+
+.overwatch2PlusCircleExplore {
+  font-size: 3.5rem;
+  color: white;
+  margin-right: 1rem;
+}
+
+.overwatch2OverlayExplore {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.overwatch2ExploreBot {
+  position: absolute;
+  cursor: pointer;
+}
+@media screen and (min-width: 992px) {
+  .overwatch2ExploreBot {
+    bottom: 10rem;
+    right: 15rem;
+    width: 32rem;
+    height: 26rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overwatch2ExploreBot {
+    bottom: 10rem;
+    right: 25rem;
+    width: 39rem;
+    height: 31rem;
+  }
+}
+
+.overwatch2ExplorePodRight {
+  position: absolute;
+  right: 30rem;
+  top: 0rem;
+  width: 15rem;
+  height: 15rem;
+}
+
+.overwatch2ExplorePodLeft {
+  position: absolute;
+  left: 30rem;
+  top: 0rem;
+  width: 15rem;
+  height: 15rem;
+}
+
+.overwatch2Flier {
+  position: absolute;
+  right: 60rem;
+  top: 20rem;
+  width: 10rem;
+  height: 10rem;
+  animation: floatingFlier 2s infinite alternate;
+}
+@media screen and (min-width: 992px) {
+  .overwatch2Flier {
+    right: 40rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overwatch2Flier {
+    bottom: 10rem;
+    right: 36rem;
+  }
+}
+
+@keyframes floatingFlier {
+  from {
+    transform: translate3d(0px, 10%, 0px);
+  }
+  to {
+    transform: translate3d(0px, 0px, 0px);
+  }
+}
+.overwatch2ExploreMobile {
+  background: url(https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/menu/mobile/menu-bg-SM.jpg);
+  background-size: cover;
+  padding: 2rem 1rem;
+}
+@media screen and (min-width: 768px) {
+  .overwatch2ExploreMobile {
+    padding: 2rem 5rem;
+  }
+}
+
+.overwatch2ExploreMobileCard {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.75);
+  transition-duration: 0.25s, 0.25s;
+  transition-timing-function: ease, ease;
+  transition-delay: 0s, 0s;
+  border-radius: 2px;
+  color: black;
+  margin-bottom: 2rem;
+  border: 1px solid white;
+}
+
+.overwatch2ExploreMobileCardImageWrap {
+  width: 10rem;
+}
+@media screen and (min-width: 520px) {
+  .overwatch2ExploreMobileCardImageWrap {
+    width: 15rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .overwatch2ExploreMobileCardImageWrap {
+    width: 20rem;
+  }
+}
+.overwatch2ExploreMobileCardImageWrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overwatch2ExploreMobileTextWrap {
+  margin: auto 0;
+  text-transform: uppercase;
+  padding: 1rem;
+  font-family: Config, sans-serif;
+  margin-right: auto;
+}
+
+.overwatch2ExploreMobileCardSubTitle {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 0;
+}
+@media screen and (min-width: 420px) {
+  .overwatch2ExploreMobileCardSubTitle {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (min-width: 520px) {
+  .overwatch2ExploreMobileCardSubTitle {
+    font-size: 2.1rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .overwatch2ExploreMobileCardSubTitle {
+    font-size: 2.6rem;
+  }
+}
+
+.overwatch2ExploreMobileCardTitle {
+  margin: 0;
+  font-size: 1.2rem;
+}
+@media screen and (min-width: 420px) {
+  .overwatch2ExploreMobileCardTitle {
+    font-size: 2.2rem;
+  }
+}
+@media screen and (min-width: 520px) {
+  .overwatch2ExploreMobileCardTitle {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .overwatch2ExploreMobileCardTitle {
+    font-size: 3rem;
+  }
+}
+
+.overwatch2MobileArrowWrap {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+  background-color: white;
+  margin-right: -1px;
+}
+
+.overwatch2MobileArrow {
+  margin: auto 0;
+  font-size: 2.2rem;
+}
+@media screen and (min-width: 520px) {
+  .overwatch2MobileArrow {
+    font-size: 3rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .overwatch2MobileArrow {
+    font-size: 4rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
