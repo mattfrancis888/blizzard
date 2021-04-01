@@ -65,7 +65,7 @@ const HomeCareer: React.FC<{}> = () => {
         //     clearTimeout(fillTimeOut);
         // };
     }, [slideIndex]);
-
+    //TODO: images.map( <animated. img style={ springaniamtion}>)
     return (
         <React.Fragment>
             <div className="homeCareerContainer">
@@ -77,7 +77,6 @@ const HomeCareer: React.FC<{}> = () => {
                         ></animated.img>
                     );
                 })}
-
                 <div className="homeCareerTextWrap">
                     <h1 className="createWorldText">Create Worlds</h1>
                     <h2 className="careerDescText">
