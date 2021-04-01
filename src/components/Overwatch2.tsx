@@ -3,6 +3,7 @@ import { useTransition, animated, useSpring, to } from "react-spring";
 import _ from "lodash";
 import useWindowDimensions from "../windowDimensions";
 import Overwatch2SlideExplore from "./Overwatch2SlideExplore";
+import Overwatch2SlideNext from "./Overwatch2SlideNext";
 import anime from "animejs/lib/anime.es.js";
 import Overwatch2Carousel from "./Overwatch2Carousel";
 const timer = 3000;
@@ -18,13 +19,16 @@ const Overwatch2: React.FC<{}> = () => {
 
     const renderLandingSlide = () => {
         return (
-            <div
+            <animated.div
                 className="overwatch2SlideContainer"
                 onMouseMove={({ clientX: x, clientY: y }) => {
                     setX(x - window.innerWidth / 2);
                     setY(y - window.innerHeight / 2);
                     //Code below does not work, so I used hooks above
                     // xy.to((xy) => [x, y])
+                }}
+                style={{
+                    transform: trans1(xHook, yHook),
                 }}
             >
                 '
@@ -71,7 +75,7 @@ const Overwatch2: React.FC<{}> = () => {
                     <path d="M31.81,21.1h-.08v.12h0V20.9h.13a.09.09,0,0,1,.1.1.1.1,0,0,1-.07.1l.07.12h-.05Zm-.08,0h.08s.07,0,.07-.06a.07.07,0,0,0-.07-.07h-.08Z"></path>
                     <path d="M31.8,21.36a.3.3,0,1,1,.3-.3A.3.3,0,0,1,31.8,21.36Zm0-.56a.26.26,0,0,0-.27.26.27.27,0,0,0,.53,0A.26.26,0,0,0,31.8,20.8Z"></path>
                 </svg>
-            </div>
+            </animated.div>
         );
     };
 
@@ -79,7 +83,8 @@ const Overwatch2: React.FC<{}> = () => {
         <React.Fragment>
             {/* <Overwatch2Carousel /> */}
             {/* {renderLandingSlide()} */}
-            <Overwatch2SlideExplore />
+            {/* <Overwatch2SlideExplore /> */}
+            <Overwatch2SlideNext />
         </React.Fragment>
     );
 };

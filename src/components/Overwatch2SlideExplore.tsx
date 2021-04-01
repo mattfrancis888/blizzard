@@ -115,7 +115,7 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
 
             {width > LG_SCREEN_SIZE && (
                 <div
-                    className="overwatch2SlideContainer overwatch2ExploreContainer"
+                    className="overwatch2SlideContainer overwatch2NextSlideContainer"
                     onMouseMove={({ clientX: x, clientY: y }) => {
                         setX(x - window.innerWidth / 2);
                         setY(y - window.innerHeight / 2);
