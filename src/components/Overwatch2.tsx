@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useTransition, animated, useSpring, to } from "react-spring";
 import _ from "lodash";
+
+import { AiFillPlusCircle } from "react-icons/ai";
 import anime from "animejs/lib/anime.es.js";
 import Overwatch2Carousel from "./Overwatch2Carousel";
 const timer = 3000;
-
+const HIGHLIGHT_TEAM = "HIGHLIGHT_TEAM";
+const HIGHLIGHT_MISSIONS = "HIGHLIGHT_MISSIONS";
 //const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 //@ts-ignore
 const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
@@ -13,7 +16,10 @@ const podTrans1 = (x, y, z) => `translate3d(${x}px,${y}px,${z}px)`;
 const Overwatch2: React.FC<{}> = () => {
     const [xHook, setX] = useState(0);
     const [yHook, setY] = useState(0);
-    const [renderOverlay, setRenderOverlay] = useState(false);
+    const [renderOverlay, setRenderOverlay] = useState<any>({
+        showOverlay: false,
+        highlight: "",
+    });
     const [startPod, setStartPod] = useState(false);
 
     const { podX, podY } = useSpring({
@@ -29,12 +35,13 @@ const Overwatch2: React.FC<{}> = () => {
     });
 
     const overlaySpring = useSpring({
-        opacity: renderOverlay ? 1 : 0,
+        opacity: renderOverlay.showOverlay ? 1 : 0,
+        zIndex: renderOverlay.showOverlay ? 1 : 0,
         config: {
-            duration: 2000,
-            mass: 10,
-            tension: 550,
-            friction: 140,
+            duration: 250,
+            // mass: 10,
+            // tension: 550,
+            // friction: 140,
         },
     });
     useEffect(() => {
@@ -128,7 +135,7 @@ const Overwatch2: React.FC<{}> = () => {
                 {
                     <animated.div
                         style={overlaySpring}
-                        className="overlayTest"
+                        className="overwatch2OverlayExplore"
                     ></animated.div>
                 }
                 <animated.img
@@ -179,23 +186,98 @@ const Overwatch2: React.FC<{}> = () => {
                     alt=""
                 />
                 <animated.img
-                    className="overwatch2ExploreTracer"
+                    className={`overwatch2ExploreTracer ${
+                        renderOverlay.showOverlay &&
+                        renderOverlay.highlight === HIGHLIGHT_TEAM
+                            ? "overwatch2ExploreHighlightWhenOverlayIsOn"
+                            : ""
+                    }`}
                     src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-hero-tracer-LG.webp"
                     alt=""
                     onMouseEnter={() => {
-                        setRenderOverlay(true);
+                        setRenderOverlay({
+                            showOverlay: true,
+                            highlight: HIGHLIGHT_TEAM,
+                        });
                     }}
                     onMouseLeave={() => {
-                        setRenderOverlay(false);
+                        setRenderOverlay({
+                            showOverlay: false,
+                            highlight: "",
+                        });
                     }}
                 />
+                <div
+                    className={`exploreInfoTextWrap exploreTeamvsTeamTextWrap ${
+                        renderOverlay.showOverlay &&
+                        renderOverlay.highlight === HIGHLIGHT_TEAM
+                            ? "overwatch2ExploreHighlightWhenOverlayIsOn"
+                            : ""
+                    }`}
+                    onMouseEnter={() => {
+                        setRenderOverlay({
+                            showOverlay: true,
+                            highlight: HIGHLIGHT_TEAM,
+                        });
+                    }}
+                    onMouseLeave={() => {
+                        setRenderOverlay({
+                            showOverlay: false,
+                            highlight: "",
+                        });
+                    }}
+                >
+                    <AiFillPlusCircle className="overwatch2PlusCircleExplore" />
+                    <h3>Team Vs. Team</h3>
+                </div>
                 <animated.img
-                    className="overwatch2ExploreBot"
+                    onMouseEnter={() => {
+                        setRenderOverlay({
+                            showOverlay: true,
+                            highlight: HIGHLIGHT_MISSIONS,
+                        });
+                    }}
+                    onMouseLeave={() => {
+                        setRenderOverlay({
+                            showOverlay: false,
+                            highlight: "",
+                        });
+                    }}
+                    className={`overwatch2ExploreBot ${
+                        renderOverlay.showOverlay &&
+                        renderOverlay.highlight === HIGHLIGHT_MISSIONS
+                            ? "overwatch2ExploreHighlightWhenOverlayIsOn"
+                            : ""
+                    }`}
                     src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bot-main-LG.webp"
                     alt=""
                 />
+                <div
+                    className={`exploreInfoTextWrap exploreMissionsTextWrap ${
+                        renderOverlay.showOverlay &&
+                        renderOverlay.highlight === HIGHLIGHT_MISSIONS
+                            ? "overwatch2ExploreHighlightWhenOverlayIsOn"
+                            : ""
+                    }`}
+                    onMouseEnter={() => {
+                        setRenderOverlay({
+                            showOverlay: true,
+                            highlight: HIGHLIGHT_MISSIONS,
+                        });
+                    }}
+                    onMouseLeave={() => {
+                        setRenderOverlay({
+                            showOverlay: false,
+                            highlight: "",
+                        });
+                    }}
+                >
+                    <AiFillPlusCircle className="overwatch2PlusCircleExplore" />
+                    <h3>Co-op Missions</h3>
+                </div>
+
                 <animated.img
                     style={{
                         transform: trans1(xHook, yHook),

@@ -376,6 +376,10 @@ body {
   font-family: "Podkova";
   src: url(../fonts/Podkova-Regular.ttf) format("truetype");
 }
+@font-face {
+  font-family: "Config";
+  src: url(../fonts/ConfigCondensedRegular.otf) format("opentype");
+}
 .loadingCenter {
   display: flex;
   justify-content: center;
@@ -2032,7 +2036,6 @@ body {
 .overwatch2ExploreTracer {
   position: absolute;
   cursor: pointer;
-  z-index: 2;
   transform: translateX(30%);
 }
 @media screen and (min-width: 992px) {
@@ -2051,7 +2054,62 @@ body {
   }
 }
 
-.overlayTest {
+.overwatch2ExploreHighlightWhenOverlayIsOn {
+  z-index: 2;
+}
+
+.exploreInfoTextWrap {
+  display: flex;
+  align-items: center;
+  font-family: Config, sans-serif;
+  padding: 0.5rem 1.5rem;
+  position: absolute;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.333);
+  border-radius: 5px;
+}
+.exploreInfoTextWrap h3 {
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+@media screen and (min-width: 992px) {
+  .exploreTeamvsTeamTextWrap {
+    top: 35rem;
+    left: 60rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .exploreTeamvsTeamTextWrap {
+    top: 35rem;
+    left: 90rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .exploreMissionsTextWrap {
+    bottom: 30rem;
+    right: 25rem;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .exploreMissionsTextWrap {
+    bottom: 25rem;
+    right: 35rem;
+  }
+}
+
+.overwatch2PlusCircleExplore {
+  font-size: 3.5rem;
+  color: white;
+  margin-right: 1rem;
+}
+
+.overwatch2OverlayExplore {
   z-index: 1;
   position: absolute;
   top: 0;
@@ -2063,6 +2121,7 @@ body {
 
 .overwatch2ExploreBot {
   position: absolute;
+  cursor: pointer;
 }
 @media screen and (min-width: 992px) {
   .overwatch2ExploreBot {
