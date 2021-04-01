@@ -18,44 +18,44 @@ const Overwatch2: React.FC<{}> = () => {
 
     return (
         <React.Fragment>
-            {/* <div className="overwatch2SlideParentContainer"> */}
-            <animated.div
-                className="overwatch2SlideContainer overwatch2NextSlideContainer"
-                onMouseMove={({ clientX: x, clientY: y }) => {
-                    setX(x - window.innerWidth / 2);
-                    setY(y - window.innerHeight / 2);
-                    //Code below does not work, so I used hooks above
-                    // xy.to((xy) => [x, y])
-                }}
-                style={{
-                    transform: trans1(xHook, yHook),
-                }}
-            >
-                <img
-                    className="overwatch2NextSky"
-                    src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/whats-next/whats-next-bg-lg.webp"
-                    alt=""
-                />
+            <div className="overwatch2SlideParentContainer overwatch2SlideNextParentContainer">
+                <animated.div
+                    className="overwatch2SlideContainer overwatch2NextSlideContainer"
+                    onMouseMove={({ clientX: x, clientY: y }) => {
+                        setX(x - window.innerWidth / 2);
+                        setY(y - window.innerHeight / 2);
+                        //Code below does not work, so I used hooks above
+                        // xy.to((xy) => [x, y])
+                    }}
+                    style={{
+                        transform: trans1(xHook, yHook),
+                    }}
+                >
+                    <img
+                        className="overwatch2NextSky"
+                        src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/whats-next/whats-next-bg-lg.webp"
+                        alt=""
+                    />
 
-                <img
-                    className="overwatch2NextRein"
-                    src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/whats-next/lg/whats-next-hero-rein-lg.webp"
-                    alt=""
-                />
-                <img
-                    className="overwatch2NextTracer"
-                    src="
+                    <img
+                        className="overwatch2NextRein"
+                        src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/whats-next/lg/whats-next-hero-rein-lg.webp"
+                        alt=""
+                    />
+                    <img
+                        className="overwatch2NextTracer"
+                        src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/whats-next/lg/whats-next-hero-tracer-lg.webp"
-                    alt=""
-                />
-                <img
-                    className="overwatch2NextMei"
-                    src="
+                        alt=""
+                    />
+                    <img
+                        className="overwatch2NextMei"
+                        src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/whats-next/lg/whats-next-hero-mei-lg.webp"
-                    alt=""
-                />
-            </animated.div>
-            {/* </div> */}
+                        alt=""
+                    />
+                </animated.div>
+            </div>
         </React.Fragment>
     );
 };

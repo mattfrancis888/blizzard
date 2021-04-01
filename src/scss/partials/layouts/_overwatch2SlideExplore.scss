@@ -1,3 +1,7 @@
+.overwatch2SlideExploreParentContainer {
+    height: 80rem;
+}
+
 .overwatch2ExploreContainer {
     display: none;
     @media screen and (min-width: $lg_breakpoint) {
@@ -14,18 +18,25 @@
     height: 120%;
 }
 
+.overwatch2ExploreCoast {
+    position: absolute;
+    bottom: -10%;
+    left: -30rem;
+    width: 120%;
+    height: 100%;
+}
 .overwatch2ExploreShip {
     position: absolute;
 
     @media screen and (min-width: $md_breakpoint) {
-        top: -20rem;
+        top: -10rem;
         left: -15rem;
         width: 80rem;
         height: 40rem;
     }
     @media screen and (min-width: $xl_breakpoint) {
-        top: -25rem;
-        left: 15rem;
+        top: -18rem;
+        left: -10rem;
         width: 90rem;
         height: 50rem;
     }
@@ -73,11 +84,11 @@
 }
 .exploreTeamvsTeamTextWrap {
     @media screen and (min-width: $lg_breakpoint) {
-        top: 35rem;
+        bottom: 40rem;
         left: 60rem;
     }
     @media screen and (min-width: $xl_breakpoint) {
-        top: 35rem;
+        bottom: 50rem;
         left: 90rem;
     }
 }

@@ -1,22 +1,32 @@
 .overwatch2SlideParentContainer {
     position: relative;
-    // width: 100vw;
-    // overflow: hidden;
+    width: 100vw;
+    overflow: hidden;
 }
-.overwatch2NextSlideContainer {
-    // position: relative !important;
-    height: 31rem;
+
+.overwatch2SlideNextParentContainer {
+    height: 30rem;
     @media screen and (min-width: $sm_breakpoint) {
         height: 51rem;
     }
     @media screen and (min-width: $md_breakpoint) {
-        height: 80rem;
+        min-height: 80rem;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        min-height: 100rem;
+    }
+}
+.overwatch2NextSlideContainer {
+    position: absolute;
+    top: -20%;
+    @media screen and (min-width: $sm_breakpoint) {
+        top: -15%;
     }
 }
 .overwatch2NextSky {
     position: absolute;
     width: 100%;
-    height: 140%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -28,7 +38,7 @@
     height: 13rem;
 
     @media screen and (min-width: 420px) {
-        left: 18%;
+        left: 20%;
     }
 
     @media screen and (min-width: $sm_breakpoint) {
@@ -65,7 +75,7 @@
     left: -25%;
 
     @media screen and (min-width: 420px) {
-        left: -20%;
+        left: -15%;
     }
 
     @media screen and (min-width: $sm_breakpoint) {
@@ -99,7 +109,7 @@
     transform: translateX(30%);
 
     @media screen and (min-width: 420px) {
-        right: 20%;
+        right: 15%;
     }
 
     @media screen and (min-width: $sm_breakpoint) {
