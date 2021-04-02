@@ -3077,9 +3077,11 @@ footer {
   display: flex;
   align-items: center;
   backdrop-filter: blur(6px);
-  position: relative;
   background-color: rgba(0, 0, 0, 0.8);
-  height: 10rem;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 15rem;
 }
 
 .overwatch2StoryTimelineProgress {
@@ -3114,10 +3116,12 @@ footer {
   align-items: center;
   justify-content: center;
   width: 50%;
+  cursor: pointer;
 }
 .overwatch2StoryTimelineProgressControlSectionWrap:before {
   content: "";
   background: white;
+  cursor: pointer;
   width: 1.2rem;
   height: 1.2rem;
   position: absolute;
@@ -3128,7 +3132,7 @@ footer {
   z-index: -1;
 }
 
-.overWatch2StoryTimlineProgressTitleAndImageWrap {
+.overWatch2StoryTimelineProgressTitleAndImageWrap {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -3141,6 +3145,26 @@ footer {
   font-size: 1.6rem;
   text-transform: uppercase;
   font-weight: 700;
+  font-family: "Config", sans-serif;
+}
+
+.overwatch2StoryTimelineControlImageWrap {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.overwatch2StoryTimelineControlImageWrap img {
+  margin-right: 0.5rem;
+}
+
+.overwatch2StoryContainer {
+  position: relative;
+  height: 80rem;
+  width: 100%;
+}
+.overwatch2StoryContainer .overwatch2StoryBackgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .overwatch2SlideContainer {
