@@ -26,6 +26,7 @@
 }
 
 .overwatch2SlideExploreDetailsTitleWrap {
+    cursor: pointer;
     @media screen and (min-width: $lg_breakpoint) {
         position: relative;
         color: white;

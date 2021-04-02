@@ -2810,6 +2810,9 @@ footer {
   }
 }
 
+.overwatch2SlideExploreDetailsTitleWrap {
+  cursor: pointer;
+}
 @media screen and (min-width: 992px) {
   .overwatch2SlideExploreDetailsTitleWrap {
     position: relative;
