@@ -16,9 +16,25 @@ const stories = [
 ];
 
 const Overwatch2SlideStory: React.FC<{}> = () => {
-    const [progress, setProgress] = useState(0);
+    const [progress, setProgress] = useState({
+        percentage: 0,
+        controlImage: "",
+    });
 
-    const fade = useTransition(progress, {
+    const fadeBackground = useTransition(progress, {
+        from: {
+            opacity: 0,
+        },
+        enter: {
+            opacity: 1,
+        },
+
+        config: {
+            duration: timer,
+        },
+    });
+
+    const fadeControlImages = useTransition(progress.percentage, {
         from: {
             opacity: 0,
         },
@@ -36,7 +52,7 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
             width: "0%",
         },
         to: {
-            width: `${progress}%`,
+            width: `${progress.percentage}%`,
         },
 
         config: {
@@ -45,16 +61,18 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
     });
 
     const renderBackground = () => {
-        if (progress === 25) {
+        if (progress.percentage === 25 && !progress.controlImage) {
             return stories[0].image;
-        } else if (progress === 100) {
+        } else if (progress.percentage === 100 && !progress.controlImage) {
             return stories[1].image;
+        } else if (progress.controlImage) {
+            return progress.controlImage;
         }
     };
     return (
         <React.Fragment>
             <div className="overwatch2StoryContainer">
-                {fade((style, index) => {
+                {fadeBackground((style, index) => {
                     return (
                         <animated.img
                             style={style}
@@ -65,17 +83,6 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
                     );
                 })}
                 <div className="overwatch2StoryTimelineContainer">
-                    {/* {fill((style, index) => (
-                    <animated.div
-                        style={style}
-                        className="overwatch2StoryTimelineProgress"
-                    >
-                         <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"></img>
-                </animated.div> 
-
-                
-                ))} */}
-
                     <div className="overwatch2StoryTimelineProgress overwatch2StoryTimelineProgressNotFilled"></div>
                     <animated.div
                         style={fill}
@@ -84,24 +91,47 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
 
                     <div className="overwatch2StoryTimelineProgressControl">
                         <div
-                            onClick={() => setProgress(25)}
+                            onClick={() => {
+                                setProgress({
+                                    percentage: 25,
+                                    controlImage: "",
+                                });
+                            }}
                             className="overwatch2StoryTimelineProgressControlSectionWrap"
                         >
                             <div className="overWatch2StoryTimelineProgressTitleAndImageWrap">
-                                {progress === 25 &&
-                                    fade((style, index) => {
+                                {progress.percentage === 25 &&
+                                    fadeControlImages((style, index) => {
                                         return (
                                             <animated.div
                                                 className="overwatch2StoryTimelineControlImageWrap"
                                                 style={style}
                                             >
                                                 <img
-                                                    src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/timeline/thumbnails/honor-and-glory.jpg"
-                                                    alt=""
-                                                />
-                                                <img
                                                     src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/timeline/thumbnails/omnic-crisis.jpg"
                                                     alt=""
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+
+                                                        setProgress({
+                                                            percentage: 25,
+                                                            controlImage:
+                                                                "https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/timeline/2560/honor-and-glory.jpg",
+                                                        });
+                                                    }}
+                                                />
+                                                <img
+                                                    src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/timeline/thumbnails/honor-and-glory.jpg"
+                                                    alt=""
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+
+                                                        setProgress({
+                                                            percentage: 25,
+                                                            controlImage:
+                                                                "https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/timeline/2560/honor-and-glory.jpg",
+                                                        });
+                                                    }}
                                                 />
                                             </animated.div>
                                         );
@@ -113,12 +143,17 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
                             </div>
                         </div>
                         <div
-                            onClick={() => setProgress(100)}
+                            onClick={() => {
+                                setProgress({
+                                    percentage: 100,
+                                    controlImage: "",
+                                });
+                            }}
                             className="overwatch2StoryTimelineProgressControlSectionWrap"
                         >
                             <div className="overWatch2StoryTimelineProgressTitleAndImageWrap">
-                                {progress === 100 &&
-                                    fade((style, index) => {
+                                {progress.percentage === 100 &&
+                                    fadeControlImages((style, index) => {
                                         return (
                                             <animated.div
                                                 className="overwatch2StoryTimelineControlImageWrap"
