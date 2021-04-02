@@ -3151,7 +3151,6 @@ footer {
   font-size: 1.6rem;
   text-transform: uppercase;
   font-weight: 700;
-  font-family: "Config", sans-serif;
 }
 
 .overwatch2StoryTimelineControlImageWrap {
@@ -3173,13 +3172,74 @@ footer {
 
 .overwatch2StoryContainer {
   position: relative;
-  height: 80rem;
+  height: 60rem;
   width: 100%;
+  font-family: "Config", sans-serif;
+}
+@media screen and (min-width: 520px) {
+  .overwatch2StoryContainer {
+    height: 70rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .overwatch2StoryContainer {
+    height: 80rem;
+  }
 }
 .overwatch2StoryContainer .overwatch2StoryBackgroundImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.overwatch2StoryTextWrap {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  max-width: 80%;
+}
+@media screen and (min-width: 520px) {
+  .overwatch2StoryTextWrap {
+    max-width: 60%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .overwatch2StoryTextWrap {
+    max-width: 50%;
+  }
+}
+.overwatch2StoryTextWrap .overwatch2StoryTitle {
+  margin: 0;
+  font-size: 4rem;
+}
+@media screen and (min-width: 520px) {
+  .overwatch2StoryTextWrap .overwatch2StoryTitle {
+    font-size: 5.4rem;
+    line-height: 5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .overwatch2StoryTextWrap .overwatch2StoryTitle {
+    font-size: 6.4rem;
+    line-height: 6rem;
+  }
+}
+.overwatch2StoryTextWrap .overwatch2StoryDesc {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  line-height: 2.1rem;
+}
+@media screen and (min-width: 520px) {
+  .overwatch2StoryTextWrap .overwatch2StoryDesc {
+    font-size: 2rem;
+    line-height: 2.6rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .overwatch2StoryTextWrap .overwatch2StoryDesc {
+    font-size: 2.5rem;
+    line-height: 3.3rem;
+  }
 }
 
 .overwatch2SlideContainer {

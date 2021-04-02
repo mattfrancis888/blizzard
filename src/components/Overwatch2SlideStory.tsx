@@ -41,6 +41,9 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
         enter: {
             opacity: 1,
         },
+        leave: {
+            opacity: 0,
+        },
 
         config: {
             duration: timer,
@@ -82,6 +85,21 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
                         />
                     );
                 })}
+                <div className="overwatch2StoryTextWrap">
+                    <h3 className="overwatch2StoryTitle">The Omnic Crisis</h3>
+                    <p className="overwatch2StoryDesc">
+                        The Omnica Corporation revolutionized robotic
+                        manufacturing with the creation of “omniums.” But the
+                        factories’ self-improving algorithms were fraught with
+                        malfunctions, and were eventually shut down. After a
+                        period of dormancy, the omniums reactivated, producing
+                        an army of highly-adaptable “omnics” that attacked
+                        humanity, beginning the Omnic Crisis. In response, many
+                        countries developed advanced defense initiatives, such
+                        as the United States’ Enhanced Soldier Program and
+                        Germany’s Crusaders.
+                    </p>
+                </div>
                 <div className="overwatch2StoryTimelineContainer">
                     <div className="overwatch2StoryTimelineProgress overwatch2StoryTimelineProgressNotFilled"></div>
                     <animated.div
@@ -100,9 +118,9 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
                             className="overwatch2StoryTimelineProgressControlSectionWrap"
                         >
                             <div className="overWatch2StoryTimelineProgressTitleAndImageWrap">
-                                {progress.percentage === 25 &&
-                                    fadeControlImages((style, index) => {
-                                        return (
+                                {fadeControlImages((style, item) => {
+                                    return (
+                                        item === 25 && (
                                             <animated.div
                                                 className="overwatch2StoryTimelineControlImageWrap"
                                                 style={style}
@@ -134,8 +152,9 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
                                                     }}
                                                 />
                                             </animated.div>
-                                        );
-                                    })}
+                                        )
+                                    );
+                                })}
 
                                 <p className="overWatch2StoryTimlineProgressTitle">
                                     Omnic Crisis
@@ -152,9 +171,9 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
                             className="overwatch2StoryTimelineProgressControlSectionWrap"
                         >
                             <div className="overWatch2StoryTimelineProgressTitleAndImageWrap">
-                                {progress.percentage === 100 &&
-                                    fadeControlImages((style, index) => {
-                                        return (
+                                {fadeControlImages((style, item) => {
+                                    return (
+                                        item === 100 && (
                                             <animated.div
                                                 className="overwatch2StoryTimelineControlImageWrap"
                                                 style={style}
@@ -164,8 +183,9 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
                                                     alt=""
                                                 />
                                             </animated.div>
-                                        );
-                                    })}
+                                        )
+                                    );
+                                })}
 
                                 <p className="overWatch2StoryTimlineProgressTitle">
                                     Overwatch Established

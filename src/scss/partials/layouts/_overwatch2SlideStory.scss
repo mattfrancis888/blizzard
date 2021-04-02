@@ -75,7 +75,6 @@
     font-size: 1.6rem;
     text-transform: uppercase;
     font-weight: 700;
-    font-family: "Config", sans-serif;
 
     // margin: 0;
     // margin-top: 2rem;
@@ -100,11 +99,57 @@
 
 .overwatch2StoryContainer {
     position: relative;
-    height: 80rem;
+    height: 60rem;
+    @media screen and (min-width: $sm_breakpoint) {
+        height: 70rem;
+    }
+    @media screen and (min-width: $md_breakpoint) {
+        height: 80rem;
+    }
+
     width: 100%;
+    font-family: "Config", sans-serif;
     .overwatch2StoryBackgroundImage {
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+}
+
+.overwatch2StoryTextWrap {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    max-width: 80%;
+    @media screen and (min-width: $sm_breakpoint) {
+        max-width: 60%;
+    }
+    @media screen and (min-width: $md_breakpoint) {
+        max-width: 50%;
+    }
+    .overwatch2StoryTitle {
+        margin: 0;
+        font-size: 4rem;
+        @media screen and (min-width: $sm_breakpoint) {
+            font-size: 5.4rem;
+            line-height: 5rem;
+        }
+        @media screen and (min-width: $md_breakpoint) {
+            font-size: 6.4rem;
+            line-height: 6rem;
+        }
+    }
+    .overwatch2StoryDesc {
+        margin-top: 1rem;
+        font-size: 1.6rem;
+        line-height: 2.1rem;
+        @media screen and (min-width: $sm_breakpoint) {
+            font-size: 2rem;
+            line-height: 2.6rem;
+        }
+        @media screen and (min-width: $md_breakpoint) {
+            font-size: 2.5rem;
+            line-height: 3.3rem;
+        }
     }
 }
