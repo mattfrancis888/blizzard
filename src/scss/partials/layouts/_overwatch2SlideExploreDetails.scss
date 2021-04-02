@@ -26,24 +26,20 @@
 }
 
 .overwatch2SlideExploreDetailsTitleWrap {
-    cursor: pointer;
     @media screen and (min-width: $lg_breakpoint) {
+        cursor: pointer;
         position: relative;
         color: white;
         background: black;
+        margin-top: 1rem;
         padding: 0.8rem;
-        // &:before {
-        //     content: "";
-        //     position: absolute;
-        //     left: 0;
-        //     top: 0;
-        //     height: 100%;
-        //     border-left: 8px solid #f06414;
-        // }
     }
 }
 
 .overwatch2SlideExploreDetailsTitleSelected {
+    @media screen and (min-width: $lg_breakpoint) {
+        border-left: 8px solid #f06414;
+    }
 }
 
 .overwatch2SlideExploreDetailsHeader {

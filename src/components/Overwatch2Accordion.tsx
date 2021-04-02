@@ -15,23 +15,6 @@ interface Overwatch2AccordianProps {
 const Overwatch2: React.FC<Overwatch2AccordianProps> = (props) => {
     //@ts-ignore
     const [bind, { height }] = useMeasure();
-    // const showDesc = useTransition(selectedContentIndex, {
-    //     from: {
-    //         display: "none",
-    //     },
-    //     enter: {
-    //         display: "block",
-    //     },
-
-    //     leave: {
-    //         display: "none",
-    //     },
-
-    //     config: {
-    //         duration: timer,
-    //     },
-    // });
-
     const showDescSpring = useSpring({
         from: {
             overflow: "hidden",

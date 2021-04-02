@@ -162,7 +162,7 @@ const HearthstoneBannerCarousel: React.FC<{}> = () => {
                         I solved this by using animejs to animate it;
                         // it will NOT make a new network request call when we re-render 
                         // with a hook's setStatd - 
-                        //we are manipulating button onclick instead of using it to render a
+                        //we are using button onclick to make the animation  instead of using trasition to render a
                         //image with a new src :)
                         {scale((style, item, key) => {
                             return (
