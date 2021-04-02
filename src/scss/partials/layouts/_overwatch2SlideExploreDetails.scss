@@ -1,0 +1,73 @@
+.overwatch2SlideExploreDetailsContainer {
+    font-family: "Config", sans-serif;
+    color: black;
+    background: white;
+    @media screen and (min-width: $lg_breakpoint) {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+}
+
+.overwatch2SlideExploreDetailsTextContainer {
+    padding: 2rem 4rem;
+    @media screen and (min-width: $sm_breakpoint) {
+        padding: 2rem 6rem;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
+        width: 40%;
+    }
+}
+.overwatch2SlideExploreDetailsText {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    @media screen and (min-width: $sm_breakpoint) {
+        font-size: 2.4rem;
+    }
+}
+
+.overwatch2SlideExploreDetailsTitleWrap {
+    @media screen and (min-width: $lg_breakpoint) {
+        position: relative;
+        color: white;
+        background: black;
+        padding: 0.8rem;
+        // &:before {
+        //     content: "";
+        //     position: absolute;
+        //     left: 0;
+        //     top: 0;
+        //     height: 100%;
+        //     border-left: 8px solid #f06414;
+        // }
+    }
+}
+
+.overwatch2SlideExploreDetailsTitleSelected {
+}
+
+.overwatch2SlideExploreDetailsHeader {
+    font-style: italic;
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 2rem;
+}
+.overwatch2SlideExploreDetailsTitle {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin: 0;
+    @media screen and (min-width: $sm_breakpoint) {
+        font-size: 2.3rem;
+    }
+}
+
+.overwatch2SlideExploreDetailsSlideImage {
+    width: 100%;
+    object-fit: cover;
+    @media screen and (min-width: $lg_breakpoint) {
+        width: 60%;
+    }
+}

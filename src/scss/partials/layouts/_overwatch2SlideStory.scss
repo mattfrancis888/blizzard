@@ -106,7 +106,9 @@
     @media screen and (min-width: $md_breakpoint) {
         height: 70rem;
     }
-
+    @media screen and (min-width: $lg_breakpoint) {
+        height: 75rem;
+    }
     width: 100%;
     font-family: "Config", sans-serif;
     .overwatch2StoryBackgroundImage {

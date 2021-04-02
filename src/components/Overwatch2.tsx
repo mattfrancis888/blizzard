@@ -7,15 +7,17 @@ import Overwatch2SlideStory from "./Overwatch2SlideStory";
 import Overwatch2SlideNext from "./Overwatch2SlideNext";
 import anime from "animejs/lib/anime.es.js";
 import Overwatch2Carousel from "./Overwatch2Carousel";
+import Overwatch2SlideExploreDetails from "./Overwatch2SlideExploreDetails";
 
 const Overwatch2: React.FC<{}> = () => {
     return (
         <React.Fragment>
-            <Overwatch2SlideStory />
+            {/* <Overwatch2SlideStory /> */}
             {/* <Overwatch2Carousel /> */}
             {/* <Overwatch2SlideLanding /> */}
             {/* <Overwatch2SlideExplore /> */}
             {/* <Overwatch2SlideNext /> */}
+            <Overwatch2SlideExploreDetails />
         </React.Fragment>
     );
 };
