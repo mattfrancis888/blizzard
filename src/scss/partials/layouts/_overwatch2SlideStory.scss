@@ -104,7 +104,7 @@
         height: 70rem;
     }
     @media screen and (min-width: $md_breakpoint) {
-        height: 80rem;
+        height: 70rem;
     }
 
     width: 100%;
@@ -120,11 +120,15 @@
     position: absolute;
     left: 5%;
     top: 5%;
+    // position: relative; //used for height auto animation
     max-width: 80%;
     @media screen and (min-width: $sm_breakpoint) {
         max-width: 60%;
     }
     @media screen and (min-width: $md_breakpoint) {
+        // max-width: 50%;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
         max-width: 50%;
     }
     .overwatch2StoryTitle {
@@ -153,3 +157,10 @@
         }
     }
 }
+
+// .autoWrap {
+//     position: absolute;
+//     left: 5%;
+//     top: 5%;
+//     background: blue;
+// }

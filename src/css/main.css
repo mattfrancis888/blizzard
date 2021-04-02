@@ -3183,7 +3183,7 @@ footer {
 }
 @media screen and (min-width: 768px) {
   .overwatch2StoryContainer {
-    height: 80rem;
+    height: 70rem;
   }
 }
 .overwatch2StoryContainer .overwatch2StoryBackgroundImage {
@@ -3203,7 +3203,7 @@ footer {
     max-width: 60%;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .overwatch2StoryTextWrap {
     max-width: 50%;
   }
