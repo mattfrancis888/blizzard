@@ -8,6 +8,7 @@ import Overwatch2Carousel from "./Overwatch2Carousel";
 import { LG_SCREEN_SIZE, MED_SCREEN_SIZE } from "../constants";
 import useMeasure from "../useMeasure";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
+import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 import Overwatch2Accordion from "./Overwatch2Accordion";
 const timer = 3000;
 
@@ -33,9 +34,7 @@ const contents = [
 ];
 const Overwatch2: React.FC<{}> = () => {
     const [selectedContentIndex, setSelectedContentIndex] = useState(0);
-
-    console.log(selectedContentIndex);
-
+    const [dropdownClicked, setDropdownClicked] = useState(false);
     //Does not work becuase we have multiple binds, so we create the Overwatch2Accordion
     // const showDesc = useTransition(selectedContentIndex, {
     //     from: {
@@ -54,6 +53,26 @@ const Overwatch2: React.FC<{}> = () => {
     //         duration: timer,
     //     },
     // });
+
+    const rotateArrow = useSpring({
+        transform: dropdownClicked ? "rotate(360deg)" : "rotate(270deg)",
+
+        config: {
+            duration: 250,
+        },
+    });
+    const showDropdown = useSpring({
+        transform: dropdownClicked
+            ? "translate3d(0%,0%,0px)"
+            : "translate3d(0%,-100%,0px)",
+        // opacity: dropdownClicked ? 1 : 0,
+
+        // zIndex: dropdownClicked ? 1 : -1,
+
+        config: {
+            duration: 250,
+        },
+    });
 
     const titleClicked = useTransition(selectedContentIndex, {
         from: {
@@ -145,11 +164,57 @@ const Overwatch2: React.FC<{}> = () => {
             </React.Fragment>
         );
     };
+
+    const renderDropdown = () => {
+        return (
+            <div className="overwatch2SlideCurrentExploreDetailWrap">
+                <p className="overwatch2SlideCurrentExploreDetailDropdownText">
+                    Co-op Mission
+                    <animated.div
+                        style={rotateArrow}
+                        onClick={() => setDropdownClicked(!dropdownClicked)}
+                    >
+                        <RiArrowDownSLine className="overwatch2SlideCurrentExploreDetailArrowDown" />
+                    </animated.div>
+                </p>
+
+                <animated.div
+                    style={showDropdown}
+                    className="overwatch2SlideCurrentExploreDetailDropdown"
+                >
+                    <p>Co-op Mission</p>
+                    <p>Co-op Mission</p>
+                </animated.div>
+            </div>
+        );
+    };
     return (
         <React.Fragment>
             <div className="overwatch2SlideExploreDetailsContainer">
                 {width < LG_SCREEN_SIZE && (
                     <React.Fragment>
+                        {/* <div className="overwatch2SlideCurrentExploreDetailWrap">
+                            <p className="overwatch2SlideCurrentExploreDetailDropdownText">
+                                Co-op Mission
+                                <animated.div
+                                    style={rotateArrow}
+                                    onClick={() =>
+                                        setDropdownClicked(!dropdownClicked)
+                                    }
+                                >
+                                    <RiArrowDownSLine className="overwatch2SlideCurrentExploreDetailArrowDown" />
+                                </animated.div>
+                            </p>
+
+                            <animated.div
+                                style={showDropdown}
+                                className="overwatch2SlideCurrentExploreDetailDropdown"
+                            >
+                                <p>Co-op Mission</p>
+                                <p>Co-op Mission</p>
+                            </animated.div>
+                        </div> */}
+                        {renderDropdown()}
                         <h1 className="overwatch2SlideExploreDetailsHeader">
                             Power Up And Save The World
                         </h1>
@@ -178,6 +243,28 @@ const Overwatch2: React.FC<{}> = () => {
                             style={slide}
                             className="overwatch2SlideExploreDetailsTextContainer"
                         >
+                            {/* <div className="overwatch2SlideCurrentExploreDetailWrap">
+                                <p className="overwatch2SlideCurrentExploreDetailDropdownText">
+                                    Co-op Mission Title
+                                    <animated.div
+                                        style={rotateArrow}
+                                        onClick={() =>
+                                            setDropdownClicked(!dropdownClicked)
+                                        }
+                                    >
+                                        <RiArrowDownSLine className="overwatch2SlideCurrentExploreDetailArrowDown" />
+                                    </animated.div>
+                                </p>
+
+                                <animated.div
+                                    style={showDropdown}
+                                    className="overwatch2SlideCurrentExploreDetailDropdown"
+                                >
+                                    <p>Co-op Mission</p>
+                                    <p>Co-op Mission</p>
+                                </animated.div>
+                            </div> */}
+                            {renderDropdown()}
                             <h1 className="overwatch2SlideExploreDetailsHeader">
                                 Power Up And Save The World
                             </h1>

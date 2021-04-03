@@ -2790,21 +2790,25 @@ footer {
 
 .overwatch2SlideExploreDetailsTextContainer {
   padding: 2rem 4rem;
+  padding-top: 0rem;
 }
 @media screen and (min-width: 520px) {
   .overwatch2SlideExploreDetailsTextContainer {
     padding: 2rem 6rem;
+    padding-top: 0rem;
   }
 }
 @media screen and (min-width: 992px) {
   .overwatch2SlideExploreDetailsTextContainer {
     padding: 2rem 4rem;
+    padding-top: 0rem;
     width: 40%;
   }
 }
 @media screen and (min-width: 1200px) {
   .overwatch2SlideExploreDetailsTextContainer {
     padding: 2rem 5rem;
+    padding-top: 0rem;
   }
 }
 
@@ -2815,6 +2819,11 @@ footer {
 @media screen and (min-width: 520px) {
   .overwatch2SlideExploreDetailsText {
     font-size: 2.4rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .overwatch2SlideExploreDetailsText {
+    font-size: rem;
   }
 }
 
@@ -2860,6 +2869,7 @@ footer {
   font-weight: bold;
   margin: 0;
   margin-bottom: 2rem;
+  z-index: -1;
 }
 
 .overwatch2SlideExploreDetailsTitle {
@@ -2915,6 +2925,51 @@ footer {
 .overwatch2SideExploreDetailsBackButton:hover {
   transition: all 0.4s ease;
   transform: scale(1.1);
+}
+
+.overwatch2SlideCurrentExploreDetailWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.overwatch2SlideCurrentExploreDetailWrap .overwatch2SlideCurrentExploreDetailDropdownText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.9rem;
+  margin: 0;
+  margin-right: 0.5rem;
+  padding-top: 2rem;
+  width: 100%;
+  background: white;
+  z-index: 1;
+}
+@media screen and (min-width: 992px) {
+  .overwatch2SlideCurrentExploreDetailWrap .overwatch2SlideCurrentExploreDetailDropdownText {
+    font-size: 2.4rem;
+  }
+}
+.overwatch2SlideCurrentExploreDetailWrap .overwatch2SlideCurrentExploreDetailArrowDown {
+  font-size: 2rem;
+}
+
+.overwatch2SlideCurrentExploreDetailDropdown {
+  position: absolute;
+  top: 100%;
+  padding: 0 1.5rem;
+  border: 1px solid black;
+  background: white;
+}
+.overwatch2SlideCurrentExploreDetailDropdown p {
+  font-size: 1.9rem;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .overwatch2SlideParentContainer {
