@@ -11,6 +11,7 @@ const timer = 1000;
 
 interface Overwatch2AccordianProps {
     toggle: boolean;
+    desc: string;
 }
 const Overwatch2: React.FC<Overwatch2AccordianProps> = (props) => {
     //@ts-ignore
@@ -31,10 +32,7 @@ const Overwatch2: React.FC<Overwatch2AccordianProps> = (props) => {
         <React.Fragment>
             <animated.div style={showDescSpring}>
                 <div {...bind} className="overwatch2SlideExploreDetailsText">
-                    Play an active role in the next chapter of the Overwatch
-                    saga through a series of intense four-player missions. Fight
-                    back against Null Sector, uncover the motives behind the
-                    omnic attacks, and confront a rising wave of new threats.
+                    {props.desc}
                 </div>
             </animated.div>
         </React.Fragment>

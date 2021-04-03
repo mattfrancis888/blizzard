@@ -1,10 +1,12 @@
 .overwatch2SlideExploreDetailsContainer {
+    position: relative;
     font-family: "Config", sans-serif;
     color: black;
     background: white;
     @media screen and (min-width: $lg_breakpoint) {
         display: flex;
         flex-direction: row-reverse;
+        height: 80rem;
     }
 }
 
@@ -13,8 +15,13 @@
     @media screen and (min-width: $sm_breakpoint) {
         padding: 2rem 6rem;
     }
+
     @media screen and (min-width: $lg_breakpoint) {
+        padding: 2rem 4rem;
         width: 40%;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        padding: 2rem 5rem;
     }
 }
 .overwatch2SlideExploreDetailsText {
@@ -26,7 +33,19 @@
 }
 
 .overwatch2SlideExploreDetailsTitleWrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 2rem;
+    @media screen and (min-width: $sm_breakpoint) {
+        padding: 2rem 5rem;
+    }
+    @media screen and (min-width: $md_breakpoint) {
+        padding: 2rem 15rem;
+    }
+
     @media screen and (min-width: $lg_breakpoint) {
+        display: block;
         cursor: pointer;
         position: relative;
         color: white;
@@ -56,8 +75,12 @@
     text-transform: uppercase;
     font-weight: bold;
     margin: 0;
+    margin-right: auto;
     @media screen and (min-width: $sm_breakpoint) {
         font-size: 2.3rem;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
+        margin-right: 0;
     }
 }
 
@@ -66,5 +89,28 @@
     object-fit: cover;
     @media screen and (min-width: $lg_breakpoint) {
         width: 60%;
+    }
+}
+
+.overwatch2SideExploreDetailsBackButton {
+    position: absolute;
+    cursor: pointer;
+    left: 2rem;
+    top: 10rem;
+    font-size: 4rem;
+    color: white;
+    @media screen and (min-width: $sm_breakpoint) {
+        top: 8rem;
+        font-size: 6rem;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
+        left: 90%;
+        top: 3rem;
+        font-size: 8rem;
+    }
+    transition: all 0.4s ease;
+    &:hover {
+        transition: all 0.4s ease;
+        transform: scale(1.1);
     }
 }

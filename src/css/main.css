@@ -2775,6 +2775,7 @@ footer {
 }
 
 .overwatch2SlideExploreDetailsContainer {
+  position: relative;
   font-family: "Config", sans-serif;
   color: black;
   background: white;
@@ -2783,6 +2784,7 @@ footer {
   .overwatch2SlideExploreDetailsContainer {
     display: flex;
     flex-direction: row-reverse;
+    height: 80rem;
   }
 }
 
@@ -2796,7 +2798,13 @@ footer {
 }
 @media screen and (min-width: 992px) {
   .overwatch2SlideExploreDetailsTextContainer {
+    padding: 2rem 4rem;
     width: 40%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .overwatch2SlideExploreDetailsTextContainer {
+    padding: 2rem 5rem;
   }
 }
 
@@ -2810,8 +2818,25 @@ footer {
   }
 }
 
+.overwatch2SlideExploreDetailsTitleWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 2rem;
+}
+@media screen and (min-width: 520px) {
+  .overwatch2SlideExploreDetailsTitleWrap {
+    padding: 2rem 5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .overwatch2SlideExploreDetailsTitleWrap {
+    padding: 2rem 15rem;
+  }
+}
 @media screen and (min-width: 992px) {
   .overwatch2SlideExploreDetailsTitleWrap {
+    display: block;
     cursor: pointer;
     position: relative;
     color: white;
@@ -2842,10 +2867,16 @@ footer {
   text-transform: uppercase;
   font-weight: bold;
   margin: 0;
+  margin-right: auto;
 }
 @media screen and (min-width: 520px) {
   .overwatch2SlideExploreDetailsTitle {
     font-size: 2.3rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .overwatch2SlideExploreDetailsTitle {
+    margin-right: 0;
   }
 }
 
@@ -2857,6 +2888,33 @@ footer {
   .overwatch2SlideExploreDetailsSlideImage {
     width: 60%;
   }
+}
+
+.overwatch2SideExploreDetailsBackButton {
+  position: absolute;
+  cursor: pointer;
+  left: 2rem;
+  top: 10rem;
+  font-size: 4rem;
+  color: white;
+  transition: all 0.4s ease;
+}
+@media screen and (min-width: 520px) {
+  .overwatch2SideExploreDetailsBackButton {
+    top: 8rem;
+    font-size: 6rem;
+  }
+}
+@media screen and (min-width: 992px) {
+  .overwatch2SideExploreDetailsBackButton {
+    left: 90%;
+    top: 3rem;
+    font-size: 8rem;
+  }
+}
+.overwatch2SideExploreDetailsBackButton:hover {
+  transition: all 0.4s ease;
+  transform: scale(1.1);
 }
 
 .overwatch2SlideParentContainer {

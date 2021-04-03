@@ -10,14 +10,13 @@ const useMeasure = () => {
         //@ts-ignore
         () => new ResizeObserver(([entry]) => set(entry.contentRect))
     );
-    // @ts-ignore
-    // useEffect(() => (ro.observe(ref.current), ro.disconnect), []);
+
     useEffect(() => {
         if (!ref.current) return;
         //@ts-ignore
         ro.observe(ref.current);
-        //@ts-ignore
-        return () => ro.unobserve(ref.current);
+        //Using scott/level up turtorial's solution would crash, so use disconnect :)!
+        return () => ro.disconnect();
     }, []);
     return [{ ref }, bounds];
 };

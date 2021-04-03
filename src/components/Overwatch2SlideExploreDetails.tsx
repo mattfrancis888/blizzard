@@ -7,10 +7,11 @@ import anime from "animejs/lib/anime.es.js";
 import Overwatch2Carousel from "./Overwatch2Carousel";
 import { LG_SCREEN_SIZE, MED_SCREEN_SIZE } from "../constants";
 import useMeasure from "../useMeasure";
+import { IoIosArrowDropleftCircle } from "react-icons/io";
 import Overwatch2Accordion from "./Overwatch2Accordion";
 const timer = 3000;
 
-const content = [
+const contents = [
     {
         title: `Action-packed story missions`,
         desc: `Play an active role in the next chapter of the Overwatch saga through a series of intense four-player missions. 
@@ -93,79 +94,100 @@ const Overwatch2: React.FC<{}> = () => {
     });
 
     const { width } = useWindowDimensions();
+    const renderContent = (index: number) => {
+        return (
+            <React.Fragment>
+                {titleClicked((style, item) => {
+                    return (
+                        <animated.div
+                            className={`overwatch2SlideExploreDetailsTitleWrap`}
+                            style={
+                                width >= LG_SCREEN_SIZE && item === index
+                                    ? style
+                                    : {}
+                            }
+                            onClick={() => setSelectedContentIndex(index)}
+                        >
+                            <div className="overwatch2SlideExploreDetailsTitleSelected"></div>
+                            <h3 className="overwatch2SlideExploreDetailsTitle">
+                                {contents[index].title}
+                            </h3>
+                        </animated.div>
+                    );
+                })}
+
+                <Overwatch2Accordion
+                    toggle={selectedContentIndex === index ? true : false}
+                    desc={contents[index].desc}
+                />
+            </React.Fragment>
+        );
+    };
+
+    const renderMobileContent = (index: number) => {
+        return (
+            <React.Fragment>
+                <img
+                    className="overwatch2SlideExploreDetailsSlideImage"
+                    src={contents[index].image}
+                    alt=""
+                />
+
+                <div className={`overwatch2SlideExploreDetailsTitleWrap`}>
+                    <div className="overwatch2SlideExploreDetailsTitleSelected"></div>
+                    <h3 className="overwatch2SlideExploreDetailsTitle">
+                        {contents[index].title}
+                    </h3>
+                    <div className="overwatch2SlideExploreDetailsText">
+                        {contents[index].desc}
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    };
     return (
         <React.Fragment>
             <div className="overwatch2SlideExploreDetailsContainer">
                 {width < LG_SCREEN_SIZE && (
-                    <h1 className="overwatch2SlideExploreDetailsHeader">
-                        Power Up And Save The World
-                    </h1>
-                )}
-                {backgroundTransition((style, item) => {
-                    return (
-                        <animated.img
-                            style={style}
-                            className="overwatch2SlideExploreDetailsSlideImage"
-                            src={content[item].image}
-                            alt=""
-                        />
-                    );
-                })}
-
-                <animated.div
-                    style={slide}
-                    className="overwatch2SlideExploreDetailsTextContainer"
-                >
-                    {width >= LG_SCREEN_SIZE && (
+                    <React.Fragment>
                         <h1 className="overwatch2SlideExploreDetailsHeader">
                             Power Up And Save The World
                         </h1>
-                    )}
-                    {titleClicked((style, item) => {
-                        return (
-                            <animated.div
-                                className={`overwatch2SlideExploreDetailsTitleWrap`}
-                                style={
-                                    width >= LG_SCREEN_SIZE && item === 0
-                                        ? style
-                                        : {}
-                                }
-                                onClick={() => setSelectedContentIndex(0)}
-                            >
-                                <div className="overwatch2SlideExploreDetailsTitleSelected"></div>
-                                <h3 className="overwatch2SlideExploreDetailsTitle">
-                                    {content[0].title}
-                                </h3>
-                            </animated.div>
-                        );
-                    })}
+                        {contents.map((content, index) => {
+                            return renderMobileContent(index);
+                        })}
+                    </React.Fragment>
+                )}
+                <IoIosArrowDropleftCircle
+                    className={`overwatch2SideExploreDetailsBackButton`}
+                />
 
-                    <Overwatch2Accordion
-                        toggle={selectedContentIndex === 0 ? true : false}
-                    />
+                {width >= LG_SCREEN_SIZE && (
+                    <React.Fragment>
+                        {backgroundTransition((style, item) => {
+                            return (
+                                <animated.img
+                                    style={style}
+                                    className="overwatch2SlideExploreDetailsSlideImage"
+                                    src={contents[item].image}
+                                    alt=""
+                                />
+                            );
+                        })}
+                        <animated.div
+                            style={slide}
+                            className="overwatch2SlideExploreDetailsTextContainer"
+                        >
+                            <h1 className="overwatch2SlideExploreDetailsHeader">
+                                Power Up And Save The World
+                            </h1>
 
-                    {titleClicked((style, item) => {
-                        return (
-                            <animated.div
-                                style={
-                                    width >= LG_SCREEN_SIZE && item === 1
-                                        ? style
-                                        : {}
-                                }
-                                onClick={() => setSelectedContentIndex(1)}
-                                className={`overwatch2SlideExploreDetailsTitleWrap`}
-                            >
-                                <div className="overwatch2SlideExploreDetailsTitleSelected"></div>
-                                <h3 className="overwatch2SlideExploreDetailsTitle">
-                                    {content[1].title}
-                                </h3>
-                            </animated.div>
-                        );
-                    })}
-                    <Overwatch2Accordion
-                        toggle={selectedContentIndex === 1 ? true : false}
-                    />
-                </animated.div>
+                            {contents.map((content, index) => {
+                                return renderContent(index);
+                            })}
+                        </animated.div>
+                    </React.Fragment>
+                )}
             </div>
         </React.Fragment>
     );
