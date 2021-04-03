@@ -1,64 +1,123 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useEmblaCarousel } from "embla-carousel/react";
 import useScrollDirection from "../useScrollDirection";
+import Overwatch2SlideLanding from "./Overwatch2SlideLanding";
+import Overwatch2SlideExplore from "./Overwatch2SlideExplore";
+import Overwatch2SlideStory from "./Overwatch2SlideStory";
+import Overwatch2SlideNext from "./Overwatch2SlideNext";
+import Overwatch2SlideExploreDetails from "./Overwatch2SlideExploreDetails";
+import { setupWheelGestures } from "embla-carousel-wheel-gestures";
+import { RiArrowUpSLine, RiArrowDownSLine } from "react-icons/ri";
+
+//@ts-ignore
+export const DotButton = ({ selected, onClick }) => (
+    <React.Fragment>
+        <div className="overwatch2DotBackground">
+            <p className="overwatch2DotText">Story</p>
+            <div
+                className={`embla__dot ${
+                    selected ? "is-selected" : ""
+                } overwatch2Dot`}
+                // type="button"
+                onClick={onClick}
+            >
+                {" "}
+            </div>
+        </div>
+    </React.Fragment>
+);
+
+//@ts-ignore
+export const PrevButton = ({ enabled, onClick }) => (
+    <button
+        className="embla__button embla__button--prev overwatch2CarouselButton"
+        onClick={onClick}
+        disabled={!enabled}
+    >
+        <RiArrowUpSLine className="overwatch2CarouselArrow" />
+    </button>
+);
+
+//@ts-ignore
+export const NextButton = ({ enabled, onClick }) => (
+    <button
+        className="embla__button embla__button--next overwatch2CarouselButton"
+        onClick={onClick}
+        disabled={!enabled}
+    >
+        <RiArrowDownSLine className="overwatch2CarouselArrow" />
+    </button>
+);
+
+const slides = [
+    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*",
+    "https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png",
+    "https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png",
+];
+
 const EmblaCarousel = () => {
     const [viewportRef, embla] = useEmblaCarousel({ axis: "y" });
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
-    const scrollDir = useScrollDirection();
+
     const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
     const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
-    //const onSelect = useCallback(() => {
-    //   if (!embla) return;
-    //   setPrevBtnEnabled(embla.canScrollPrev());
-    //   setNextBtnEnabled(embla.canScrollNext());
-    // }, [embla]);
+    const scrollTo = useCallback((index) => embla && embla.scrollTo(index), [
+        embla,
+    ]);
 
-    // useEffect(() => {
-    //   if (!embla) return;
-    //   embla.on("select", onSelect);
-    //   onSelect();
-    // }, [embla, onSelect]);
-    console.log(scrollDir);
+    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+    const onSelect = useCallback(() => {
+        if (!embla) return;
+        setSelectedIndex(embla.selectedScrollSnap());
+        setPrevBtnEnabled(embla.canScrollPrev());
+        setNextBtnEnabled(embla.canScrollNext());
+    }, [embla, setSelectedIndex]);
+
+    useEffect(() => embla && setupWheelGestures(embla), [embla]);
+
+    useEffect(() => {
+        if (!embla) return;
+        onSelect();
+
+        setScrollSnaps(embla.scrollSnapList());
+        embla.on("select", onSelect);
+    }, [embla, setScrollSnaps, onSelect]);
 
     return (
         <div className="embla">
             <div className="embla__viewport" ref={viewportRef}>
                 <div className="embla__container">
-                    <div className="embla__slide" key={0}>
-                        <div className="embla__slide__inner">
-                            <img
-                                className="embla__slide__img"
-                                src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
-                                alt=""
-                            ></img>
-                        </div>
-                        Slide 2
-                    </div>
-                    <div className="embla__slide" key={1}>
-                        <div className="embla__slide__inner">
-                            <img
-                                className="embla__slide__img"
-                                src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
-                                alt=""
-                            ></img>
-                        </div>
-                        Slide 1
-                    </div>
-                    <div className="embla__slide" key={2}>
-                        <div className="embla__slide__inner">
-                            <img
-                                className="embla__slide__img"
-                                src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
-                                alt=""
-                            ></img>
-                        </div>
-                        Slide 3
-                    </div>
+                    {slides.map((slide, index) => {
+                        return (
+                            <div className="embla__slide" key={index}>
+                                <div className="embla__slide__inner">
+                                    <img
+                                        className="embla__slide__img"
+                                        src={slide}
+                                        alt=""
+                                    ></img>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
-            {/* <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
-      <NextButton onClick={scrollNext} enabled={nextBtnEnabled} /> */}
+            <div className="overwatch2DotWrapAndButton">
+                <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
+                <div className="embla__dots overwatch2DotWrap">
+                    {scrollSnaps.map((_, index) => (
+                        <DotButton
+                            key={index}
+                            selected={index === selectedIndex}
+                            onClick={() => scrollTo(index)}
+                        />
+                    ))}
+                </div>
+                <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
+            </div>
         </div>
     );
 };

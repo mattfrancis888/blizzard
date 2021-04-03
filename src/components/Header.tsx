@@ -14,7 +14,7 @@ const Header: React.FC<{}> = () => {
     useEffect(() => {
         if (showPresentation && width < MED_SCREEN_SIZE) {
             setShowPresentation(false);
-        } else if (showModal && width > MED_SCREEN_SIZE) {
+        } else if (showModal && width >= MED_SCREEN_SIZE) {
             setShowModal(false);
         }
     }, [showPresentation, showModal, width]);

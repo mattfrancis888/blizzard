@@ -193,27 +193,6 @@ const Overwatch2: React.FC<{}> = () => {
             <div className="overwatch2SlideExploreDetailsContainer">
                 {width < LG_SCREEN_SIZE && (
                     <React.Fragment>
-                        {/* <div className="overwatch2SlideCurrentExploreDetailWrap">
-                            <p className="overwatch2SlideCurrentExploreDetailDropdownText">
-                                Co-op Mission
-                                <animated.div
-                                    style={rotateArrow}
-                                    onClick={() =>
-                                        setDropdownClicked(!dropdownClicked)
-                                    }
-                                >
-                                    <RiArrowDownSLine className="overwatch2SlideCurrentExploreDetailArrowDown" />
-                                </animated.div>
-                            </p>
-
-                            <animated.div
-                                style={showDropdown}
-                                className="overwatch2SlideCurrentExploreDetailDropdown"
-                            >
-                                <p>Co-op Mission</p>
-                                <p>Co-op Mission</p>
-                            </animated.div>
-                        </div> */}
                         {renderDropdown()}
                         <h1 className="overwatch2SlideExploreDetailsHeader">
                             Power Up And Save The World
@@ -243,27 +222,6 @@ const Overwatch2: React.FC<{}> = () => {
                             style={slide}
                             className="overwatch2SlideExploreDetailsTextContainer"
                         >
-                            {/* <div className="overwatch2SlideCurrentExploreDetailWrap">
-                                <p className="overwatch2SlideCurrentExploreDetailDropdownText">
-                                    Co-op Mission Title
-                                    <animated.div
-                                        style={rotateArrow}
-                                        onClick={() =>
-                                            setDropdownClicked(!dropdownClicked)
-                                        }
-                                    >
-                                        <RiArrowDownSLine className="overwatch2SlideCurrentExploreDetailArrowDown" />
-                                    </animated.div>
-                                </p>
-
-                                <animated.div
-                                    style={showDropdown}
-                                    className="overwatch2SlideCurrentExploreDetailDropdown"
-                                >
-                                    <p>Co-op Mission</p>
-                                    <p>Co-op Mission</p>
-                                </animated.div>
-                            </div> */}
                             {renderDropdown()}
                             <h1 className="overwatch2SlideExploreDetailsHeader">
                                 Power Up And Save The World

@@ -13,11 +13,11 @@ const Overwatch2: React.FC<{}> = () => {
     return (
         <React.Fragment>
             {/* <Overwatch2SlideStory /> */}
-            {/* <Overwatch2Carousel /> */}
+            <Overwatch2Carousel />
             {/* <Overwatch2SlideLanding /> */}
             {/* <Overwatch2SlideExplore /> */}
             {/* <Overwatch2SlideNext /> */}
-            <Overwatch2SlideExploreDetails />
+            {/* <Overwatch2SlideExploreDetails /> */}
         </React.Fragment>
     );
 };
