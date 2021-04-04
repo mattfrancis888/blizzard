@@ -1,7 +1,7 @@
 .embla {
     position: relative;
-    background-color: #f7f7f7;
-    // padding: 20px;
+    // background-color: #f7f7f7;
+    background: black;
     // max-width: 670px;
     margin-left: auto;
     margin-right: auto;
@@ -24,14 +24,35 @@
 .embla__container {
     user-select: none;
     margin-top: -10px;
-    // height: 400px;
+    // height: 200px;
+    // height: 55rem;
+    // @media screen and (min-width: $sm_breakpoint) {
+    //     height: 65rem;
+    // }
+    // @media screen and (min-width: $md_breakpoint) {
+    //     min-height: 80rem;
+    // }
+    // @media screen and (min-width: $xl_breakpoint) {
+    //     min-height: 100rem;
+    // }
+
+    height: 60rem;
+    @media screen and (min-width: $sm_breakpoint) {
+        height: 70rem;
+    }
+    @media screen and (min-width: $md_breakpoint) {
+        height: 70rem;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
+        height: 75rem;
+    }
+
     //padding-bottom: 10rem;
 }
 
 .embla__slide {
     position: relative;
     height: 100%;
-    padding-top: 10px;
 }
 
 .embla__slide__inner {
@@ -130,5 +151,10 @@
     }
 }
 
-.overwatch2TextAndDotWrap {
+.overwatch2InnerTest {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }

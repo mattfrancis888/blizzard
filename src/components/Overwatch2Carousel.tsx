@@ -65,7 +65,10 @@ export const NextButton = ({ enabled, onClick }) => (
 //     "https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png",
 // ];
 
-const slides = [<Overwatch2SlideStory />];
+const slides = [
+    { dotTitle: "Landing", component: <Overwatch2SlideLanding /> },
+    { dotTitle: "Story", component: <Overwatch2SlideStory /> },
+];
 
 const EmblaCarousel = () => {
     const [showDotText, setShowDotText] = useState(false);
@@ -116,7 +119,7 @@ const EmblaCarousel = () => {
         setNextBtnEnabled(embla.canScrollNext());
     }, [embla, setSelectedIndex]);
 
-    useEffect(() => embla && setupWheelGestures(embla), [embla]);
+    // useEffect(() => embla && setupWheelGestures(embla), [embla]);
 
     useEffect(() => {
         if (!embla) return;
@@ -144,17 +147,46 @@ const EmblaCarousel = () => {
                         return (
                             <div className="embla__slide" key={index}>
                                 <div className="embla__slide__inner">
-                                    {/* <img
-                                        className="embla__slide__img"
-                                        src={slide}
-                                        alt=""
-                                    ></img> */}
-                                    {slide}
+                                    <div className="overwatch2InnerTest">
+                                        {slide.component}
+                                    </div>
                                 </div>
                             </div>
                         );
                     })}
                 </div>
+                {/* <div className="embla__container">
+                    <div className="embla__slide" key={0}>
+                        <div className="embla__slide__inner">
+                            <img
+                                className="embla__slide__img"
+                                src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*"
+                                alt=""
+                            ></img>
+                        </div>
+                        Slide 2
+                    </div>
+                    <div className="embla__slide" key={1}>
+                        <div className="embla__slide__inner">
+                            <img
+                                className="embla__slide__img"
+                                src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
+                                alt=""
+                            ></img>
+                        </div>
+                        Slide 1
+                    </div>
+                    <div className="embla__slide" key={2}>
+                        <div className="embla__slide__inner">
+                            <img
+                                className="embla__slide__img"
+                                src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
+                                alt=""
+                            ></img>
+                        </div>
+                        Slide 3
+                    </div>
+                </div> */}
             </div>
             <div className="overwatch2DotWrapAndButton">
                 <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
@@ -177,7 +209,9 @@ const EmblaCarousel = () => {
                                     style={animation}
                                     className="overwatch2DotBackground"
                                 >
-                                    <p className="overwatch2DotText">Story</p>
+                                    {/* <p className="overwatch2DotText">
+                                        {slides[index].dotTitle}
+                                    </p> */}
                                 </animated.div>
                                 <div
                                     className={`embla__dot ${

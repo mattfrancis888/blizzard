@@ -1,14 +1,16 @@
 .overwatch2SlideLandingParentContainer {
-    height: 55rem;
-    @media screen and (min-width: $sm_breakpoint) {
-        height: 65rem;
-    }
-    @media screen and (min-width: $md_breakpoint) {
-        min-height: 80rem;
-    }
-    @media screen and (min-width: $xl_breakpoint) {
-        min-height: 100rem;
-    }
+    // height: 55rem;
+    // @media screen and (min-width: $sm_breakpoint) {
+    //     height: 65rem;
+    // }
+    // @media screen and (min-width: $md_breakpoint) {
+    //     min-height: 80rem;
+    // }
+    // @media screen and (min-width: $xl_breakpoint) {
+    //     min-height: 100rem;
+    // }
+    height: 100%;
+    width: 100%;
 }
 .overwatch2Sky {
     position: absolute;
