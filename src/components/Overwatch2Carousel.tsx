@@ -6,26 +6,36 @@ import Overwatch2SlideExplore from "./Overwatch2SlideExplore";
 import Overwatch2SlideStory from "./Overwatch2SlideStory";
 import Overwatch2SlideNext from "./Overwatch2SlideNext";
 import Overwatch2SlideExploreDetails from "./Overwatch2SlideExploreDetails";
+import { useTransition, animated, useSpring, useTrail } from "react-spring";
 import { setupWheelGestures } from "embla-carousel-wheel-gestures";
 import { RiArrowUpSLine, RiArrowDownSLine } from "react-icons/ri";
+import Overwatch2DotAccordion from "./Overwatch2DotAccordion";
+import { useMeasure } from "react-use";
+
+//Instead of level up tuts / scott's way, you could use this for accordion : https://www.chrisberry.io/Animate-Auto-With-React-Spring/
+//Much cleaner code
 
 //@ts-ignore
-export const DotButton = ({ selected, onClick }) => (
-    <React.Fragment>
-        <div className="overwatch2DotBackground">
-            <p className="overwatch2DotText">Story</p>
-            <div
-                className={`embla__dot ${
-                    selected ? "is-selected" : ""
-                } overwatch2Dot`}
-                // type="button"
-                onClick={onClick}
-            >
-                {" "}
-            </div>
-        </div>
-    </React.Fragment>
-);
+// export const DotButton = React.forwardRef(
+//     ({ style, selected, onClick }, ref) => (
+//         <React.Fragment>
+//             <animated.div style={style} className="overwatch2DotBackground">
+//                 <p ref={ref} className="overwatch2DotText">
+//                     Story
+//                 </p>
+//                 <div
+//                     className={`embla__dot ${
+//                         selected ? "is-selected" : ""
+//                     } overwatch2Dot`}
+//                     // type="button"
+//                     onClick={onClick}
+//                 ></div>
+//             </animated.div>
+
+//             {/* <Overwatch2DotAccordion toggle={toggle} /> */}
+//         </React.Fragment>
+//     )
+// );
 
 //@ts-ignore
 export const PrevButton = ({ enabled, onClick }) => (
@@ -56,6 +66,36 @@ const slides = [
 ];
 
 const EmblaCarousel = () => {
+    const [showDotText, setShowDotText] = useState(false);
+    const defaultHeight = "0px";
+
+    // Gets the height of the element (ref)
+    const [ref, { width, left, right }] = useMeasure<any>();
+    console.log(width, left, right, showDotText);
+    // The height of the content inside of the accordion
+    const [contentWidth, setContentWidth] = useState(defaultHeight);
+    const expand = useSpring({
+        config: { friction: 10 },
+        width: showDotText ? `${contentWidth}px` : defaultHeight,
+    });
+    useEffect(() => {
+        //Sets initial height
+        //@ts-ignore
+        setContentWidth(width + left + right);
+
+        //Adds resize event listener
+        //@ts-ignore
+        window.addEventListener("resize", setContentWidth(width + left * 2));
+
+        // Clean-up
+        //@ts-ignore
+        return window.removeEventListener(
+            "resize",
+            //@ts-ignore
+            setContentWidth(width + left * 2)
+        );
+    }, [width]);
+
     const [viewportRef, embla] = useEmblaCarousel({ axis: "y" });
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
@@ -86,6 +126,16 @@ const EmblaCarousel = () => {
         embla.on("select", onSelect);
     }, [embla, setScrollSnaps, onSelect]);
 
+    const dotTextTrail = useTrail(slides.length, {
+        width: showDotText ? `10rem` : `0rem`,
+        overflow: "hidden",
+        opacity: showDotText ? 1 : 0,
+
+        config: {
+            duration: 200,
+        },
+    });
+
     return (
         <div className="embla">
             <div className="embla__viewport" ref={viewportRef}>
@@ -107,13 +157,58 @@ const EmblaCarousel = () => {
             </div>
             <div className="overwatch2DotWrapAndButton">
                 <PrevButton onClick={scrollPrev} enabled={prevBtnEnabled} />
-                <div className="embla__dots overwatch2DotWrap">
-                    {scrollSnaps.map((_, index) => (
+                <div
+                    className="embla__dots overwatch2DotWrap"
+                    onMouseEnter={() => setShowDotText(true)}
+                    onMouseLeave={() => setShowDotText(false)}
+                >
+                    {/* <animated.div
+                        className="overwatch2DotBackground"
+                        style={expand}
+                    >
+                        <p ref={ref} className="overwatch2DotText">
+                            Story
+                        </p>
+                    </animated.div> */}
+
+                    {/* {scrollSnaps.map((_, index) => (
                         <DotButton
                             key={index}
                             selected={index === selectedIndex}
                             onClick={() => scrollTo(index)}
                         />
+                    ))} */}
+                    {dotTextTrail.map((animation, index) => (
+                        // <DotButton
+                        //     style={animation}
+                        //     key={index}
+                        //     selected={index === selectedIndex}
+                        //     onClick={() => scrollTo(index)}
+                        //     ref={ref}
+                        // />
+                        <React.Fragment>
+                            <div className="overwatch2DotParentWrap">
+                                <animated.div
+                                    style={animation}
+                                    className="overwatch2DotBackground"
+                                >
+                                    <p ref={ref} className="overwatch2DotText">
+                                        Story
+                                    </p>
+                                </animated.div>
+                                <div
+                                    className={`embla__dot ${
+                                        index === selectedIndex
+                                            ? "is-selected"
+                                            : ""
+                                    } overwatch2Dot`}
+                                    // type="button"
+                                    onClick={() => scrollTo(index)}
+                                ></div>
+                            </div>
+
+                            {/* <Overwatch2DotAccordion toggle={toggle} /> */}
+                        </React.Fragment>
                     ))}
                 </div>
                 <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
