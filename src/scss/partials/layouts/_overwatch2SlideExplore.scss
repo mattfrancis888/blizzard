@@ -1,5 +1,6 @@
 .overwatch2SlideExploreParentContainer {
-    height: 80rem;
+    // height: 80rem;
+    height: 100%;
 }
 
 .overwatch2ExploreContainer {
@@ -179,11 +180,11 @@
 .overwatch2ExploreMobile {
     background: url(https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/menu/mobile/menu-bg-SM.jpg);
     background-size: cover;
-
+    height: 100%;
     padding: 2rem 1rem;
-
+    padding-right: 6rem;
     @media screen and (min-width: $md_breakpoint) {
-        padding: 2rem 5rem;
+        padding: 4rem 6rem;
     }
 }
 
@@ -202,9 +203,6 @@
 
 .overwatch2ExploreMobileCardImageWrap {
     width: 10rem;
-    @media screen and (min-width: $sm_breakpoint) {
-        width: 15rem;
-    }
 
     @media screen and (min-width: $md_breakpoint) {
         width: 20rem;
@@ -218,7 +216,12 @@
 .overwatch2ExploreMobileTextWrap {
     margin: auto 0;
     text-transform: uppercase;
-    padding: 1rem;
+
+    padding-left: 0.5rem;
+    @media screen and (min-width: $sm_breakpoint) {
+        padding: 1rem;
+    }
+
     font-family: Config, sans-serif;
     margin-right: auto;
 }

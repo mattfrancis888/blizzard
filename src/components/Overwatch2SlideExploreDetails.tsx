@@ -10,9 +10,16 @@ import useMeasure from "../useMeasure";
 import { IoIosArrowDropleftCircle } from "react-icons/io";
 import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 import Overwatch2Accordion from "./Overwatch2Accordion";
+import history from "../browserHistory";
+
 const timer = 3000;
 
-const contents = [
+interface detailsContent {
+    title: string;
+    desc: string;
+    image: string;
+}
+const missionContents: detailsContent[] = [
     {
         title: `Action-packed story missions`,
         desc: `Play an active role in the next chapter of the Overwatch saga through a series of intense four-player missions. 
@@ -32,9 +39,38 @@ const contents = [
         image: `https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/co-op-missions/enemies/enemy01-2560.jpg`,
     },
 ];
-const Overwatch2: React.FC<{}> = () => {
+
+const teamContents: detailsContent[] = [
+    {
+        title: `A New Era of Epic Competition`,
+        desc: `In Push, a new, symmetrical map type that will launch with Overwatch 2, teams battle to take control of a robot that 
+        begins in a central location, then push it toward the enemy base. Either team may take control of the robot at any time. The team that pushes the robot furthest onto the enemy side wins the game.`,
+        image: `https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/push/push01-2560.jpg`,
+    },
+    {
+        title: `Ever-Evolving Multiplayer`,
+        desc: `Take the battle to new, iconic international locations, from the colorful streets of Rio de Janeiro to the scenic splendor of Gothenburg.`,
+        image: `https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/maps/gothenburg/banner.jpg`,
+    },
+];
+
+interface Overwatch2SlideExploreDetailsProps {
+    match: any;
+}
+const Overwatch2SlideExploreDetails: React.FC<Overwatch2SlideExploreDetailsProps> = (
+    props
+) => {
     const [selectedContentIndex, setSelectedContentIndex] = useState(0);
     const [dropdownClicked, setDropdownClicked] = useState(false);
+    const [contents, setContents] = useState(teamContents);
+    useEffect(() => {
+        if (props.match.params.section === "team") {
+            setContents(teamContents);
+        } else {
+            setContents(missionContents);
+        }
+    }, []);
+
     //Does not work becuase we have multiple binds, so we create the Overwatch2Accordion
     // const showDesc = useTransition(selectedContentIndex, {
     //     from: {
@@ -115,7 +151,7 @@ const Overwatch2: React.FC<{}> = () => {
     const { width } = useWindowDimensions();
     const renderContent = (index: number) => {
         return (
-            <React.Fragment>
+            <React.Fragment key={index}>
                 {titleClicked((style, item) => {
                     return (
                         <animated.div
@@ -204,6 +240,7 @@ const Overwatch2: React.FC<{}> = () => {
                 )}
                 <IoIosArrowDropleftCircle
                     className={`overwatch2SideExploreDetailsBackButton`}
+                    onClick={() => history.push("/overwatch2")}
                 />
 
                 {width >= LG_SCREEN_SIZE && (
@@ -238,4 +275,4 @@ const Overwatch2: React.FC<{}> = () => {
     );
 };
 
-export default Overwatch2;
+export default Overwatch2SlideExploreDetails;

@@ -5,16 +5,17 @@
 }
 
 .overwatch2SlideNextParentContainer {
-    height: 30rem;
-    @media screen and (min-width: $sm_breakpoint) {
-        height: 51rem;
-    }
-    @media screen and (min-width: $md_breakpoint) {
-        min-height: 80rem;
-    }
-    @media screen and (min-width: $xl_breakpoint) {
-        min-height: 100rem;
-    }
+    // height: 30rem;
+    // @media screen and (min-width: $sm_breakpoint) {
+    //     height: 51rem;
+    // }
+    // @media screen and (min-width: $md_breakpoint) {
+    //     min-height: 80rem;
+    // }
+    // @media screen and (min-width: $xl_breakpoint) {
+    //     min-height: 100rem;
+    // }
+    height: 100%;
 }
 .overwatch2NextSlideContainer {
     position: absolute;

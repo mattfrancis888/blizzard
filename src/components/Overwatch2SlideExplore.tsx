@@ -13,6 +13,7 @@ import useWindowDimensions from "../windowDimensions";
 import { RiArrowRightSLine, RiArrowLeftSLine } from "react-icons/ri";
 import anime from "animejs/lib/anime.es.js";
 import Overwatch2Carousel from "./Overwatch2Carousel";
+import history from "../browserHistory";
 const timer = 3000;
 const HIGHLIGHT_TEAM = "HIGHLIGHT_TEAM";
 const HIGHLIGHT_MISSIONS = "HIGHLIGHT_MISSIONS";
@@ -57,15 +58,14 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
         setStartPod(true);
     }, []);
 
-    // useEffect(() => {
-    //     const fillTimeOut = setTimeout(() => {
-    //         console.log(startPod);
-    //         setStartPod(!startPod);
-    //     }, podTimer);
-    //     return () => {
-    //         clearTimeout(fillTimeOut);
-    //     };
-    // }, [startPod]);
+    useEffect(() => {
+        const fillTimeOut = setTimeout(() => {
+            setStartPod(!startPod);
+        }, podTimer);
+        return () => {
+            clearTimeout(fillTimeOut);
+        };
+    }, [startPod]);
 
     const { width } = useWindowDimensions();
     return (
@@ -84,7 +84,7 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                                 Team vs Team
                             </p>
                             <h1 className="overwatch2ExploreMobileCardTitle">
-                                A new Era of Epic Competition
+                                Epic Team Competition
                             </h1>
                         </div>
                         <div className="overwatch2MobileArrowWrap">
@@ -200,6 +200,9 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                                     highlight: "",
                                 });
                             }}
+                            onClick={() => {
+                                history.push("/overwatch2-detail/team");
+                            }}
                         />
                         <div
                             className={`exploreInfoTextWrap exploreTeamvsTeamTextWrap ${
@@ -219,6 +222,9 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                                     showOverlay: false,
                                     highlight: "",
                                 });
+                            }}
+                            onClick={() => {
+                                history.push("/overwatch2-detail/team");
                             }}
                         >
                             <AiFillPlusCircle className="overwatch2PlusCircleExplore" />

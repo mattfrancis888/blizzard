@@ -66,8 +66,10 @@ export const NextButton = ({ enabled, onClick }) => (
 // ];
 
 const slides = [
-    { dotTitle: "Landing", component: <Overwatch2SlideLanding /> },
+    { dotTitle: "Intro", component: <Overwatch2SlideLanding /> },
+    { dotTitle: "Explore", component: <Overwatch2SlideExplore /> },
     { dotTitle: "Story", component: <Overwatch2SlideStory /> },
+    { dotTitle: "What's Next", component: <Overwatch2SlideNext /> },
 ];
 
 const EmblaCarousel = () => {
@@ -135,7 +137,7 @@ const EmblaCarousel = () => {
         opacity: showDotText ? 1 : 0,
 
         config: {
-            duration: 200,
+            duration: 100,
         },
     });
 
@@ -146,10 +148,8 @@ const EmblaCarousel = () => {
                     {slides.map((slide, index) => {
                         return (
                             <div className="embla__slide" key={index}>
-                                <div className="embla__slide__inner">
-                                    <div className="overwatch2InnerTest">
-                                        {slide.component}
-                                    </div>
+                                <div className="overwatch2SlideInner">
+                                    {slide.component}
                                 </div>
                             </div>
                         );
@@ -176,16 +176,6 @@ const EmblaCarousel = () => {
                         </div>
                         Slide 1
                     </div>
-                    <div className="embla__slide" key={2}>
-                        <div className="embla__slide__inner">
-                            <img
-                                className="embla__slide__img"
-                                src="https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png"
-                                alt=""
-                            ></img>
-                        </div>
-                        Slide 3
-                    </div>
                 </div> */}
             </div>
             <div className="overwatch2DotWrapAndButton">
@@ -208,10 +198,11 @@ const EmblaCarousel = () => {
                                 <animated.div
                                     style={animation}
                                     className="overwatch2DotBackground"
+                                    onClick={() => scrollTo(index)}
                                 >
-                                    {/* <p className="overwatch2DotText">
+                                    <p className="overwatch2DotText">
                                         {slides[index].dotTitle}
-                                    </p> */}
+                                    </p>
                                 </animated.div>
                                 <div
                                     className={`embla__dot ${
@@ -219,7 +210,10 @@ const EmblaCarousel = () => {
                                             ? "is-selected"
                                             : ""
                                     } overwatch2Dot`}
-                                    onClick={() => scrollTo(index)}
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        scrollTo(index);
+                                    }}
                                 ></div>
                             </div>
                         </React.Fragment>
