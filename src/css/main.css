@@ -2263,7 +2263,6 @@ body {
 .embla__container {
   user-select: none;
   margin-top: -10px;
-  height: 400px;
 }
 
 .embla__slide {
@@ -3447,6 +3446,7 @@ footer {
 }
 
 .overwatch2StoryContainer {
+  background: black;
   position: relative;
   height: 60rem;
   width: 100%;
@@ -3473,11 +3473,19 @@ footer {
   object-fit: cover;
 }
 
+.overwatch2StoryTextInnerWrap {
+  width: 100%;
+}
+
 .overwatch2StoryTextWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: absolute;
   left: 5%;
   top: 5%;
   max-width: 80%;
+  height: 100%;
 }
 @media screen and (min-width: 520px) {
   .overwatch2StoryTextWrap {

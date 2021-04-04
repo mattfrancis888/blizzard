@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useTransition, animated, useSpring, to } from "react-spring";
 import _ from "lodash";
 import useWindowDimensions from "../windowDimensions";
-import useMeasure from "../useMeasure";
+import { useMeasure } from "react-use";
 const timer = 1000;
 
 const stories = [
@@ -59,17 +59,20 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
 
     const centerText = useTransition(progress.storiesArrayIndex, {
         from: {
-            transform: "translate3d(0%,-5%,0px)",
+            transform: "translate3d(0%,0%,0px)",
 
             // opacity: "0",
         },
         enter: {
-            transform: "translate3d(0%,0%,0px)",
+            transform: "translate3d(0%,-20%,0px)",
             // opacity: "1",
         },
 
         config: {
-            duration: timer,
+            mass: 1,
+            duration: 300,
+            tension: 200,
+            friction: 50,
         },
     });
 
@@ -146,15 +149,20 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
                 {centerText((style, item) => {
                     return (
                         <animated.div
-                            style={style}
+                            // style={style}
                             className="overwatch2StoryTextWrap"
                         >
-                            <h3 className="overwatch2StoryTitle">
-                                {stories[progress.storiesArrayIndex].title}
-                            </h3>
-                            <p className="overwatch2StoryDesc">
-                                {stories[progress.storiesArrayIndex].desc}
-                            </p>
+                            <animated.div
+                                style={style}
+                                className="overwatch2StoryTextInnerWrap"
+                            >
+                                <h3 className="overwatch2StoryTitle">
+                                    {stories[progress.storiesArrayIndex].title}
+                                </h3>
+                                <p className="overwatch2StoryDesc">
+                                    {stories[progress.storiesArrayIndex].desc}
+                                </p>
+                            </animated.div>
                         </animated.div>
                     );
                 })}

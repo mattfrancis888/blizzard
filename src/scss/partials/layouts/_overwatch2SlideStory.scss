@@ -98,6 +98,7 @@
 }
 
 .overwatch2StoryContainer {
+    background: black;
     position: relative;
     height: 60rem;
     @media screen and (min-width: $sm_breakpoint) {
@@ -118,12 +119,20 @@
     }
 }
 
+.overwatch2StoryTextInnerWrap {
+    width: 100%;
+}
 .overwatch2StoryTextWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     position: absolute;
     left: 5%;
     top: 5%;
     // position: relative; //used for height auto animation
     max-width: 80%;
+    height: 100%;
     @media screen and (min-width: $sm_breakpoint) {
         max-width: 60%;
     }

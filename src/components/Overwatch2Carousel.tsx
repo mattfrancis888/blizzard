@@ -59,42 +59,42 @@ export const NextButton = ({ enabled, onClick }) => (
     </button>
 );
 
-const slides = [
-    "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*",
-    "https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png",
-    "https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png",
-];
+// const slides = [
+//     "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-puppy-on-garden-royalty-free-image-1586966191.jpg?crop=1.00xw:0.669xh;0,0.190xh&resize=1200:*",
+//     "https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png",
+//     "https://icatcare.org/app/uploads/2018/07/Thinking-of-getting-a-cat.png",
+// ];
+
+const slides = [<Overwatch2SlideStory />];
 
 const EmblaCarousel = () => {
     const [showDotText, setShowDotText] = useState(false);
-    const defaultHeight = "0px";
-
-    // Gets the height of the element (ref)
-    const [ref, { width, left, right }] = useMeasure<any>();
-    console.log(width, left, right, showDotText);
+    //height auto the link above:
+    // const defaultHeight = "0px";
+    //const [ref, { width, left, right }] = useMeasure<any>();
     // The height of the content inside of the accordion
-    const [contentWidth, setContentWidth] = useState(defaultHeight);
-    const expand = useSpring({
-        config: { friction: 10 },
-        width: showDotText ? `${contentWidth}px` : defaultHeight,
-    });
-    useEffect(() => {
-        //Sets initial height
-        //@ts-ignore
-        setContentWidth(width + left + right);
+    // const [contentWidth, setContentWidth] = useState(defaultHeight);
+    // const expand = useSpring({
+    //     config: { friction: 10 },
+    //     width: showDotText ? `${contentWidth}px` : defaultHeight,
+    // });
+    // useEffect(() => {
+    //     //Sets initial height
+    //     //@ts-ignore
+    //     setContentWidth(width + left + right);
 
-        //Adds resize event listener
-        //@ts-ignore
-        window.addEventListener("resize", setContentWidth(width + left * 2));
+    //     //Adds resize event listener
+    //     //@ts-ignore
+    //     window.addEventListener("resize", setContentWidth(width + left * 2));
 
-        // Clean-up
-        //@ts-ignore
-        return window.removeEventListener(
-            "resize",
-            //@ts-ignore
-            setContentWidth(width + left * 2)
-        );
-    }, [width]);
+    //     // Clean-up
+    //     //@ts-ignore
+    //     return window.removeEventListener(
+    //         "resize",
+    //         //@ts-ignore
+    //         setContentWidth(width + left * 2)
+    //     );
+    // }, [width]);
 
     const [viewportRef, embla] = useEmblaCarousel({ axis: "y" });
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
@@ -127,8 +127,8 @@ const EmblaCarousel = () => {
     }, [embla, setScrollSnaps, onSelect]);
 
     const dotTextTrail = useTrail(slides.length, {
-        width: showDotText ? `10rem` : `0rem`,
-        overflow: "hidden",
+        paddingRight: showDotText ? `1rem` : `0rem`,
+        paddingLeft: showDotText ? `1rem` : `0rem`,
         opacity: showDotText ? 1 : 0,
 
         config: {
@@ -144,11 +144,12 @@ const EmblaCarousel = () => {
                         return (
                             <div className="embla__slide" key={index}>
                                 <div className="embla__slide__inner">
-                                    <img
+                                    {/* <img
                                         className="embla__slide__img"
                                         src={slide}
                                         alt=""
-                                    ></img>
+                                    ></img> */}
+                                    {slide}
                                 </div>
                             </div>
                         );
@@ -162,22 +163,6 @@ const EmblaCarousel = () => {
                     onMouseEnter={() => setShowDotText(true)}
                     onMouseLeave={() => setShowDotText(false)}
                 >
-                    {/* <animated.div
-                        className="overwatch2DotBackground"
-                        style={expand}
-                    >
-                        <p ref={ref} className="overwatch2DotText">
-                            Story
-                        </p>
-                    </animated.div> */}
-
-                    {/* {scrollSnaps.map((_, index) => (
-                        <DotButton
-                            key={index}
-                            selected={index === selectedIndex}
-                            onClick={() => scrollTo(index)}
-                        />
-                    ))} */}
                     {dotTextTrail.map((animation, index) => (
                         // <DotButton
                         //     style={animation}
@@ -192,9 +177,7 @@ const EmblaCarousel = () => {
                                     style={animation}
                                     className="overwatch2DotBackground"
                                 >
-                                    <p ref={ref} className="overwatch2DotText">
-                                        Story
-                                    </p>
+                                    <p className="overwatch2DotText">Story</p>
                                 </animated.div>
                                 <div
                                     className={`embla__dot ${
@@ -202,15 +185,15 @@ const EmblaCarousel = () => {
                                             ? "is-selected"
                                             : ""
                                     } overwatch2Dot`}
-                                    // type="button"
                                     onClick={() => scrollTo(index)}
                                 ></div>
                             </div>
-
-                            {/* <Overwatch2DotAccordion toggle={toggle} /> */}
                         </React.Fragment>
                     ))}
                 </div>
+                {/* <div ref={ref}
+                     <p >Hello </p>></div> */}
+
                 <NextButton onClick={scrollNext} enabled={nextBtnEnabled} />
             </div>
         </div>
