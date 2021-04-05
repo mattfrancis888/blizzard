@@ -26,6 +26,15 @@ const Header: React.FC<{}> = () => {
                 "https://blznav.akamaized.net/img/games/logo-hs-93512467e87f82c6.png",
             fallbackImage:
                 "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617130842/blizzard/logo-hs-93512467e87f82c6.png",
+            link: "/hearthstone",
+        },
+        {
+            title: "Overwatch 2",
+            image:
+                "https://blznav.akamaized.net/img/games/logo-ow2-703ebd8d46d3d783.png",
+            fallbackImage:
+                "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617644077/blizzard/logo-ow2-703ebd8d46d3d783.png",
+            link: "/overwatch2",
         },
         {
             title: "Overwatch",
@@ -33,6 +42,7 @@ const Header: React.FC<{}> = () => {
                 "https://blznav.akamaized.net/img/games/logo-ow-4be5755bc0a4cbaf.png",
             fallbackImage:
                 "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617130670/blizzard/logo-ow-4be5755bc0a4cbaf.png",
+            link: "/overwatch",
         },
         {
             title: "WoW",
@@ -40,6 +50,7 @@ const Header: React.FC<{}> = () => {
                 "https://blznav.akamaized.net/img/games/logo-wow-3dd2cfe06df74407.png",
             fallbackImage:
                 "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617130899/blizzard/logo-wow-3dd2cfe06df74407.png",
+            link: "/wow",
         },
         {
             title: "Warzone",
@@ -47,6 +58,7 @@ const Header: React.FC<{}> = () => {
                 "https://blznav.akamaized.net/img/games/logo-codwz-f474cad4f5c0636a.svg",
             fallbackImage:
                 "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617131002/blizzard/logo-codwz-f474cad4f5c0636a.svg",
+            link: "/warzone",
         },
     ];
     //Trail for games at lg screen
@@ -87,6 +99,10 @@ const Header: React.FC<{}> = () => {
                                 <animated.div
                                     className="presentationGameLogo"
                                     style={animation}
+                                    onClick={() => {
+                                        setShowPresentation(false);
+                                        history.push(games[index].link);
+                                    }}
                                 >
                                     <img
                                         key={index}
@@ -228,6 +244,10 @@ const Header: React.FC<{}> = () => {
                                 <animated.div
                                     className="modalPresentationGameWrap"
                                     style={animation}
+                                    onClick={() => {
+                                        modalOnCancel();
+                                        history.push(games[index].link);
+                                    }}
                                 >
                                     <img
                                         key={index}
