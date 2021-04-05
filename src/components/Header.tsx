@@ -97,6 +97,7 @@ const Header: React.FC<{}> = () => {
                         {trail.map((animation, index) => {
                             return (
                                 <animated.div
+                                    key={index}
                                     className="presentationGameLogo"
                                     style={animation}
                                     onClick={() => {
@@ -105,7 +106,6 @@ const Header: React.FC<{}> = () => {
                                     }}
                                 >
                                     <img
-                                        key={index}
                                         className="test"
                                         src={games[index].image}
                                         alt=""

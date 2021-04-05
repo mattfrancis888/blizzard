@@ -140,7 +140,7 @@ const WoW: React.FC<{}> = () => {
                 )}
                 {renderContentInfo(
                     "wowTBCBackground",
-                    "Wow Charity Pet Burning Crusade Classic",
+                    "Burning Crusade Classic",
                     "Prepare for Beta",
                     `The Burning Crusade Classic™ Beta Test is underway!
                     Opt-in for a chance to participate in the future.

@@ -22,7 +22,7 @@ const HIGHLIGHT_MISSIONS = "HIGHLIGHT_MISSIONS";
 const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`;
 //@ts-ignore
 const podTrans1 = (x, y, z) => `translate3d(${x}rem,${y}rem,${z}px)`;
-const podTimer = 15000;
+const podTimer = 13000;
 const Overwatch2SlideExplore: React.FC<{}> = () => {
     const [xHook, setX] = useState(0);
     const [yHook, setY] = useState(0);

@@ -221,6 +221,8 @@ const Overwatch2SlideExploreDetails: React.FC<Overwatch2SlideExploreDetailsProps
                 <animated.div
                     style={showDropdown}
                     className="overwatch2SlideCurrentExploreDetailDropdown"
+                    onMouseEnter={() => setDropdownClicked(true)}
+                    onMouseLeave={() => setDropdownClicked(false)}
                 >
                     <p onClick={() => history.push("/overwatch2-detail/team")}>
                         Team Vs Team
