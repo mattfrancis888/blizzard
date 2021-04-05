@@ -20,11 +20,15 @@ const stories = [
         Germany’s Crusaders.`,
         image:
             "https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/timeline/2560/omnic-crisis.jpg",
+        fallbackImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617315414/blizzard/overwatch2/slide%203%20-%20story/omnic_lg.jpg",
     },
     {
         title: `Honor and Glory`,
         desc: `Reinhardt reflects on a decisive battle during the Omnic Crisis that led him to join Overwatch.`,
         image: `https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/timeline/2560/honor-and-glory.jpg`,
+        fallbackImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617642996/blizzard/overwatch2/slide%203%20-%20story/honor_and_glory_lg.jpg",
     },
     {
         title: `Overwatch Established`,
@@ -32,6 +36,8 @@ const stories = [
         the organization was a symbol of hope for the world.`,
         image:
             "https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/timeline/2560/overwatch-established.jpg",
+        fallbackImage:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617316075/blizzard/overwatch2/slide%203%20-%20story/overwatch_established_lg.jpg",
     },
 ];
 
@@ -131,6 +137,13 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
                             className="overwatch2StoryBackgroundImage"
                             src={renderBackground()}
                             alt="background"
+                            onError={(e: any) => {
+                                e.target.onError = null;
+                                e.target.src = `${
+                                    stories[progress.storiesArrayIndex]
+                                        .fallbackImage
+                                }`;
+                            }}
                         />
                     );
                 })}
@@ -203,6 +216,10 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
                                                             storiesArrayIndex: 0,
                                                         });
                                                     }}
+                                                    onError={(e: any) => {
+                                                        e.target.onError = null;
+                                                        e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617315276/blizzard/overwatch2/slide%203%20-%20story/omnic-crisis.jpg`;
+                                                    }}
                                                 />
                                                 <img
                                                     src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/timeline/thumbnails/honor-and-glory.jpg"
@@ -214,6 +231,10 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
                                                             percentage: 25,
                                                             storiesArrayIndex: 1,
                                                         });
+                                                    }}
+                                                    onError={(e: any) => {
+                                                        e.target.onError = null;
+                                                        e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617315572/blizzard/overwatch2/slide%203%20-%20story/honor-and-glory.jpg`;
                                                     }}
                                                 />
                                             </animated.div>
@@ -244,7 +265,7 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
                                                 style={style}
                                             >
                                                 <img
-                                                    src=" https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/timeline/thumbnails/overwatch-established.jpg"
+                                                    src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/timeline/thumbnails/overwatch-established.jpg"
                                                     alt=""
                                                     onClick={(e) => {
                                                         e.stopPropagation();
@@ -253,6 +274,10 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
                                                             percentage: 25,
                                                             storiesArrayIndex: 2,
                                                         });
+                                                    }}
+                                                    onError={(e: any) => {
+                                                        e.target.onError = null;
+                                                        e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617315695/blizzard/overwatch2/slide%203%20-%20story/overwatch-established.jpg`;
                                                     }}
                                                 />
                                             </animated.div>

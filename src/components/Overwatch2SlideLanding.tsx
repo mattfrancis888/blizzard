@@ -43,23 +43,39 @@ const Overwatch2SlideLanding: React.FC<{}> = () => {
                         className="overwatch2Sky"
                         src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/landing/landing-bg-sky-LG.webp"
                         alt=""
+                        onError={(e: any) => {
+                            e.target.onError = null;
+                            e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617597198/blizzard/overwatch2/landing-bg-sky-LG.webp`;
+                        }}
                     />
                     <img
                         className="overwatch2LandingCity"
                         src="
         https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/landing/landing-bg-ground-LG.webp"
                         alt=""
+                        onError={(e: any) => {
+                            e.target.onError = null;
+                            e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617148042/blizzard/overwatch2/landing-bg-ground-LG.webp`;
+                        }}
                     />
                     <img
                         className="overwatch2LandingRein"
                         src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/landing/landing-hero-rein-LG.webp"
                         alt=""
+                        onError={(e: any) => {
+                            e.target.onError = null;
+                            e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617146456/blizzard/overwatch2/landing-hero-rein-LG.webp`;
+                        }}
                     />
                     <img
                         className="overwatch2LandingTracer"
                         src="
-                https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/landing/landing-hero-tracer-XL.webp"
+                        https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/landing/landing-hero-tracer-XL.webp"
                         alt=""
+                        onError={(e: any) => {
+                            e.target.onError = null;
+                            e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617146474/blizzard/overwatch2/landing-hero-tracer-XL.webp`;
+                        }}
                     />
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

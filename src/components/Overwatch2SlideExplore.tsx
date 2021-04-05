@@ -82,6 +82,10 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                             <img
                                 src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/menu/mobile/menu-image-TVT-SM.jpg"
                                 alt=""
+                                onError={(e: any) => {
+                                    e.target.onError = null;
+                                    e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617242697/blizzard/overwatch2/slide%202%20-%20explore/menu-image-TVT-SM.jpg`;
+                                }}
                             />
                         </div>
                         <div className="overwatch2ExploreMobileTextWrap">
@@ -104,8 +108,12 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                     >
                         <div className="overwatch2ExploreMobileCardImageWrap">
                             <img
-                                src="https://res.cloudinary.com/du8n2aa4p/image/upload/v1617243129/blizzard/overwatch2/slide%202%20-%20explore/menu-image-COOP-SM.jpg"
+                                src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/menu/mobile/menu-image-COOP-SM.jpg"
                                 alt=""
+                                onError={(e: any) => {
+                                    e.target.onError = null;
+                                    e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617243129/blizzard/overwatch2/slide%202%20-%20explore/menu-image-COOP-SM.jpg`;
+                                }}
                             />
                         </div>
                         <div className="overwatch2ExploreMobileTextWrap">
@@ -145,12 +153,20 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                             className="overwatch2Sky"
                             src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/landing/landing-bg-sky-LG.webp"
                             alt=""
+                            onError={(e: any) => {
+                                e.target.onError = null;
+                                e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617597198/blizzard/overwatch2/landing-bg-sky-LG.webp`;
+                            }}
                         />
                         <img
                             className="overwatch2ExploreCoast"
                             src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bg-coast-LG.webp"
                             alt=""
+                            onError={(e: any) => {
+                                e.target.onError = null;
+                                e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617212334/blizzard/overwatch2/slide%202%20-%20explore/menu-bg-coast-LG.webp`;
+                            }}
                         />
                         <animated.img
                             className="overwatch2ExplorePodRight"
@@ -163,6 +179,10 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                             src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-pod-2-LG.webp"
                             alt=""
+                            onError={(e: any) => {
+                                e.target.onError = null;
+                                e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617212929/blizzard/overwatch2/slide%202%20-%20explore/menu-pod-2-LG.webp`;
+                            }}
                         />
                         <animated.img
                             className="overwatch2ExplorePodLeft"
@@ -175,6 +195,10 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                             src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-pod-1-LG.webp"
                             alt=""
+                            onError={(e: any) => {
+                                e.target.onError = null;
+                                e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617222631/blizzard/overwatch2/slide%202%20-%20explore/menu-pod-1-LG.webp`;
+                            }}
                         />
                         <img
                             className="overwatch2ExploreGround"
@@ -182,11 +206,19 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bg-ground-LG.webp
                     "
                             alt=""
+                            onError={(e: any) => {
+                                e.target.onError = null;
+                                e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617631320/blizzard/overwatch2/slide%202%20-%20explore/menu-bg-ground-LG_1.webp`;
+                            }}
                         />
                         <img
                             className="overwatch2ExploreShip"
                             src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bg-ship-LG.webp"
                             alt=""
+                            onError={(e: any) => {
+                                e.target.onError = null;
+                                e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617212315/blizzard/overwatch2/slide%202%20-%20explore/menu-bg-ship-LG.webp`;
+                            }}
                         />
                         <img
                             className={`overwatch2ExploreTracer ${
@@ -198,6 +230,10 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                             src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-hero-tracer-LG.webp"
                             alt=""
+                            onError={(e: any) => {
+                                e.target.onError = null;
+                                e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617212296/blizzard/overwatch2/slide%202%20-%20explore/menu-hero-tracer-LG.webp`;
+                            }}
                             onMouseEnter={() => {
                                 setRenderOverlay({
                                     showOverlay: true,
@@ -265,6 +301,10 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                             src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bot-main-LG.webp"
                             alt=""
+                            onError={(e: any) => {
+                                e.target.onError = null;
+                                e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617212282/blizzard/overwatch2/slide%202%20-%20explore/menu-bot-main-LG.webp`;
+                            }}
                         />
                         <div
                             className={`exploreInfoTextWrap exploreMissionsTextWrap ${
@@ -301,6 +341,10 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                             src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-flier-2-LG.webp"
                             alt=""
+                            onError={(e: any) => {
+                                e.target.onError = null;
+                                e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617223738/blizzard/overwatch2/slide%202%20-%20explore/menu-flier-2-LG.webp`;
+                            }}
                         />
                     </div>
                 </div>

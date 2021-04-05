@@ -45,24 +45,40 @@ const Overwatch2: React.FC<{}> = () => {
                         className="overwatch2NextSky"
                         src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/whats-next/whats-next-bg-lg.webp"
                         alt=""
+                        onError={(e: any) => {
+                            e.target.onError = null;
+                            e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617285517/blizzard/overwatch2/slide%204%20-%20what%27s%20next/whats-next-bg-lg.webp`;
+                        }}
                     />
 
                     <img
                         className="overwatch2NextRein"
                         src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/whats-next/lg/whats-next-hero-rein-lg.webp"
                         alt=""
+                        onError={(e: any) => {
+                            e.target.onError = null;
+                            e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617285382/blizzard/overwatch2/slide%204%20-%20what%27s%20next/whats-next-hero-rein-lg.webp`;
+                        }}
                     />
                     <img
                         className="overwatch2NextTracer"
                         src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/whats-next/lg/whats-next-hero-tracer-lg.webp"
                         alt=""
+                        onError={(e: any) => {
+                            e.target.onError = null;
+                            e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617285628/blizzard/overwatch2/slide%204%20-%20what%27s%20next/whats-next-hero-tracer-lg.webp`;
+                        }}
                     />
                     <img
                         className="overwatch2NextMei"
                         src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/whats-next/lg/whats-next-hero-mei-lg.webp"
                         alt=""
+                        onError={(e: any) => {
+                            e.target.onError = null;
+                            e.target.src = `https://res.cloudinary.com/du8n2aa4p/image/upload/v1617288997/blizzard/overwatch2/slide%204%20-%20what%27s%20next/whats-next-hero-mei-lg.webp`;
+                        }}
                     />
                     <h1 className="overwatch2NextTitle">
                         Your Mission Continues, keep an eye out for our release

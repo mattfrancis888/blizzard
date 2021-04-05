@@ -2348,6 +2348,8 @@ body {
   background: black;
   cursor: pointer;
   border-radius: 0.2rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 .overwatch2DotBackground .overwatch2DotText {
   font-family: "Config", sans-serif;
@@ -3373,7 +3375,7 @@ footer {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: 10%;
+  top: 15%;
   width: 15rem;
   height: 9.5rem;
   fill: white;
