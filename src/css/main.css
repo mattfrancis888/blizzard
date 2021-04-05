@@ -3149,8 +3149,8 @@ footer {
   position: absolute;
   bottom: 5rem;
   left: 15%;
-  width: 30rem;
-  height: 13rem;
+  width: 35rem;
+  height: 23rem;
 }
 @media screen and (min-width: 420px) {
   .overwatch2NextRein {
@@ -3166,6 +3166,7 @@ footer {
 }
 @media screen and (min-width: 768px) {
   .overwatch2NextRein {
+    bottom: 0;
     left: 25%;
     width: 70rem;
     height: 33rem;
@@ -3209,7 +3210,8 @@ footer {
 }
 @media screen and (min-width: 768px) {
   .overwatch2NextTracer {
-    left: 0%;
+    bottom: 0;
+    left: -10%;
     width: 42rem;
     height: 42rem;
   }
@@ -3246,6 +3248,13 @@ footer {
     right: 10%;
     width: 36rem;
     height: 36rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .overwatch2NextMei {
+    width: 46rem;
+    height: 36rem;
+    bottom: 3rem;
   }
 }
 @media screen and (min-width: 992px) {

@@ -5,6 +5,13 @@ import useWindowDimensions from "../windowDimensions";
 import Overwatch2SlideExplore from "./Overwatch2SlideExplore";
 import anime from "animejs/lib/anime.es.js";
 import Overwatch2Carousel from "./Overwatch2Carousel";
+import {
+    LG_SCREEN_SIZE,
+    XL_SCREEN_SIZE,
+    MED_SCREEN_SIZE,
+    SM_SCREEN_SIZE,
+} from "../constants";
+
 const timer = 3000;
 //const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 //@ts-ignore
@@ -15,7 +22,7 @@ const podTrans1 = (x, y, z) => `translate3d(${x}px,${y}px,${z}px)`;
 const Overwatch2: React.FC<{}> = () => {
     const [xHook, setX] = useState(0);
     const [yHook, setY] = useState(0);
-
+    const { width } = useWindowDimensions();
     return (
         <React.Fragment>
             <div className="overwatch2SlideParentContainer overwatch2SlideNextParentContainer">
@@ -28,7 +35,10 @@ const Overwatch2: React.FC<{}> = () => {
                         // xy.to((xy) => [x, y])
                     }}
                     style={{
-                        transform: trans1(xHook, yHook),
+                        transform:
+                            width >= MED_SCREEN_SIZE
+                                ? trans1(xHook, yHook)
+                                : "translate3d(0px,0px,0px)",
                     }}
                 >
                     <img
