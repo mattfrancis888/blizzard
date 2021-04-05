@@ -7,28 +7,28 @@
 //     }
 // }
 
-@mixin carouselNextAndPrevButton {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-size: 2rem;
-    color: white;
-    border: none;
-    transition: all 0.3s ease-in;
+// @mixin carouselNextAndPrevButton {
+//     display: flex;
+//     align-items: center;
+//     text-align: center;
+//     font-size: 2rem;
+//     color: white;
+//     border: none;
+//     transition: all 0.3s ease-in;
 
-    @media screen and (min-width: $sm_breakpoint) {
-        font-size: 3rem;
-    }
+//     @media screen and (min-width: $sm_breakpoint) {
+//         font-size: 3rem;
+//     }
 
-    @media screen and (min-width: $md_breakpoint) {
-        font-size: 4rem;
-    }
-    @media screen and (min-width: $lg_breakpoint) {
-        font-size: 5rem;
-    }
-}
+//     @media screen and (min-width: $md_breakpoint) {
+//         font-size: 4rem;
+//     }
+//     @media screen and (min-width: $lg_breakpoint) {
+//         font-size: 5rem;
+//     }
+// }
 
-@mixin discountPriceColor {
-    background: #4c6b22;
-    color: #a4d007;
-}
+// @mixin discountPriceColor {
+//     background: #4c6b22;
+//     color: #a4d007;
+// }

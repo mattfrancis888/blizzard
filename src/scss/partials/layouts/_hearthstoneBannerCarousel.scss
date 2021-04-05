@@ -1,0 +1,148 @@
+.hearthstoneBannerCarouselContainer {
+    position: relative;
+    z-index: 1;
+    @media screen and (min-width: $sm_breakpoint) {
+        padding: 1rem 3rem;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
+        padding: 1rem 5rem;
+    }
+
+    //This is the nasty way to slightly show the next slide.
+    // Look at my hearthstone card carousel,  much more simple.
+    & > .horizontalSlider___281Ls {
+        display: flex;
+
+        overflow: visible;
+        @media screen and (min-width: $sm_breakpoint) {
+            overflow: hidden;
+            display: block;
+        }
+    }
+
+    & > .hearthstoneBannerSliderContainer {
+        width: 50%;
+        height: 100%;
+        @media screen and (min-width: $sm_breakpoint) {
+            width: 100%;
+        }
+    }
+}
+
+.hearthstoneSlide {
+    padding: 1rem 10rem;
+    @media screen and (min-width: 500px) {
+        padding: 1rem 15rem;
+    }
+    @media screen and (min-width: $sm_breakpoint) {
+        padding: 0;
+    }
+    overflow: hidden;
+    width: calc(100% + 18px);
+    height: calc(100% + 23px);
+    border-style: solid;
+    border-width: 27px 27px 31px;
+    border-image: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616723674/blizzard/hearthstone/homepage-frame-grid.png)
+        27 27 31 fill / 1 / 0 stretch;
+}
+.hearthstoneBannerCarouselDotWrap {
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    width: 100%;
+
+    .carousel__dot--selected {
+        background: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616784253/blizzard/hearthstone/cpqvsulodizdkvxwekoj.png)
+            center center / contain no-repeat !important;
+    }
+}
+.hearthstoneBannerCarouselDot {
+    width: 3rem;
+    height: 3rem;
+    overflow: hidden;
+    background: black;
+    background: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616730418/blizzard/hearthstone/zwhtxgpdjr1stx55efsa.png)
+        center center / contain no-repeat !important;
+    // inset: -13px -10px -10px -8px;
+
+    transition: opacity 0.15s ease 0s;
+    outline: none !important;
+    box-shadow: none !important;
+    border: none;
+    @media screen and (min-width: $md_breakpoint) {
+        width: 4rem;
+        height: 4rem;
+        margin-right: 0.5rem;
+    }
+}
+
+.hearthstoneBannerCarouselContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    overflow: hidden;
+    //Overflow hidden is needed because if we use scale animation, the other image pushes the other image away
+    .hearthstoneBannerCarouselImageWrap {
+        width: 100%;
+        height: 100%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 50% 0%;
+            @media screen and (min-width: $md_breakpoint) {
+                object-position: 50% 50%; //default
+            }
+        }
+    }
+}
+
+.hearthstoneBannerBackgroundContainer {
+    position: relative;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.hearthstoneSlideImageLogoAndDescWrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @media screen and (min-width: $md_breakpoint) {
+        padding-top: 5rem;
+        padding-left: 5rem;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hearthstoneSlideDesc {
+    font-weight: bold;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin: 0;
+    margin-top: 1.5rem;
+    text-shadow: 4px 7px 17px rgb(0 0 0 / 80%);
+
+    @media screen and (min-width: $sm_breakpoint) {
+        font-size: 4rem;
+        margin-top: 2rem;
+    }
+    @media screen and (min-width: $md_breakpoint) {
+        font-size: 4.5rem;
+        margin-top: 3rem;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
+        font-size: 6rem;
+        width: 50rem;
+    }
+}

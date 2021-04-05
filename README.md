@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+# Blizzard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Replication of [Blizzard's Entertainment's](https://www.blizzard.com/en-us/) website, known for developing and publishing games such as Call of Duty and World of Warcraft. Built to understand physics-based animations with React Spring. Developed with React, React-Spring(v9), Typescript.
 
-## Available Scripts
+Deployment / Production repo: https://github.com/mattfrancis888/heroku-steam
 
-In the project directory, you can run:
+### What I learned:
 
-### `npm start`
+-   How to use React Spring to create physics- animations based on hooks.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## React Spring (v9)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+-   useSpring to trigger animations once or for toggle animations.
+-   useTransition to trigger whenever a hook value changes.
+-   useTrail for stagger animations.
+-   Created parallax mouseover animation.
+-   Created card flip animation.
 
-### `npm test`
+## External Resources:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   React dev tool to check the value of props.
 
-### `npm run build`
+## What It Looks Like
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img src="readmeImg/blizzard_home_banner_lg.png" height="350"/>
+<img src="readmeImg/blizzard_home_games_icon_lg.png" height="280"/>
+<img src="readmeImg/blizzard_home_banner_sm.png" height="350"/>
+<img src="readmeImg/blizzard_home_games_icon_sm.png" height="350"/>
+<img src="readmeImg/blizzard_home_games_lg.png" height="350"/>
+<img src="readmeImg/blizzard_home_footer.jpg" height="350"/>
+<img src="readmeImg/blizzard_hs_banner_lg.jpg" height="350"/>
+<img src="readmeImg/blizzard_hs_carousel_sm.png" height="350"/>
+<img src="readmeImg/blizzard_hs_cards.jpg" height="280"/>
+<img src="readmeImg/blizzard_hs_girl_boy_sm.png" height="350"/>
+<img src="readmeImg/blizzard_hs_heroes_lg.png" height="350"/>
+<img src="readmeImg/blizzard_ow2_landing.jpg" height="350"/>
+<img src="readmeImg/blizzard_ow2_explore.jpg" height="350"/>
+<img src="readmeImg/blizzard_ow2_explore_sm.png" height="350"/>
+<img src="readmeImg/blizzard_ow2_detail_lg.jpg" height="350"/>
+<img src="readmeImg/blizzard_ow2_story.jpg" height="350"/>
+<img src="readmeImg/blizzard_ow2_next.jpg" height="350"/>
+<img src="readmeImg/blizzard_ow_lg.jpg" height="350"/>
+<img src="readmeImg/blizzard_ow_portrait_lg.jpg" height="350"/>
+<img src="readmeImg/blizzard_ow_portrait_lg2.jpg" height="350"/>
+<img src="readmeImg/blizzard_ow_heroes_lg.png" height="350"/>
+<img src="readmeImg/bllizzard_wow_banner_lg.jpg" height="350"/>
+<img src="readmeImg/blizzard_wow_content1_lg.jpg" height="350"/>
+<img src="readmeImg/blizzard_wow_content2_lg.jpg" height="350"/>
+<img src="readmeImg/blizzard_cod_banner_lg.jpg" height="350"/>
+<img src="readmeImg/blizzard_cod_title_lg.jpg" height="350"/>
+<img src="readmeImg/blizzard_cod_content1_lg.jpg" height="350"/>
+<img src="readmeImg/blizzard_cod_content2_lg.jpg" height="350"/>
+<img src="readmeImg/blizzard_cod_content3_lg.jpg" height="350"/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### `npm run eject`
+1. Clone the project. Use `npm install` to install all the dependencies. Go to the client directory, run the project with `npm start` for development or `npm run build` for production.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Prerequisites
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+What things you need to install the software
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+- Any package manager (npm, yarn)
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+# Versioning
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+None

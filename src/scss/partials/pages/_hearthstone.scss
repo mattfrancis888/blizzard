@@ -1,0 +1,225 @@
+.hearthstoneContainer {
+    font-family: "Belwe Bold";
+}
+
+.hearthstoneBanner {
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgb(0, 0, 0);
+        opacity: 0.4;
+    }
+    min-height: 70rem;
+}
+
+.hearthstoneBannerImage {
+    background: url("https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt36a245168d60a815/5f737452ebec920d7046f481/evergreen-header-mobile.jpg")
+        center top / cover no-repeat;
+}
+.hearthstoneBannerVid {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: cover;
+}
+.hearthstoneBannerTextWrap {
+    padding: 3rem;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding-top: 5rem;
+    @media screen and (min-width: $md_breakpoint) {
+        width: 50rem;
+        padding: 3rem 5rem;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
+        padding-top: 15rem;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        width: 70rem;
+    }
+}
+.hearthstoneBannerTitle {
+    margin: 0;
+    margin-bottom: 2rem;
+    font-size: 3rem;
+    @media screen and (min-width: $md_breakpoint) {
+        font-size: 4.4rem;
+    }
+}
+
+.hearthstoneBannerDesc {
+    font-size: 1.7rem;
+}
+
+.hearthstoneCardsSection {
+    padding: 5rem 0;
+    padding-left: 1rem;
+    @media screen and (min-width: $xl_breakpoint) {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 5rem 5rem;
+    }
+
+    background: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616784871/blizzard/hearthstone/red-felt-bg.jpg)
+        center top / cover no-repeat;
+}
+
+.hearthstoneCardsWrap {
+    @media screen and (min-width: $lg_breakpoint) {
+        display: flex;
+        margin-top: none;
+    }
+
+    justify-content: space-around;
+}
+
+.hearthstoneDiscoverText {
+    padding: 0 4rem;
+    margin: 0;
+    text-shadow: rgb(0 0 0) 2px 0px 0px;
+    text-align: center;
+
+    font-size: 3.4rem;
+    margin: 0;
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+
+    @media screen and (min-width: $xl_breakpoint) {
+        text-align: left;
+        margin-top: none;
+        font-size: 3rem;
+    }
+    @media screen and (min-width: 1300px) {
+        font-size: 4.2rem;
+    }
+}
+
+.hearthstonePlaySection {
+    background: url("https://res.cloudinary.com/du8n2aa4p/image/upload/v1616808279/blizzard/hearthstone/homepage_star_bg.jpg");
+    background-size: cover;
+    width: 100%;
+    position: relative;
+    padding-top: 10rem;
+    padding-bottom: 30rem;
+    @media screen and (min-width: $md_breakpoint) {
+        padding-bottom: 40rem;
+    }
+    @media screen and (min-width: $md_breakpoint) {
+        padding-bottom: 50rem;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
+        padding-bottom: 40rem;
+    }
+}
+
+.hearthstonePlayBoy,
+.hearthstonePlayGirl {
+    width: 100%;
+    @media screen and (min-width: $sm_breakpoint) {
+        width: 55rem;
+    }
+    @media screen and (min-width: $md_breakpoint) {
+        width: 60rem;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        width: 75rem;
+    }
+}
+.hearthstonePlayBoy {
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    @media screen and (min-width: $lg_breakpoint) {
+        margin-top: 10rem;
+    }
+}
+
+.hearthstonePlayGirl {
+    animation: floatingGirl 2s infinite alternate;
+}
+
+@keyframes floatingGirl {
+    from {
+        transform: translate3d(0px, 5%, 0px);
+    }
+    to {
+        transform: translate3d(0px, 0px, 0px);
+    }
+}
+
+.chatWrap {
+    position: absolute;
+    top: 6rem;
+    right: 1rem;
+    width: 14rem;
+    @media screen and (min-width: $sm_breakpoint) {
+        right: 8rem;
+        width: 24rem;
+    }
+    @media screen and (min-width: $md_breakpoint) {
+        right: 15rem;
+        width: 34rem;
+    }
+    @media screen and (min-width: $lg_breakpoint) {
+        left: 40rem;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        left: 45rem;
+    }
+}
+.chatTop {
+    width: 100%;
+    padding-top: 19%;
+    background: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616807829/blizzard/hearthstone/a5p9agz3hfulzrspkgis.png)
+        center center / 100% no-repeat transparent;
+}
+
+.chatMiddle {
+    background: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616808085/blizzard/hearthstone/leubrpaketr2bwv8pyhu.png)
+        center center / contain repeat-y transparent;
+    p {
+        text-align: center;
+        padding: 1rem 2rem;
+        color: black;
+        margin: 0;
+        font-size: 1.4rem;
+        @media screen and (min-width: $md_breakpoint) {
+            font-size: 1.7rem;
+            padding: 1rem 4rem;
+        }
+    }
+}
+
+.chatBottom {
+    width: 100%;
+    padding-bottom: 28%;
+    background: url(https://res.cloudinary.com/du8n2aa4p/image/upload/v1616808027/blizzard/hearthstone/fcmcfuristqntljl70re.png)
+        center center / 100% no-repeat transparent;
+}
+
+.hearthstoneHeroesSection {
+    padding: 1rem 0;
+    background: rgb(33, 24, 63);
+}
+
+.hearthstoneHeroesSSectionTitle {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 5rem;
+    padding: 0 5rem;
+    @media screen and (min-width: $md_breakpoint) {
+        font-size: 3rem;
+        margin-bottom: 10rem;
+    }
+}
