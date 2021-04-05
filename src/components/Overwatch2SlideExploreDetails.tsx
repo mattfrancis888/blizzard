@@ -205,10 +205,14 @@ const Overwatch2SlideExploreDetails: React.FC<Overwatch2SlideExploreDetailsProps
         return (
             <div className="overwatch2SlideCurrentExploreDetailWrap">
                 <p className="overwatch2SlideCurrentExploreDetailDropdownText">
-                    Co-op Mission
+                    {props.match.params.section === "team"
+                        ? "Team Vs Team"
+                        : "Co-op Mission"}
                     <animated.div
                         style={rotateArrow}
-                        onClick={() => setDropdownClicked(!dropdownClicked)}
+                        onMouseEnter={() => setDropdownClicked(true)}
+                        onMouseLeave={() => setDropdownClicked(false)}
+                        // onClick={() => setDropdownClicked(!dropdownClicked)}
                     >
                         <RiArrowDownSLine className="overwatch2SlideCurrentExploreDetailArrowDown" />
                     </animated.div>
@@ -218,8 +222,16 @@ const Overwatch2SlideExploreDetails: React.FC<Overwatch2SlideExploreDetailsProps
                     style={showDropdown}
                     className="overwatch2SlideCurrentExploreDetailDropdown"
                 >
-                    <p>Co-op Mission</p>
-                    <p>Co-op Mission</p>
+                    <p onClick={() => history.push("/overwatch2-detail/team")}>
+                        Team Vs Team
+                    </p>
+                    <p
+                        onClick={() =>
+                            history.push("/overwatch2-detail/mission")
+                        }
+                    >
+                        Co-op Mission
+                    </p>
                 </animated.div>
             </div>
         );

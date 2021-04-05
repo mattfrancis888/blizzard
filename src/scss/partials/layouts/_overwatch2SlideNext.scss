@@ -2,6 +2,7 @@
     position: relative;
     width: 100vw;
     overflow: hidden;
+    font-family: "Config", sans-serif;
 }
 
 .overwatch2SlideNextParentContainer {
@@ -24,6 +25,28 @@
         top: -15%;
     }
 }
+
+.overwatch2NextTitle {
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: black;
+    max-width: 60%;
+    font-style: italic;
+    font-weight: bold;
+    text-transform: uppercase;
+    @media screen and (min-width: $sm_breakpoint) {
+        font-size: 3rem;
+    }
+    @media screen and (min-width: $md_breakpoint) {
+        font-size: 4.5rem;
+    }
+    @media screen and (min-width: $xl_breakpoint) {
+        font-size: 5.5rem;
+    }
+}
 .overwatch2NextSky {
     position: absolute;
     width: 100%;
@@ -33,7 +56,7 @@
 
 .overwatch2NextRein {
     position: absolute;
-    bottom: 0;
+    bottom: 5rem;
     left: 15%;
     width: 30rem;
     height: 13rem;
@@ -69,7 +92,7 @@
 
 .overwatch2NextTracer {
     position: absolute;
-    bottom: 0;
+    bottom: 5rem;
     width: 22rem;
     height: 22rem;
     position: absolute;
@@ -103,7 +126,7 @@
 
 .overwatch2NextMei {
     position: absolute;
-    bottom: 0;
+    bottom: 5rem;
     right: 10%;
     width: 26rem;
     height: 26rem;

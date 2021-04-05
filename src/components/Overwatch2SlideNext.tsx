@@ -54,6 +54,10 @@ const Overwatch2: React.FC<{}> = () => {
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/whats-next/lg/whats-next-hero-mei-lg.webp"
                         alt=""
                     />
+                    <h1 className="overwatch2NextTitle">
+                        Your Mission Continues, keep an eye out for our release
+                        date
+                    </h1>
                 </animated.div>
             </div>
         </React.Fragment>

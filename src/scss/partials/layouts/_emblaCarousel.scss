@@ -101,6 +101,11 @@
     &:first-of-type {
         margin-top: 3rem;
     }
+    &:last-of-type {
+        .overwatch2DotBackground {
+            min-width: 12rem;
+        }
+    }
 }
 .overwatch2DotBackground {
     position: absolute;
@@ -118,7 +123,7 @@
         text-transform: uppercase;
         font-weight: bold;
         font-size: 1.7rem;
-        padding: 0.5rem 1rem;
+        display: block;
     }
 }
 .overwatch2Dot {

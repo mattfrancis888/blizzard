@@ -72,7 +72,12 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
         <React.Fragment>
             {width <= LG_SCREEN_SIZE && (
                 <div className="overwatch2ExploreMobile">
-                    <div className="overwatch2ExploreMobileCard">
+                    <div
+                        className="overwatch2ExploreMobileCard"
+                        onClick={() => {
+                            history.push("/overwatch2-detail/team");
+                        }}
+                    >
                         <div className="overwatch2ExploreMobileCardImageWrap">
                             <img
                                 src="https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/menu/mobile/menu-image-TVT-SM.jpg"
@@ -91,7 +96,12 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                             <RiArrowRightSLine className="overwatch2MobileArrow" />
                         </div>
                     </div>
-                    <div className="overwatch2ExploreMobileCard">
+                    <div
+                        className="overwatch2ExploreMobileCard"
+                        onClick={() => {
+                            history.push("/overwatch2-detail/mission");
+                        }}
+                    >
                         <div className="overwatch2ExploreMobileCardImageWrap">
                             <img
                                 src="https://res.cloudinary.com/du8n2aa4p/image/upload/v1617243129/blizzard/overwatch2/slide%202%20-%20explore/menu-image-COOP-SM.jpg"
@@ -249,6 +259,9 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                                     ? "overwatch2ExploreHighlightWhenOverlayIsOn"
                                     : ""
                             }`}
+                            onClick={() => {
+                                history.push("/overwatch2-detail/mission");
+                            }}
                             src="
                     https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/parallax/menu/menu-bot-main-LG.webp"
                             alt=""
@@ -271,6 +284,9 @@ const Overwatch2SlideExplore: React.FC<{}> = () => {
                                     showOverlay: false,
                                     highlight: "",
                                 });
+                            }}
+                            onClick={() => {
+                                history.push("/overwatch2-detail/mission");
                             }}
                         >
                             <AiFillPlusCircle className="overwatch2PlusCircleExplore" />
