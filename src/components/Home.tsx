@@ -14,6 +14,14 @@ const gamesCard = [
         link: "/hearthstone",
     },
     {
+        name: "Overwatch 2",
+        img:
+            "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/bltcdaa7ff86edaacf0/5fb3dfef21b96a46dc51a7fb/game-card_overwatch2_enUS.webp?auto=webp&format=pjpg",
+        fallbackImg:
+            "https://res.cloudinary.com/du8n2aa4p/image/upload/v1617152348/blizzard/game-card_overwatch2_enUS.jpg",
+        link: "/overwatch2",
+    },
+    {
         name: "Overwatch",
         img:
             "https://images.blz-contentstack.com/v3/assets/blte0bbc3c063f45866/blt3f643e0faaaecab1/5fb41cbe8acca34834e6456c/game-card_overwatch_enUS.webp?auto=webp&format=pjpg",
