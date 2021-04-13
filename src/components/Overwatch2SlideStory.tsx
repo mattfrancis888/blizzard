@@ -76,7 +76,6 @@ const Overwatch2SlideStory: React.FC<{}> = () => {
 
         config: {
             mass: 1,
-            duration: 300,
             tension: 200,
             friction: 50,
         },

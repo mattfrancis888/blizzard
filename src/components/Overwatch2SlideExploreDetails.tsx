@@ -112,7 +112,10 @@ const Overwatch2SlideExploreDetails: React.FC<Overwatch2SlideExploreDetailsProps
         // zIndex: dropdownClicked ? 1 : -1,
 
         config: {
-            duration: 250,
+            // duration: 250,
+            mass: 1,
+            tension: 250,
+            friction: 50,
         },
     });
 
