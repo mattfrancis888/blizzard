@@ -1940,8 +1940,9 @@ body {
 }
 .homeCarouselContainer .pictureImageWrap {
   position: relative;
-  width: 100%;
+  width: 105%;
   height: 100%;
+  left: -2%;
 }
 .homeCarouselContainer .pictureImageWrap img {
   width: 100%;
