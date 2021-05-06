@@ -18,6 +18,7 @@ interface detailsContent {
     title: string;
     desc: string;
     image: string;
+    fallbackImage: string;
 }
 const missionContents: detailsContent[] = [
     {
@@ -25,18 +26,21 @@ const missionContents: detailsContent[] = [
         desc: `Play an active role in the next chapter of the Overwatch saga through a series of intense four-player missions. 
         Fight back against Null Sector, uncover the motives behind the omnic attacks, and confront a rising wave of new threats.`,
         image: `https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/co-op-missions/story-missions/story01-2560.jpg`,
+        fallbackImage: `https://res.cloudinary.com/du8n2aa4p/image/upload/v1618345803/blizzard/overwatch2/explore%20detail/story01-2560.jpg`,
     },
     {
         title: `Replayable Hero Missions`,
         desc: `The battle continues with Hero Missions. As escalating crises break out around the world,
         encounter an ever-changing array of scenarios with a range of diverse and dangerous enemies. Level up your favorite heroes and earn powerful customization options to help beat the odds.`,
         image: `https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/co-op-missions/hero-missions/hero02-2560.jpg`,
+        fallbackImage: `https://res.cloudinary.com/du8n2aa4p/image/upload/v1618345815/blizzard/overwatch2/explore%20detail/hero02-2560.jpg`,
     },
     {
         title: `New Factions Arise`,
         desc: `It’s up to you and your friends to stop Null Sector, the elite forces of Talon, and other enemies of Overwatch from carrying out their plans.
         Each enemy faction features a unique mix of units with their own strategies and strengths, challenging you to adapt your approach every time you play.`,
         image: `https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/co-op-missions/enemies/enemy01-2560.jpg`,
+        fallbackImage: `https://res.cloudinary.com/du8n2aa4p/image/upload/v1618345873/blizzard/overwatch2/explore%20detail/enemy01-2560.jpg`,
     },
 ];
 
@@ -46,11 +50,13 @@ const teamContents: detailsContent[] = [
         desc: `In Push, a new, symmetrical map type that will launch with Overwatch 2, teams battle to take control of a robot that 
         begins in a central location, then push it toward the enemy base. Either team may take control of the robot at any time. The team that pushes the robot furthest onto the enemy side wins the game.`,
         image: `https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/push/push01-2560.jpg`,
+        fallbackImage: `https://res.cloudinary.com/du8n2aa4p/image/upload/v1618346009/blizzard/overwatch2/explore%20detail/push01-2560.jpg`,
     },
     {
         title: `Ever-Evolving Multiplayer`,
         desc: `Take the battle to new, iconic international locations, from the colorful streets of Rio de Janeiro to the scenic splendor of Gothenburg.`,
         image: `https://overwatch2-static.playoverwatch.com/9bff17453c4b61344f201071908821fc391221ca/static/images/maps/gothenburg/banner.jpg`,
+        fallbackImage: `https://res.cloudinary.com/du8n2aa4p/image/upload/v1618346020/blizzard/overwatch2/explore%20detail/banner.jpg`,
     },
 ];
 
@@ -69,7 +75,7 @@ const Overwatch2SlideExploreDetails: React.FC<Overwatch2SlideExploreDetailsProps
         } else {
             setContents(missionContents);
         }
-    }, []);
+    }, [props.match.params.section]);
 
     //Does not work becuase we have multiple binds, so we create the Overwatch2Accordion
     // const showDesc = useTransition(selectedContentIndex, {
@@ -106,7 +112,10 @@ const Overwatch2SlideExploreDetails: React.FC<Overwatch2SlideExploreDetailsProps
         // zIndex: dropdownClicked ? 1 : -1,
 
         config: {
-            duration: 250,
+            // duration: 250,
+            mass: 1,
+            tension: 250,
+            friction: 50,
         },
     });
 
@@ -185,6 +194,10 @@ const Overwatch2SlideExploreDetails: React.FC<Overwatch2SlideExploreDetailsProps
                 <img
                     className="overwatch2SlideExploreDetailsSlideImage"
                     src={contents[index].image}
+                    onError={(e: any) => {
+                        e.target.onError = null;
+                        e.target.src = contents[index].fallbackImage;
+                    }}
                     alt=""
                 />
 
@@ -204,16 +217,16 @@ const Overwatch2SlideExploreDetails: React.FC<Overwatch2SlideExploreDetailsProps
     const renderDropdown = () => {
         return (
             <div className="overwatch2SlideCurrentExploreDetailWrap">
-                <p className="overwatch2SlideCurrentExploreDetailDropdownText">
+                <p
+                    className="overwatch2SlideCurrentExploreDetailDropdownText"
+                    onMouseEnter={() => setDropdownClicked(true)}
+                    onMouseLeave={() => setDropdownClicked(false)}
+                    onClick={() => setDropdownClicked(!dropdownClicked)}
+                >
                     {props.match.params.section === "team"
                         ? "Team Vs Team"
                         : "Co-op Mission"}
-                    <animated.div
-                        style={rotateArrow}
-                        onMouseEnter={() => setDropdownClicked(true)}
-                        onMouseLeave={() => setDropdownClicked(false)}
-                        // onClick={() => setDropdownClicked(!dropdownClicked)}
-                    >
+                    <animated.div style={rotateArrow}>
                         <RiArrowDownSLine className="overwatch2SlideCurrentExploreDetailArrowDown" />
                     </animated.div>
                 </p>
@@ -265,6 +278,11 @@ const Overwatch2SlideExploreDetails: React.FC<Overwatch2SlideExploreDetailsProps
                                     style={style}
                                     className="overwatch2SlideExploreDetailsSlideImage"
                                     src={contents[item].image}
+                                    onError={(e: any) => {
+                                        e.target.onError = null;
+                                        e.target.src =
+                                            contents[item].fallbackImage;
+                                    }}
                                     alt=""
                                 />
                             );

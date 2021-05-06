@@ -72,6 +72,9 @@ const Header: React.FC<{}> = () => {
 
         config: {
             duration: 200,
+            // mass: 1,
+            // tension: 250,
+            // friction: 50,
         },
     });
 
