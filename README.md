@@ -2,7 +2,6 @@
 
 Replication of [Blizzard's Entertainment's](https://www.blizzard.com/en-us/) website, known for developing and publishing games such as Call of Duty and World of Warcraft. Built to understand physics-based animations with React Spring. Developed with React, React-Spring(v9), Typescript.
 
-Deployment / Production repo: https://github.com/mattfrancis888/heroku-steam
 
 ### What I learned:
 
