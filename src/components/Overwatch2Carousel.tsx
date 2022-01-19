@@ -69,7 +69,7 @@ const slides = [
     { dotTitle: "Intro", component: <Overwatch2SlideLanding /> },
     { dotTitle: "Explore", component: <Overwatch2SlideExplore /> },
     { dotTitle: "Story", component: <Overwatch2SlideStory /> },
-    { dotTitle: "What's Next", component: <Overwatch2SlideNext /> },
+    { dotTitle: "Upcoming", component: <Overwatch2SlideNext /> },
 ];
 
 const EmblaCarousel = () => {
@@ -107,9 +107,10 @@ const EmblaCarousel = () => {
 
     const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
     const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
-    const scrollTo = useCallback((index) => embla && embla.scrollTo(index), [
-        embla,
-    ]);
+    const scrollTo = useCallback(
+        (index) => embla && embla.scrollTo(index),
+        [embla]
+    );
 
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
