@@ -44,7 +44,7 @@
         height: 70rem;
     }
     @media screen and (min-width: $lg_breakpoint) {
-        height: 75rem;
+        height: 105rem;
     }
 
     //padding-bottom: 10rem;
@@ -133,7 +133,7 @@
     height: 1rem;
     position: relative;
     z-index: 1;
-    border: 0.2rem solid white;
+    border: 0.2rem solid lightblue;
     cursor: pointer;
     outline: none !important;
     background: transparent;
@@ -150,7 +150,7 @@
     border: none;
     .overwatch2CarouselArrow {
         cursor: pointer;
-        color: white;
+        color: lightblue;
         font-weight: bold;
         font-size: 2.5rem;
         margin: 0;
