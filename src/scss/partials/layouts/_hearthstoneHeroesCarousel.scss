@@ -46,7 +46,10 @@
         height: auto;
         object-fit: cover;
         @media screen and (min-width: $xl_breakpoint) {
-            width: 26rem;
+            width: 20rem;
+        }
+        @media screen and (min-width: $xxl_breakpoint) {
+            width: 24rem;
         }
     }
     h4 {
