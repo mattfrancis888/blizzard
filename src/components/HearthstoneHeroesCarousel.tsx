@@ -23,50 +23,43 @@ const timer = 3000;
 const heroes = [
     {
         name: "Hunter",
-        image:
-            "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt52e4af1e33a04b38/5e271e4f486f10424527ac46/heroes_classSelect_hunter_hover.png",
+        image: "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt52e4af1e33a04b38/5e271e4f486f10424527ac46/heroes_classSelect_hunter_hover.png",
         fallbackImage:
             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616818270/blizzard/hearthstone/heroes_classSelect_hunter_hover.png",
     },
     {
         name: "Warrior",
-        image:
-            "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltbe6ac8d5e898b1a3/5e271e5e7c805841bb5f80c5/heroes_classSelect_warrior_hover.png",
+        image: "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltbe6ac8d5e898b1a3/5e271e5e7c805841bb5f80c5/heroes_classSelect_warrior_hover.png",
         fallbackImage:
             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616818006/blizzard/hearthstone/heroes_classSelect_warrior_hover.png",
     },
     {
         name: "Warlock",
-        image:
-            "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltb4cc0e879fcedb8a/5e271e417be0e73d40675e2a/heroes_classSelect_warlock_hover.png",
+        image: "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltb4cc0e879fcedb8a/5e271e417be0e73d40675e2a/heroes_classSelect_warlock_hover.png",
         fallbackImage:
             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616818048/blizzard/hearthstone/heroes_classSelect_warlock_hover.png",
     },
     {
         name: "Shaman",
-        image:
-            "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt5b86ed089f5445dd/5e20a24871e37241baaaba09/heroes_shaman_tile_hover.png",
+        image: "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt5b86ed089f5445dd/5e20a24871e37241baaaba09/heroes_shaman_tile_hover.png",
         fallbackImage:
             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616818077/blizzard/hearthstone/heroes_shaman_tile_hover.png",
     },
     {
         name: "Rogue",
-        image:
-            "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltbcded2b184c91328/5e271e6ea9cce63cb6048b03/heroes_classSelect_rogue_hover.png",
+        image: "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltbcded2b184c91328/5e271e6ea9cce63cb6048b03/heroes_classSelect_rogue_hover.png",
         fallbackImage:
             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616818152/blizzard/hearthstone/heroes_classSelect_rogue_hover.png",
     },
     {
         name: "Mage",
-        image:
-            "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt0fc0d0fef8c4b0ee/5e4f110ba9f0fb732c24c41d/heroes_classSelect_mage_hover.png",
+        image: "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt0fc0d0fef8c4b0ee/5e4f110ba9f0fb732c24c41d/heroes_classSelect_mage_hover.png",
         fallbackImage:
             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616858578/blizzard/hearthstone/heroes_classSelect_mage_hover.png",
     },
     {
         name: "Druid",
-        image:
-            "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltce0b2647154c4b4e/5e271e317be0e73d40675e24/heroes_classSelect_druid_hover.png",
+        image: "https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltce0b2647154c4b4e/5e271e317be0e73d40675e24/heroes_classSelect_druid_hover.png",
         fallbackImage:
             "https://res.cloudinary.com/du8n2aa4p/image/upload/v1616858626/blizzard/hearthstone/heroes_classSelect_druid_hover.png",
     },
@@ -115,7 +108,7 @@ const HearthstoneHeroesCarousel: React.FC<{}> = (props) => {
         } else if (width < 1400) {
             return 130;
         } else if (width > 1400) {
-            return 110;
+            return 130;
         }
         return 1;
     };
