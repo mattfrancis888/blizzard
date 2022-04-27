@@ -20,6 +20,7 @@
 }
 
 .overwatch2LandingRein {
+    display: none;
     position: absolute;
     bottom: 0;
     left: -40%;
@@ -29,21 +30,27 @@
         left: -20%;
     }
     @media screen and (min-width: $sm_breakpoint) {
-        left: -10%;
-        width: 60rem;
-        height: 50rem;
+        // left: -10%;
+        // width: 60rem;
+        // height: 50rem;
     }
 
     @media screen and (min-width: $md_breakpoint) {
         left: 5%;
-        width: 65rem;
-        height: 55rem;
+        width: 80.6rem;
+        height: 72rem;
     }
 
     @media screen and (min-width: $xl_breakpoint) {
+        display: block;
         left: 15%;
-        width: 70.6rem;
-        height: 62rem;
+        width: 80.6rem;
+        height: 72rem;
+    }
+    @media screen and (min-width: $xxl_breakpoint) {
+        left: 10%;
+        width: 93rem;
+        height: 96rem;
     }
 }
 
@@ -55,29 +62,38 @@
     bottom: 0;
     left: 0;
     transform: translateX(30%);
+    left: -30%;
     @media screen and (min-width: 420px) {
-        left: 10%;
+        left: -10%;
     }
     @media screen and (min-width: $sm_breakpoint) {
         left: 15%;
         width: 46rem;
         height: 46rem;
     }
-    @media screen and (min-width: $md_breakpoint) {
-        left: 25%;
-        width: 51rem;
-        height: 51rem;
-    }
+    // @media screen and (min-width: $md_breakpoint) {
+    //     left: 25%;
+    //     width: 51rem;
+    //     height: 51rem;
+    // }
     @media screen and (min-width: $lg_breakpoint) {
-        left: 30%;
-        width: 51rem;
-        height: 51rem;
+        // left: 10%;
+        // width: 80.6rem;
+        // height: 72rem;
+        left: 10%;
+        width: 73rem;
+        height: 76rem;
     }
 
     @media screen and (min-width: $xl_breakpoint) {
-        left: 40%;
-        width: 43rem;
-        height: 56rem;
+        left: 20%;
+        width: 73rem;
+        height: 76rem;
+    }
+    @media screen and (min-width: $xxl_breakpoint) {
+        left: 30%;
+        width: 93rem;
+        height: 96rem;
     }
 }
 
@@ -85,7 +101,11 @@
     position: absolute;
     bottom: -10%;
     left: -30rem;
-    width: 120%;
+    width: 200%;
+    @media screen and (min-width: $sm_breakpoint) {
+        width: 120%;
+    }
+
     height: 100%;
 }
 
@@ -108,5 +128,9 @@
     @media screen and (min-width: $xl_breakpoint) {
         width: 27rem;
         height: 16.5rem;
+    }
+    @media screen and (min-width: $xxl_breakpoint) {
+        width: 37rem;
+        height: 26.5rem;
     }
 }
