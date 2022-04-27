@@ -35,6 +35,10 @@
     @media screen and (min-width: $lg_breakpoint) {
         font-size: 4rem;
     }
+    @media screen and (min-width: $xxl_breakpoint) {
+        font-size: 4rem;
+        margin-bottom: 6rem;
+    }
 
     font-weight: normal;
     margin-bottom: 2rem;

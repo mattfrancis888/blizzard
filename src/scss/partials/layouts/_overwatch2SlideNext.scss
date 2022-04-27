@@ -87,7 +87,13 @@
     @media screen and (min-width: $xl_breakpoint) {
         left: 29%;
         width: 115rem;
-        height: 51rem;
+        height: 71rem;
+    }
+    @media screen and (min-width: $xxl_breakpoint) {
+        left: 29%;
+        bottom: 0%;
+        width: 115rem;
+        height: 71rem;
     }
 }
 
@@ -158,6 +164,12 @@
     @media screen and (min-width: $xl_breakpoint) {
         bottom: 0;
         width: 80rem;
-        height: 61rem;
+        height: 85rem;
+    }
+    @media screen and (min-width: $xxl_breakpoint) {
+        bottom: 0;
+        right: 10%;
+        width: 100rem;
+        height: 91rem;
     }
 }
